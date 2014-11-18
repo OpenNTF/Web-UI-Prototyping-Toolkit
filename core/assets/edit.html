@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ACE in Action</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 150px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+        }
+        #themes{
+            max-width:100%;
+            width:100%;
+        }
+        a.theme {
+            margin-left:4px;
+            font-size:small;
+            float:left;
+        }
+    </style>
+    <link rel="stylesheet" href="/ps/ext/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body>
+<div>
+    <p><strong>Editing <a id="filename" href=""></a></strong></p>
+    <p>
+        <button class="btn" type="button" id="save" disabled>Save</button>
+        <button class="btn" type="button" id="cancel">Cancel</button>
+    </p>
+    <div>
+        <small><strong>Themes:</strong></small>
+        <div id="themes"></div>
+    </div>
+</div>
+<div class="editorParent">
+    <div id="editor">// Please hold while the sources are loading :-)
+    </div>
+</div>
+<script>
+    window.editPath='___EDIT_PATH___';
+    window.themes='___THEMES_PLACEHOLDER___';
+</script>
+<script src="/ps/ext/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="/ps/ext/jquery/dist/jquery.js"></script>
+<script>
+    (function($, window, ace){
+        $('#save').prop('disabled', true);
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/terminal");
+        editor.getSession().setMode("ace/mode/html");
+        window.document.getElementById("save").onclick = function () {
+            console.log("Save!", arguments);
+            var val = editor.getValue();
+            console.log("Editor contents=" + val);
+            $.ajax({
+                type:"PUT",
+                url:"/ps/update/partsource",
+                data: JSON.stringify({
+                    pathname : window.editPath,
+                    content:val
+                }),
+                dataType:"json",
+                contentType:"application/json"
+            }).success(function(){
+                console.info("Updated " + window.editPath);
+            }).fail(function(){
+                console.error("Failed to update " + window.editPath, arguments);
+            })
+        };
+        window.document.getElementById("cancel").onclick = function () {
+            console.log("Cancel!", arguments);
+            window.location.pathname = window.editPath;
+        };
+        var themeNames = window.themes.split(',');
+        var themesParent = $('#themes');
+        themeNames.forEach(function(tn){
+            var link = $('<a href="#" class="theme" data-theme="'+tn+'">'+tn+'</a>');
+            themesParent.append(link);
+        });
+        $('a.theme').each(function(){
+            var t = $(this);
+            var themeName = t.attr('data-theme');
+            t.click(function(){
+                console.log("Setting theme to " + themeName);
+                $('body').attr("class", '');
+                editor.setTheme("ace/theme/" + themeName);
+                setTimeout(function(){
+                    var editorClasses = $('#editor').attr("class");
+                    var bc = '';
+                    editorClasses.split(' ').forEach(function(ec){
+                        var ect = ec.trim();
+                        if(ect.length > 0 && ect !== 'ace_editor'){
+                            bc += ' ' + ect;
+                        }
+                    });
+                    $('body').attr('class', bc);
+                }, 200)
+
+            });
+        });
+        $.ajax({
+            url:"/ps/dynamic/editdata?path=" + window.editPath,
+            cache: false,
+            type: "GET",
+            contentType:"application/json",
+            dataType: "json"
+        }).success(function(data){
+            $('#save').prop('disabled', false);
+            console.log("Received data: ", data);
+            editor.setValue(data.content);
+            $('#filename').text(data.pathname).attr("href", data.pathname);
+
+        }).fail(function(){
+            console.error("Failed to setup editor!");
+            console.log("Error args: ", arguments);
+        }).always(function(){
+            console.log("Finished setting up editor");
+        });
+    })(jQuery, window, ace);
+</script>
+</body>
+</html>

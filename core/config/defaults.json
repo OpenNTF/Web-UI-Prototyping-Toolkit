@@ -1,0 +1,64 @@
+{
+    "port": 8888,
+    "maxCompilationRuns": 100,
+    "writeResponsesToFiles": false,
+    "writtenResponsesParent": "/tmp",
+    "defaultPageTemplatePath": "/index.html",
+    "dropPointTypes": ["layout", "content", "file", "wrap", "linkCss", "linkScript"],
+    "imageExtensions": ["png","jpg","jpeg","gif" ],
+    "dropPointPrefixes": {
+        "layout": "layout",
+        "content": "content",
+        "file": "file",
+        "wrap":"wrap",
+        "linkCss":"linkCss"
+    },
+    "partTypePaths": {
+        "part": "parts",
+        "layout": "layouts",
+        "component": "component"
+    },
+    "enableDebug": true,
+    "build": {
+        "target":"_target",
+        "format":"dir",
+        "cleanBuiltHtml": true,
+        "ignoreExcludeFromBuild":false,
+        "resourceDirs" : {
+            "node" : [],
+            "bower" : [],
+            "project" : []
+        }
+    },
+    "commands": {
+
+    },
+    "runtime": {
+        "saveCompiled": false,
+        "cleanBuiltHtml": true,
+        "screenshots":{
+            "windowSize": {
+                "width": 1440,
+                "height": 900
+            }
+            , "shotSize": {
+                "width": "window",
+                "height": "window"
+            },
+            "shotOffset": {
+                "left": 0,
+                "right": 0,
+                "top": 0,
+                "bottom": 0
+            },
+            "quality": 95,
+            "userAgent": "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.20 (KHTML, like Gecko) Mobile/7B298g",
+            "streamType": "png",
+            "renderDelay": 100,
+            "timeout": 50000,
+            "errorIfStatusIsNot200":false,
+            "customHeader": null
+
+        }
+    }
+}

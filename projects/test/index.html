@@ -1,0 +1,43 @@
+<!-- file:layoutParts/pageHead -->
+<div class="top">
+    <a href="ps:./two.html">A relative link to two</a>
+    <a href="ps:../test/index.html">A relative link to this</a>
+    <p>following is inline-editable, press Alt-Shift-S to save, reload to see your changes served :-)</p>
+
+
+    <!-- disabled layout:layouts/fullPage(file:_dynamic/list-referencing-bare;layout:layouts/fullPage(component/myEditableComponent);file:component/myComponent) -->
+    <!-- disabled layout:layouts/fullPage(nav=file:_dynamic/list-referencing-bare;top=layout:layouts/fullPage(component/myEditableComponent);bottom=file:component/myComponent) -->
+    <!-- disabled layout:layouts/fullPage:component/myEditableComponent -->
+
+
+    <!-- braces -->
+    <!-- show in first droppoint in layout-->
+    <!-- layout:layouts/fullPage(file:component/myEditableComponent) -->
+    <!-- spread over droppoints in layout, first and second in this case -->
+    <!-- layout:layouts/fullPage(file:component/myComponent;file:component/myComponent) -->
+    <!-- show both in first droppoint-->
+    <!-- layout:layouts/fullPage(file:component/myComponent,file:component/myComponent) -->
+    <!-- assign by name -->
+    <!-- layout:layouts/fullPage(page=file:component/myComponent) -->
+    <!-- assign both to same droppoint -->
+    <!-- layout:layouts/fullPage(page=file:component/myComponent,file:component/myComponent) -->
+    <!-- layout:layouts/twoColumns(column1=file:component/myComponent;column2=file:component/myComponent) -->
+    <!-- layout:layouts/twoColumns(column1=file:component/myComponent,file:component/myComponent;column2=file:component/myComponent,file:component/myComponent) -->
+    <!-- string vals: -->
+    <!-- layout:layouts/fullPage('this will be assigned') -->
+    <!-- layout:layouts/fullPage("this will be assigned") -->
+    <!-- layout:layouts/fullPage('first text content',"second text content") -->
+    <!-- layout:layouts/fullPage(page="the page text content") -->
+    <!-- layout:layouts/fullPage(page="first page text",'second page text') -->
+    <!-- layout:layouts/twoColumns(column1='col a text';column2="col b text") -->
+
+    <!-- nested -->
+    <!-- layout:layouts/twoColumns(column1=layout:layouts/fullPage(page=file:component/myComponent);column2=layout:layouts/fullPage(page=file:component/myComponent)) -->
+
+
+</div>
+<div class="bottom">
+    <!-- file:component/myComponent -->
+</div>
+<!-- file:layoutParts/pageFoot -->
+

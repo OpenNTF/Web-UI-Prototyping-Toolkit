@@ -1,0 +1,43 @@
+@brand-primary: #00648d;
+@background-light-blue: #82d1f5;
+@background-light-green: #008abf;
+@color-very-light: #fff;
+@font-size-small: 10px;
+@font-size-base: 12px;
+@font-size-large: 17px;
+@font-standard: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+body {
+  font-family: @font-standard;
+  background-color: @background-light-blue;
+
+}
+h1 {
+  font-size: @font-size-large;
+  color: @brand-primary;
+
+}
+.sampleBoxContent {
+  background-color: @background-light-green;
+  padding: 10px;
+  margin: 10px 0;
+  .header {
+    font-size: @font-size-large;
+    color: @color-very-light;
+  }
+  .body {
+    font-size: @font-size-base;
+  }
+
+}
+ul.nav {
+  li {
+    float: left;
+    list-style: none;
+    font-size: @font-size-small;
+    padding: 0 10px;
+    a {
+      color: @brand-primary;
+    }
+  }
+}

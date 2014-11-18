@@ -1,0 +1,31 @@
+{
+    "disclaimer" : "this file is in development and not used yet. It is intended to contain project specific config etc",
+    "project": {
+        "title": "Protostar Test",
+        "main": "index.html",
+        "namedPaths": {
+            "shared":{
+                "path": "../_shared",
+                "url": "/shared"
+            }
+        }
+    },
+
+    "build": {
+        "target":"_target",
+        "format":"dir",
+        "resourceDirs" : {
+            "node" : [],
+            "bower" : [],
+            "project" : ["less", "images"]
+        }
+    },
+    "commands": {
+
+    },
+    "runtime": {
+        "saveCompiled": false,
+        "cleanBuiltHtml": true
+    }
+
+}

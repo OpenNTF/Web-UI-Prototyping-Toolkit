@@ -1,0 +1,18 @@
+[Desktop Entry]
+Categories=Development
+Comment[en_US]=Powerful tooling for building and delivering web solution prototypes
+Comment=Powerful tooling for building and delivering web solution prototypes
+Exec=___PROTOSTARDIR___/bin/protostar %f
+GenericName[en_US]=Protostar
+GenericName=Protostar
+Icon=___PROTOSTARDIR___/core/assets/icon-protostar.png
+MimeType=
+Name[en_US]=Protostar
+Name=Protostar
+Path=
+StartupNotify=false
+Terminal=true
+TerminalOptions=\s--noclose
+Type=Application
+Version=1.0
+
