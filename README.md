@@ -24,6 +24,9 @@ A recent node & npm build installed and available on the PATH (aka the shell can
 - Windows is not supported yet
 - Download node.js from http://nodejs.org/download/
 
+## Tutorials
+- Follow this link for the "[Getting Started Tutorial](https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit/blob/master/tutorials/1-GettingStarted.md)". 
+
 ## Validating prerequisites
 To make sure node & npm are available on the command line, we ask them to show their version:
 
@@ -31,10 +34,10 @@ To make sure node & npm are available on the command line, we ask them to show t
     > v0.10.29
     npm --version
     > 1.4.14
-      
+
 If you get similar version output you are done :-)
 
-## Installing Protostar                                
+## Installing Protostar
 - download & extract or check out the latest version to where you want to store the app directory
 - open commandline
 - `cd /my/path/to/protostar`
@@ -54,7 +57,7 @@ If you get similar version output you are done :-)
     `> 1.3.8`
 - Install bower modules
     `bower install`
-- `./install_ckeditor_plugins.sh`    
+- `./install_ckeditor_plugins.sh`
 - Optionally create a shortcut to `<protostar>/bin/protostar` in a directory on your shell PATH for easy shell access through the protostar command
 
 ## Validating the Protostar installation
@@ -111,10 +114,10 @@ When you start protostar you should pass it a directory as argument; this direct
 All references will be resolved relative to this directory as long as the server process runs.
 
 ## Leveraging reusable html fragments
-As a simple example create three files: index.html, other.html and nav.html. 
+As a simple example create three files: index.html, other.html and nav.html.
 Put some basic HTML page markup in both index.html & other.html and any markup in nav.html
 Verify you can access the 2 pages by navigating to running server with a browser. You should get to see your index.html, same goes if you change the path to other.html
-Add the following to both html pages: `<!-- file:nav -->` and reload both index and other. 
+Add the following to both html pages: `<!-- file:nav -->` and reload both index and other.
  The contents of nav should have replaced that comment.
 Congrats, you're leveraging a reusable html fragment in your prototypes!
 
@@ -127,14 +130,14 @@ Besides the file namespace, protostar has the two aforementioned namespaces.
 The goal is quite simple: enable reusable layouts that can show the same content in different locations on the page etc.
 
 A layout contains content placeholders that will display the content that is configured in the layout marker comment in the source page.
-A content placeholder: 
+A content placeholder:
 
     <!-- content:myContentSpotName -->
-    
-A layout call: 
+
+A layout call:
 
     <!-- layout:myLayout(file:nav,file:menu) -->
-    
+
 A layout protostar is typically included in a top level page while passing in a number of components to be shown in that layout.
 
 The layouts are named to enable assignment by name (and convention) but this is still among others todo :-)
@@ -155,8 +158,8 @@ Protostar includes a number of in-page shortcut commands to help out:
     Alt+Shift+A : Recursively lists all html files in the project directory
 
 ## Using Protostar in-page functionality
-Protostar adds the scripts below automatically if they are not present yet: 
-    
+Protostar adds the scripts below automatically if they are not present yet:
+
     <script src="/ps/ext/jquery-1.11.1.js"></script>
     <script src="/ps/ext/keypress.js"></script>
     <script src="/ps/assets/views.js"></script>
@@ -175,7 +178,7 @@ Protostar maintains an html file that contains `<li>` items for the detected pro
 As of recently you can just reference a non-existant css file at the same level as a less file, and protostar will serve the compiled css & css map as needed.
 So all you need is an ordinary `<link rel="stylesheet" type="text/css" href="less/styles.css"/>` to actually load the compiled styles from `less/styles.less`
 
-### The old way 
+### The old way
 To enable on the fly compilation to css include your less file as follows:
 
     <link rel="stylesheet" type="text/css" href="less/styles.less?compile"/>
@@ -194,7 +197,7 @@ This will cause protostar to return the compiled css for those files.
 ## Layouts
 ### Assign by order
 Display in first droppoint in layout:
-    
+
     <!-- layout:layouts/fullPage(file:component/myEditableComponent) -->
 
 Spread over droppoints in layout, first and second in this case:
@@ -208,47 +211,47 @@ Show both in first droppoint:
 ### Assign by name
 
 Assign to content drop point `page`, eg `<!-- content:page -->`
-    
+
     <!-- layout:layouts/fullPage(page=file:component/myComponent) -->
 
 Assign both to `page`
-    
+
     <!-- layout:layouts/fullPage(page=file:component/myComponent,file:component/myComponent) -->
 
 Assign a component to both `column1` and `column2`
-    
+
     <!-- layout:layouts/twoColumns(column1=file:component/myComponent;column2=file:component/myComponent) -->
 
-Assign two components to `column1` and `column2`    
+Assign two components to `column1` and `column2`
 
     <!-- layout:layouts/twoColumns(column1=file:component/myComponent,file:component/myComponent;column2=file:component/myComponent,file:component/myComponent) -->
 
-### Passing text strings as content    
+### Passing text strings as content
 
-#### By order    
-    
+#### By order
+
     <!-- layout:layouts/fullPage('this will be assigned') -->
     <!-- layout:layouts/fullPage("this will be assigned") -->
     <!-- layout:layouts/fullPage('first text content',"second text content") -->
-    
-#### By name    
-    
+
+#### By name
+
     <!-- layout:layouts/fullPage(page="the page text content") -->
     <!-- layout:layouts/fullPage(page="first page text",'second page text') -->
     <!-- layout:layouts/twoColumns(column1='col a text';column2="col b text") -->
-    
+
 ### Nesting layout calls
-    
+
     <!-- layout:layouts/twoColumns(column1=layout:layouts/fullPage(page=file:component/myComponent);column2=layout:layouts/fullPage(page=file:component/myComponent)) -->
 
 ## Wrapping
 ### Calling layout in 'wrap' mode
 Sometimes you just want to wrap a set of contents with the same markup (eg. page theme).
 Layouts can also be used as wrappers, this means the content for the page they are called from will be wrapped with the specified layout by inserting it into the content droppoint `main`
- 
+
     <!-- wrap:layouts/myLayout -->
 
-For this to work, `layouts/myLayout.html` should contain the following droppoint: 
+For this to work, `layouts/myLayout.html` should contain the following droppoint:
 
     <!-- content:main -->
 
@@ -258,7 +261,7 @@ To achieve this behavior, you can pass the content drop point in the layout the 
 
     <!-- content:main(wrap=layouts/rowWrapper)-->
 
-Very powerful when combined with the ability to insert multiple contents into a single droppoint.      
+Very powerful when combined with the ability to insert multiple contents into a single droppoint.
 
 
 
