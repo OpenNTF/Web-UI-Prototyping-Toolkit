@@ -1,6 +1,6 @@
 # Web UI Prototyping Toolkit - Protostar
 
-Version 0.3.0-dev
+Version 0.9.0
 
 This is a tool to facilitate the creation of static HTML prototypes from UX designs.
 - Decompose pages into reusable fragments
@@ -25,7 +25,7 @@ A recent node & npm build installed and available on the PATH (aka the shell can
 - Download node.js from http://nodejs.org/download/
 
 ## Tutorials
-- Follow this link for the "[Getting Started Tutorial](https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit/blob/master/tutorials/1-GettingStarted.md)". 
+- Follow this link for the "[Getting Started Tutorial](https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit/blob/master/tutorials/1-GettingStarted.md)".
 
 ## Validating prerequisites
 To make sure node & npm are available on the command line, we ask them to show their version:
