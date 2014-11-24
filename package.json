@@ -6,6 +6,9 @@
     "Jonathan Bosmans <jonathan.bosmans@be.ibm.com>",
     "Peter Schnitzler <peter@de.ibm.com>"
   ],
+   "scripts": {
+    "prepublish": "node_modules/.bin/bower install"
+  },
   "dependencies": {
     "connect": "x",
     "handlebars": "x",
@@ -20,7 +23,8 @@
     "w3c-validate": "0.0.2",
     "webshot": "^0.15.2",
     "winston": "^0.7.3",
-    "wrench": "^1.5.8"
+    "wrench": "^1.5.8",
+    "bower": "^1.3.x"
   },
   "engine": "node >= 0.10.26",
   "devDependencies": {
