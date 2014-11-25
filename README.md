@@ -79,7 +79,7 @@ If the script does not work for you, you can just invoke the protostar.js file u
 You can access help/intro after starting on http://localhost:8888/pshelp
 
 ## Using WUIPT with IBM Bluemix
-We have started to make WUIPT availabe @ IBM Bluemix. This is currently an alpha version that does not support all features. But feel free to give it a try. 
+We have started to make WUIPT availabe @ IBM Bluemix. This is currently an alpha version that does not support all features. But feel free to give it a try.
 
 Note: Currently it is not available as a Bluemix service so you need to deploy WUIPT from GitHub to your own Bluemix space.
 
@@ -89,12 +89,12 @@ Note: Currently it is not available as a Bluemix service so you need to deploy W
 - Connect using the "cf" comamnd line tools (as explained in the quick start guide)
 - Clone the WUIPT GIT to a local directy
 - Modify the following values in  `manifest.yml`
-  - `host: youCustomHostName`
+  - `host: yourCustomHostName`
 
 ```
 applications:
 - disk_quota: 1024M
-  host: youCustomHostName
+  host: yourCustomHostName
   name: wuipt
   command: node bin/protostar.js /home/vcap/app/tutorials/1-GettingStarted/
   path: .
@@ -103,7 +103,7 @@ applications:
   memory: 256M
 ```
 - Push the app to your space: `cf push wuipt`
-- Take a peek @ http:// `youCustomHostName` .eu-gb.mybluemix.net/
+- Take a peek @ http:// `yourCustomHostName` .eu-gb.mybluemix.net/
 - To leverage WUIPT @ Bluemix for your custom code, adpot the path that is passed to the `protostar.js` file in the `manifest.yml`
   - `node bin/protostar.js /home/vcap/app/pathToYourProject`
 
