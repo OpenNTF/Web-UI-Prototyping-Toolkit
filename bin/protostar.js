@@ -19,9 +19,9 @@
 
 var path = require("path");
 var fs = require("fs");
-var protostardust = require("../lib/protostardust");
-var utils = require("../lib/utils");
-var psRuntime = require("../lib/runtime");
+var protostardust = require(__dirname + "/../lib/protostardust");
+var utils = require(__dirname + "/../lib/utils");
+var psRuntime = require(__dirname + "/../lib/runtime");
 
 var rt = psRuntime.createRuntime({
     workingDir: process.cwd(),
