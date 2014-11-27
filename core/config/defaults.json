@@ -4,7 +4,7 @@
     "writeResponsesToFiles": false,
     "writtenResponsesParent": "/tmp",
     "defaultPageTemplatePath": "/index.html",
-    "dropPointTypes": ["layout", "content", "file", "wrap", "linkCss", "linkScript"],
+    "dropPointTypes": ["layout", "content", "file", "wrap", "linkCss", "linkScript", "lorem"],
     "imageExtensions": ["png","jpg","jpeg","gif" ],
     "dropPointPrefixes": {
         "layout": "layout",

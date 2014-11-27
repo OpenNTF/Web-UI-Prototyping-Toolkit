@@ -196,6 +196,14 @@ describe("Template Compser", function () {
 
     });
 
+    it("should replace lorem calls", function(){
+        var tp=newTemplateComposer();
+        var indexPath = path.resolve(testUtils.getTestProjectDir(), "index.html");
+        var composed = tp.composeTemplate(indexPath, "" + fs.readFileSync(indexPath), 1);
+        console.log("LOREM DROP POINTS: ", tp.findDropPoints(indexPath, "" + fs.readFileSync(indexPath), "lorem"));
+        console.log("COMPOSED : ", composed);
+    });
+
 
 //    it("should decompile adp index.html", function(){
 //        console.log("test7");

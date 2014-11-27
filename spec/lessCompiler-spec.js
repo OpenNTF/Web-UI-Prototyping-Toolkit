@@ -21,7 +21,7 @@ var path = require("path");
 var lc = require("../lib/lessCompiler");
 describe("lessCompile", function(){
     it("should find the project root", function(){
-        expect(testUtils.getProjectDir()).toBe("/home/spectre/Projects/proto-star");
+        expect(testUtils.getProjectDir()).toBe("/home/spectre/Projects/WUIPT");
     });
     if(false){
         it("should offer a compile method", function(){

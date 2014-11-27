@@ -27,7 +27,7 @@ args.writeResponsesToFiles = true;
 args.writtenResponsesParent = "/tmp";
 args.workingDirectory = testUtils.getProjectDir();
 args.defaultPageTemplatePath = '/parts/page.html';
-args.dropPointTypes = ["part", "layout", "content", "file"];
+args.dropPointTypes = ["part", "layout", "content", "file", "lorem"];
 args.partTypePaths = {
     part : "parts",
     layout: "layouts",
