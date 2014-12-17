@@ -30,7 +30,7 @@
 
     },
     "compilation": {
-
+        "enabled" : "true"
 
     },
     "runtime": {
