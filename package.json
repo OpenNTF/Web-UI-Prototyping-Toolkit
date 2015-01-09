@@ -28,6 +28,6 @@
   },
   "engine": "node >= 0.10.26",
   "devDependencies": {
-    "jasmine-node": "1.14.2"
+    "jasmine": "^2.1.1"
   }
 }

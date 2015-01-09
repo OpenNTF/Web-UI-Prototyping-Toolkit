@@ -55,11 +55,6 @@ function createProject(){
     // create prototype.json with defaults
 }
 
-function startWorkspace(){
-
-}
-
-//console.log("RT === ", rt);
 if(rt.mode === 'create'){
     createProject();
 }else if(rt.mode === 'help'){

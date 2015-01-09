@@ -19,21 +19,20 @@ var Q = require("q");
 var fs = require("fs")
 
 describe("promises", function(){
-    it("should work :-)", function(){
-
+    it("should work :-)", function(done){
         function dirExists(path){
             console.log("fn start");
             var deferred = Q.defer();
             fs.exists(path, deferred.resolve);
             console.log("fn return");
             return deferred.promise;
-
         }
         console.log("invoking");
         dirExists("/home/spectre").then(function(exists){
             console.log("in then");
             expect(exists).toBe(true);
             console.log("done");
+            done();
         });
 
     });

@@ -1,2 +1,2 @@
 #!/bin/bash
-node node_modules/jasmine-node/lib/jasmine-node/cli.js lib spec --autotest
+node node_modules/jasmine/bin/jasmine.js

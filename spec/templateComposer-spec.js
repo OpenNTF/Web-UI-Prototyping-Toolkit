@@ -17,25 +17,11 @@
 
 var tc = require("../lib/templateComposer");
 var fs = require("fs");
-//var fileResolverFactory = require("../lib/fileResolver");
 var testUtils = require("../lib/testUtils");
 var path = require("path");
 var templatesParent =path.join(testUtils.getTestProjectDir(), "component") + "/";
 
 function newTemplateComposer(){
-//    var args = {};
-//    args.port = 9999; //= args.port || 8888;
-//    args.writeResponsesToFiles = true;
-//    args.writtenResponsesParent = "/tmp";
-//    args.defaultPageTemplatePath = '/parts/page.html';
-//    args.dropPointTypes = ["part", "layout", "content", "file"];
-//    args.partTypePaths = {
-//        part : "parts",
-//        layout: "layouts",
-//        component: "component"
-//    };
-//    args.enableDebug = false;
-
     var h = tc.createTemplateComposer({
         runtime: testUtils.createTestRuntime()
     });
@@ -46,23 +32,6 @@ describe("Template Compser", function () {
 
     it("should create a template composer", function () {
         console.log("test1");
-//        var args = {};
-//        args.port = 9999; //= args.port || 8888;
-//        args.writeResponsesToFiles = true;
-//        args.writtenResponsesParent = "/tmp";
-//        args.defaultPageTemplatePath = '/parts/page.html';
-//        args.dropPointTypes = ["part", "layout", "content", "file"];
-//        args.partTypePaths = {
-//            part : "parts",
-//            layout: "layouts",
-//            component: "component"
-//        };
-//        args.enableDebug = false;
-//        args.fileResolver = fileResolverFactory.createFileResolver({
-//            workingDirectory : "/home/spectre/Projects/proto-star",
-//            projectDir : "/home/spectre/Projects/proto-star/projects/test",
-//            appDir : "/home/spectre/Projects/proto-star"
-//        })
         var h = newTemplateComposer();
         expect(typeof h).toBe("object");
         var templatePaths = fs.readdirSync(templatesParent);
@@ -120,11 +89,7 @@ describe("Template Compser", function () {
         var content = decompiled.content;
         expect(content.length < cnt.length).toBe(true);
         var markers = decompiled.markers;
-//        markers.sort(function(a,b){
-//
-//        });
         expect(markers.length).toBe(2);
-
         expect(content).toBe("This is content <!-- file:component/nav --> with some more content after the marker. <!-- file:component/other -->And more here.");
         var marker = markers[0];
         expect(marker.name).toBe("component/nav");
@@ -141,8 +106,6 @@ describe("Template Compser", function () {
         var markers = decompiled.markers;
         expect(markers.length).toBe(1);
         var marker = markers[0];
-//        expect(marker.start).toBe(999);
-//        expect(marker.end).toBe(999);
         expect(content).toBe("This is content <!-- file:component/nav --> with some more content after the marker.");
 
         expect(marker.name).toBe("component/nav");
@@ -158,7 +121,6 @@ describe("Template Compser", function () {
         expect(content.length < cnt.length).toBe(true);
         var markers = decompiled.markers;
         expect(markers.length).toBe(1);
-
         expect(content).toBe("This is content <!-- file:component/nav --> with some more content after the marker.");
         var marker = markers[0];
         expect(marker.name).toBe("component/nav");
@@ -203,37 +165,4 @@ describe("Template Compser", function () {
         console.log("LOREM DROP POINTS: ", tp.findDropPoints(indexPath, "" + fs.readFileSync(indexPath), "lorem"));
         console.log("COMPOSED : ", composed);
     });
-
-
-//    it("should decompile adp index.html", function(){
-//        console.log("test7");
-//        console.log("DECOMPILING ADP");
-//        var cnt = fs.readFileSync("/home/spectre/Projects/protostar-projects/adp/index-compiled.html");
-//        var decompiled = tc.decompileRecursive(cnt);
-//        console.log("NOT DECOMPILED ADP:", decompiled.content);
-//        decompiled.markers.forEach(function(m){
-//            console.log("- marker:  " + m.name);
-////            console.log("  content:  " + m.content);
-//        })
-//    });
-//
-//    it("should decompile our test project :-)", function(){
-//        console.log("test7");
-//        console.log("DECOMPILING ADP");
-//        var cnt = fs.readFileSync(testUtils.getTestProjectDir() + "/index-compiled.html");
-//        var decompiled = tc.decompileRecursive(cnt);
-//        console.log("NOT DECOMPILED ADP:", decompiled.content);
-//        decompiled.markers.forEach(function(m){
-//            console.log("- marker:  " + m.name);
-////            console.log("  content:  " + m.content);
-//        })
-//    });
-
-
-//    it("Should collect compiled template markers", function(){
-//        var tp = newTemplateComposer();
-//        var cnt = "This is content <!-- begin_file-component/nav -->INSIDE<!-- end_file-component/nav --> with some more content after the marker.";
-//        expect(tp.collectCompiledTemplateMarkers(cnt).length).toBe(1);
-//    });
-
 });
