@@ -292,7 +292,48 @@ To achieve this behavior, you can pass the content drop point in the layout the 
 
 Very powerful when combined with the ability to insert multiple contents into a single droppoint.
 
+## Building your prototypes
+When you build a prototype, Protostar will create a new directory containing only those web artifacts needed for integration: HTML, CSS and other resources.
+A built prototype can be shared with people who don't have Protostar as the HTML pages can just be opened with a web browser.
 
+Protostar will:
+- compile the different prototype pages to full HTML pages
+- clean & prettify the generated sources
+- compile and include any declared entrypoint less files
+- include any declared resource dependencies
+.. in the target directory you specify.
+
+
+
+### Ensuring the entrypoint LESS files are compiled
+Protostar will automatically pick up any LESS files that are linked to from HTML files as CSS.
+For more see 'Live less compilation' above.
+
+### Ensuring required resources are included
+Typically Javascript files, fonts, images etc are required as well. These need to be declared as project relative file/directory paths in a prototype.json file at the root of your prototype project, eg:
+
+    {
+            "build":{
+            "resourceDirs": {
+                        "node" : [],
+                        "bower" : [],
+                        "project" : [
+                        "img","js", "css/legacy.css", "libs/bootstrap/dist/js/bootstrap.min.js"
+                        ]
+                    }
+            }
+    }
+
+The above example will include the 'img' and 'js' directories, the legacy.css and the bootstrap.min.js files.
+
+### Invoking build
+To invoke the build you run Protostar with following arguments:
+
+    protostar build /path/to/prototypeProject /build/directory/created/here
+
+or
+
+    node <protostar_dir>/bin/protostar.js build /path/to/prototypeProject /build/directory/created/here
 
 # OPENNTF
 
