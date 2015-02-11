@@ -1,12 +1,12 @@
 /**
  * Copyright 2014 IBM Corp.
- * 
+ *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  *  Unless required by applicable law or agreed to in writing, software
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -282,10 +282,10 @@ $(function(){
                  { name: 'others', items: [ '-' ] },
                  { name: 'about', items: [ 'About' ] }         */
             ],
-            "extraPlugins": "sourcedialog,imagebrowser",
-            "removePlugins": "sourcearea",
-            allowedContent: true,
-            "imageBrowser_listUrl": "/ps/dynamic/images.json" //"${appRoot}upload/thumbnails/small/images/large/default"
+            //"extraPlugins": "sourcedialog,imagebrowser",
+            //"removePlugins": "sourcearea",
+            allowedContent: true//,
+            // "imageBrowser_listUrl": "/ps/dynamic/images.json" //"${appRoot}upload/thumbnails/small/images/large/default"
         };
 
 //        var imageBrowserImagesUrl = "/images.json";//viewCfg.imageBrowserImagesUrl; //"${appRoot}upload/thumbnails/small/images/large/default"
@@ -309,12 +309,12 @@ $(function(){
                 contentType: "application/json",
                 mimeType: "application/json"
             }).always(function (data, status) {
-                    console.log("Done: ", arguments);
-                    if (parseInt((status, 10) - 200) < 10) {
-                        notifySuccess("Updated page text");
-                    } else {
-                        notifyError("Could not update page text");
-                    }
+                console.log("Done: ", arguments);
+                if (parseInt((status, 10) - 200) < 10) {
+                    notifySuccess("Updated page text");
+                } else {
+                    notifyError("Could not update page text");
+                }
 
             });
         });
