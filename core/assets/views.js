@@ -333,7 +333,29 @@ $(function(){
         CKEDITOR.disableAutoInline = false;
         console.log("Inlining " + editableId);
         CKEDITOR.inline(editableId, config);
-//        $('#contentpageContentContainer').attr('contenteditable', 'true');
-
     });
+
+    // Edit prototype config
+    var psEditPrototypeConfigRoot = $(".protostarProjectConfig");
+    if(psEditPrototypeConfigRoot.length > 0){
+        $("*[data-toggled]").addClass("hidden");
+        $("*[data-toggle]").click(function(){
+            var t = $(this);
+            var nm = t.attr("data-toggle");
+            $("*[data-toggled='"+nm+"']").toggleClass("hidden");
+            var f = $("*[data-toggled='"+nm+"']").first();
+            if(!f.hasClass("hidden")){
+                f.find("input").first().focus();
+            }
+        });
+        function wireFields(cfg){
+            for(var k in cfg){
+                console.log(k + "=", cfg[k]);
+            }
+        }
+        $.get("/ps/config/prototype-test.json").then(function(cfg){
+            console.log("Config: ", cfg);
+            wireFields(cfg);
+        });
+    }
 });

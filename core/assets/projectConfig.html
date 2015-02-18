@@ -1,0 +1,154 @@
+<div class="row protostarProjectConfig">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1>Edit prototype config (stub)</h1>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <p>The settings on this page are specific for the current project.</p>
+        <form>
+            <div class="form-group">
+                <label for="name">Project name</label>
+                <input type="text" class="form-control" id="name" placeholder="Project name" name="project.title">
+                <p class="help-block">Used to reference this project</p>
+            </div>
+            <div class="form-group">
+                <label for="mainEntry">Main entry file</label>
+                <input type="text" class="form-control" id="mainEntry" placeholder="index.html" value="index.html" name="project.main">
+                <p class="help-block">User will be taken to this path upon navigating to http://localhost:8888. Typically index.html</p>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12">
+        <h2>Named paths</h2>
+        <p>Expose resources on the filesystem at desired URL pathnames</p>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    <li>There currently are no named paths configured.</li>
+                </ul>
+                <form class="well" data-toggled="named-paths">
+                    <div class="form-group">
+                        <label for="npName">Name</label>
+                        <input type="text" class="form-control" id="npName" placeholder="myImages" name="project.namedPaths{}">
+                        <p class="help-block">Used to reference this named path.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="npFilePath">File path</label>
+                        <input type="text" class="form-control" id="npFilePath" placeholder="img/myImages" name="project.namedPaths{}.path">
+                        <p class="help-block">The project relative or absolute filesystem location. Eg. myDir/myFile, ../some/path, /my/absolute/path</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="npUrlPath">URL pathname</label>
+                        <input type="text" class="form-control" id="npUrlPath" placeholder="/myImages" name="project.namedPaths{}.url">
+                        <p class="help-block">The URL at which the filesystem resource will be made available. Eg /myShared => http://localhost:8888/myShared</p>
+                    </div>
+                    <button data-toggle="named-paths" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Save</button>
+                    <button data-toggle="named-paths" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                </form>
+                <button data-toggle="named-paths" class="btn btn-default" name="add-named-path"><span class="glyphicon glyphicon-plus"></span> Create named path</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <h2>Building</h2>
+        <form>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="bldIncludeNamedPaths" name="build.includeNamedPaths"> Include named paths
+                    <p class="help-block">If checked named path resources will be included at defined URLs in the build</p>
+                </label>
+            </div>
+        </form>
+        <h3>Included project resources</h3>
+        <p>These project relative file or directory paths will be included in the built prototype directory.</p>
+        <ul>
+            <li>There currently are no project resource directories configured.</li>
+        </ul>
+        <form class="well" data-toggled="project-resource-paths">
+            <div class="form-group" >
+                <label for="prpPath">Resource path</label>
+                <input type="text" class="form-control" id="prpPath" placeholder="Project relative resource path" name="build.resourceDirs.project[]">
+                <p class="help-block">Eg. img, js/main.js, styles/css</p>
+            </div>
+            <button data-toggle="project-resource-paths" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Save</button>
+            <button data-toggle="project-resource-paths" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+        </form>
+        <button data-toggle="project-resource-paths" class="btn btn-default" name="add-project-resource-path"><span class="glyphicon glyphicon-plus"></span> Include project resource</button>
+        <h3>Excluded project paths</h3>
+        <ul>
+            <li>There currently are no excluded paths</li>
+        </ul>
+        <form class="well" data-toggled="project-excluded-paths">
+            <div class="form-group" >
+                <label for="prpPath">Excluded path</label>
+                <input type="text" class="form-control" id="bldExcludedPath" placeholder="Project relative resource path to exclude" name="build.excludedPaths[]">
+                <p class="help-block">Eg. img, js/main.js, styles/css, ..</p>
+            </div>
+            <button data-toggle="project-excluded-paths" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Save</button>
+            <button data-toggle="project-excluded-paths" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+        </form>
+        <button data-toggle="project-excluded-paths" class="btn btn-default" name="add-project-excluded-path"><span class="glyphicon glyphicon-plus"></span> New excluded path</button>
+    </div>
+    <div class="col-md-12">
+        <h3>Theming</h3>
+        <p>Theming allows you to create multiple compiled CSS files using different color schemes etc.</p>
+        <form>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="theming.enabled"> Enable theming
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="thEntryPoint">LESS entry point</label>
+                <input type="text" class="form-control" id="thEntryPoint" placeholder="Entry point file path" name="theming.entryPoint">
+                <p class="help-block">Relative path to main less file which refers the themeName variable</p>
+            </div>
+            <div class="form-group">
+                <label for="thThemeVarName">themeName variable name</label>
+                <input type="text" class="form-control" id="thThemeVarName" placeholder="Project name" name="theming.themeNameVar">
+                <p class="help-block">The active theme name will be injected into the less compilation using this variable name. Eg. themeName</p>
+            </div>
+            <div class="form-group">
+                <label for="thThemeNames">Theme names</label>
+                <input type="text" class="form-control" id="thThemeNames" placeholder="Theme names" name="theming.themeNames[,]">
+                <p class="help-block">Comma separated list of theme names</p>
+            </div>
+            <div class="form-group">
+                <label for="thDefaultTheme">Default theme name</label>
+                <input type="text" class="form-control" id="thDefaultTheme" placeholder="Default theme name" name="theming.defaultThemeName">
+                <p class="help-block">Default active theme</p>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="theming.compileAllThemes"> Compile all themes at build
+                </label>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12">
+        <h3>Runtime</h3>
+        <p>Configure how this project runs inside protostar</p>
+        <form>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="theming.saveCompiled"> Write compiled pages
+                    <p class="help-block">If checked every prototype page visited visited at runtime will be saved to disk with -compiled suffix.</p>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="theming.cleanBuiltHtml"> Clean built HTML
+                    <p class="help-block">Removes comments, whitespace and beautifies source.</p>
+                </label>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12">
+        <p>&nbsp;</p>
+        <button class="btn btn-success" name="config-save-changes">Save configuration</button>
+        <button class="btn btn-warning" name="config-cancel-changes">Cancel changes</button>
+    </div>
+</div>
