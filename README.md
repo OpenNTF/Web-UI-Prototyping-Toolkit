@@ -1,6 +1,6 @@
 # Web UI Prototyping Toolkit - Protostar
 
-Version 0.9.0
+Version 0.9.1
 
 This is a tool to facilitate the creation of static HTML prototypes from UX designs.
 - Decompose pages into reusable fragments
@@ -31,40 +31,33 @@ A recent node & npm build installed and available on the PATH (aka the shell can
 To make sure node & npm are available on the command line, we ask them to show their version:
 
     node --version
-    > v0.10.29
+    > v0.10.36
     npm --version
-    > 1.4.14
+    > 1.4.28
 
 If you get similar version output you are done :-)
 
 ## Installing Protostar
-- download & extract or check out the latest version to where you want to store the app directory
+
+### Linux and Mac OS X
 - open commandline
 - `cd /my/path/to/protostar`
 - `./install.sh`
+
+to have a launcher icon created as well as a shell script in /bin in the protostar dir.
+
+## Windows:
+- download & extract or check out the latest version to where you want to store the app directory
+- open commandline
+- `cd /my/path/to/protostar`
+- `npm install`
 - Installed!
 
-
-## Installing Protostar manually
-- Enter the protostar directory:
-    `cd /my/path/to/protostar`
-- Retrieving node modules:
-    `npm install`
-- Make sure bower is installed globally:
-    `npm install -g bower`
-  To verify:
-    `bower --version`
-    `> 1.3.8`
-- Install bower modules
-    `bower install`
-- `./install_ckeditor_plugins.sh`
-- Optionally create a shortcut to `<protostar>/bin/protostar` in a directory on your shell PATH for easy shell access through the protostar command
-
 ## Validating the Protostar installation
-To run Protostar with the test project
+To run Protostar with the test project (use backslashes on Windows)
 - open a terminal
 - `cd /my/path/to/protostar`
-- `./bin/protostar ./projects/test`
+- `node ./bin/protostar.js ./projects/test`
 - open a browser to http://localhost:8888
 
 ## Running
@@ -189,8 +182,8 @@ Protostar includes a number of in-page shortcut commands to help out:
 ## Using Protostar in-page functionality
 Protostar adds the scripts below automatically if they are not present yet:
 
-    <script src="/ps/ext/jquery-1.11.1.js"></script>
-    <script src="/ps/ext/keypress.js"></script>
+    <script src="/ps/ext/jquery/dist/jquery.js"></script>
+    <script src="/ps/ext/Keypress/keypress.js"></script>
     <script src="/ps/assets/views.js"></script>
 
 If you include any script reference pointing to eg. jquery, it will assume jquery is already in the page.
@@ -206,13 +199,6 @@ Protostar maintains an html file that contains `<li>` items for the detected pro
 
 As of recently you can just reference a non-existant css file at the same level as a less file, and protostar will serve the compiled css & css map as needed.
 So all you need is an ordinary `<link rel="stylesheet" type="text/css" href="less/styles.css"/>` to actually load the compiled styles from `less/styles.less`
-
-### The old way
-To enable on the fly compilation to css include your less file as follows:
-
-    <link rel="stylesheet" type="text/css" href="less/styles.less?compile"/>
-
-This will cause protostar to return the compiled css for those files.
 
 ## Viewing raw template for a page
 - Raw: To view the unprocess template in your browser for a composed page just add the raw request parameter, eg http://localhost:8888/index.html?raw
@@ -291,6 +277,47 @@ To achieve this behavior, you can pass the content drop point in the layout the 
     <!-- content:main(wrap=layouts/rowWrapper)-->
 
 Very powerful when combined with the ability to insert multiple contents into a single droppoint.
+
+## Loading Javascript/CSS/lesscss when a fragment is included in the page
+Often there is a relationship between a fragment of HTML, some CSS (or better even lesscss) and some Javascript.
+
+To support this, given an html fragment located at cmp/myCmp.html :
+
+### Include project css or js path in page
+
+The path style is similar to how
+
+    <!-- linkCss:css/myCss -->
+
+Appends `<link rel="stylesheet" href="/css/myCss.css">` to `<head>` (also picks up `*.less` files) if the contain HTML fragment is included in a page.
+
+    <!-- linkScript:js/myScript -->
+
+Appends `<script src="/js/myScript.js">` to `<body>` if the contain HTML fragment is included in a page.
+
+### Relative path support:
+It can also append resources to the page located at a relative path to the active fragment.
+Eg when following is included in a fragment at cmp/view/main.html :
+
+    <!-- linkCss:./myCmp -->
+
+Appends `<link rel="stylesheet" href="/cmp/view/myCmp.css">` to `<head>` (also picks up `*.less` files) if the contain HTML fragment is included in a page.
+
+    <!-- linkScript:../myCmp -->
+
+Appends `<script src="/cmp/myCmp.js">` to `<body>` if the contain HTML fragment is included in a page.
+
+
+### Look for resource with same name in same dir  :
+Eg for `cmp/myCmp.html` :
+
+    <!-- linkCss:default -->
+
+Appends `<link rel="stylesheet" href="/cmp/myCmp.css">` to `<head>` (also picks up `*.less` files) if the contain HTML fragment is included in a page.
+
+    <!-- linkScript:default -->
+
+Appends `<script src="/cmp/myCmp.js">` to `<body>` if the contain HTML fragment is included in a page.
 
 ## Building your prototypes
 When you build a prototype, Protostar will create a new directory containing only those web artifacts needed for integration: HTML, CSS and other resources.
