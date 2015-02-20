@@ -20,8 +20,7 @@ This is a tool to facilitate the creation of static HTML prototypes from UX desi
 A recent node & npm build installed and available on the PATH (aka the shell can resolve the node and npm commands)
 
 ## Prereqs for the install
-- You need to run Mac OS X or Linux
-- Windows is not supported yet
+- You need to run Mac OS X, Linux or Windows
 - Download node.js from http://nodejs.org/download/
 
 ## Tutorials
