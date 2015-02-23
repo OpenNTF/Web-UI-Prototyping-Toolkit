@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+<!-- file:cmp/a/aCmp -->
+<p>With a data object : once </p>
+<!-- hb:cmp/person(data/person) -->
+<hr>
+<p>Data object with data at path</p>
+<!-- hb:cmp/tag(data/person;tags;cmp/nothing) -->
+<hr>
+<p>Data object with data at path and replacement if nothing present at that path</p>
+<!-- hb:cmp/tag(data/person;tags__;cmp/nothing) -->
+<hr>
+<p>With a data array : for every entry</p>
+<!-- hb:cmp/person(data/people) -->
+<hr>
+<p>With a data array with data at path: for every entry</p>
+<!-- hb:cmp/tag(data/people;tags) -->
+<hr>
+<p>With a data array with data at path: for every entry and with replacement if not present</p>
+<!-- hb:cmp/tag(data/people;tags__;cmp/nothing) -->
+</body>
+</html>

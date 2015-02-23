@@ -1,0 +1,15 @@
+[
+  {
+    "name": "jonathan",
+    "born":"1983-04-20",
+    "tags":["guitar","scifi"]
+  },{
+  "name":"nadine",
+  "born":"1985-09-17",
+  "tags":["reading","cooking"]
+},{
+  "name":"de joepie",
+  "born":"1999-09-17",
+  "tags":["eating","sleeping"]
+}
+]
