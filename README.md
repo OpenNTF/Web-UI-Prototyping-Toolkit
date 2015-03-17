@@ -1,8 +1,8 @@
 # Web UI Prototyping Toolkit - Protostar
 
-Version 0.9.1
+Version 0.9.2
 
-This is a tool to facilitate the creation of static HTML prototypes from UX designs.
+This is a tool to facilitate the creation of static HTML prototypes from UX designs
 - Decompose pages into reusable fragments
 - Instant server startup, live editing from then on. Kill and fire up again only when changing project root
 - Nested inclusion of fragments
@@ -14,9 +14,7 @@ This is a tool to facilitate the creation of static HTML prototypes from UX desi
 - ..
 
 
-
 <!-- TOC -->
-
 
 
 ## Installing
@@ -265,6 +263,50 @@ To achieve this behavior, you can pass the content drop point in the layout the 
 
 Very powerful when combined with the ability to insert multiple contents into a single droppoint.
 
+### Compile templates with data in JSON files
+Protostar integrates Handlebars to support inclusion of templates that are rendered using data from an object or array of objects in a JSON file.
+Typical example uses are lists of eg person data, articles, ..
+
+Handlebars processing is triggered with the 'hb' namespace.
+You'll notice the following path reference refers to an html fragment that contains Handlebars placeholders.
+The argument (between parentheses) is simply a reference to a JSON file which should contain an object or array of data.
+
+The following examples are taken from the bundled 'newfeats' project's index.html.
+To view it in action launch the project by passing it as the only argument to protostar.
+
+#### With a data object : once
+Compiles a template resolving data from the object.
+It will load the template from `<project>/cmp/person.html` and combine using data from `<project>/data/person.json`
+
+    <!-- hb:cmp/person(data/person) -->
+
+#### Data object with data at path
+Similar to above but it will start resolving the placeholder names at the path as second argument, in this case `tags`
+
+    <!-- hb:cmp/tag(data/person;tags) -->
+
+#### Data object with data at path and replacement if nothing present at that path
+As an extension, you can provide a third argument which protostar will render if nothing is present at the nested path.
+(We refer to the non existing path `tags__` to force showing replacement)
+
+    <!-- hb:cmp/tag(data/person;tags__;cmp/nothing) -->
+
+#### With a data array : for every entry
+If the JSON file contains an array, the template will be repeated for every object in the array.
+
+    <!-- hb:cmp/person(data/people) -->
+
+#### With a data array with data at path: for every entry
+Similar to above but will look for data at passed nested path in each object in the array in the JSON file
+
+    <!-- hb:cmp/tag(data/people;tags) -->
+
+#### With a data array with data at path: for every entry and with replacement if not present
+As an extension, you can provide a third argument which protostar will render if nothing is present at the nested path.
+(We refer to the non existing path `tags__` to force showing replacement)
+
+    <!-- hb:cmp/tag(data/people;tags__;cmp/nothing) -->
+
 ### Loading Javascript/CSS/lesscss when a fragment is included in the page
 Often there is a relationship between a fragment of HTML, some CSS (or better even lesscss) and some Javascript.
 
@@ -350,6 +392,40 @@ or
     node <protostar_dir>/bin/protostar.js build /path/to/prototypeProject /build/directory/created/here
 
 
+## Creating a Maven project tree for a new IBM Portal theme
+
+Protostar includes support to quickly created a custom made Maven project tree including a copy of the default Portal 8.5 theme's dynamic and static resources.
+This is meant for IBM Portal theme developers and requires (at the moment) a running local install of IBM WebSphere Portal 8.5
+
+You can read up on this in the [Portal 8.5 documentation](http://www-01.ibm.com/support/knowledgecenter/SSHRKX_8.5.0/mp/dev-theme/themeopt_move_repackstatic.dita?lang=en)
+
+### Generating the theme project
+
+Make sure your Portal is running, launch protostar with any project and navigate to http://localhost:8888/newPortalTheme.
+
+Fill in some fields and click a button to download a zip containing your customized fresh copy of the bundled Portal 8.5 theme.
+
+### Building the downloaded theme project
+
+To build you'll need Apache Maven 2.2 or higher installed and available on the commandline
+After downloading the zip extract it, open a commandline and:
+
+    cd <yourThemeName>
+    mvn package
+
+This will generate an ear file in the `<ear project>/target` directory.
+
+- WAS : Deploy the EAR and start the application
+- Portal : as an admin Import XML and select the deploy themes xmlaccess XML
+
+Your theme is installed.
+
+A few characteristics of the generated Maven project tree & theme:
+- WAR/EAR based theme & deployment.
+- customized content spots defined in plugin.xml (prefixed based on project name)
+- includes static and dynamic resources
+- includes xmlaccess script to deploy and undeploy the theme
+
 ## Using WUIPT with IBM Bluemix
 We have started to make WUIPT availabe @ IBM Bluemix. This is currently an alpha version that does not support all features. But feel free to give it a try.
 
@@ -385,4 +461,5 @@ applications:
 
 This project is an OpenNTF project, and is available under the Apache Licence V2.0. All other aspects of the project, including contributions, defect reports, discussions, feature requests and reviews are subject to the OpenNTF Terms of Use - available at [http://openntf.org/Internal/home.nsf/dx/Terms_of_Use](http://openntf.org/Internal/home.nsf/dx/Terms_of_Use).
 
-More information available at the [http://openntf.org/main.nsf/project.xsp?r=project/Web UI Prototyping Toolkit](project homepage).
+More information available at the [project homepage](http://openntf.org/main.nsf/project.xsp?r=project/Web UI Prototyping Toolkit).
+
