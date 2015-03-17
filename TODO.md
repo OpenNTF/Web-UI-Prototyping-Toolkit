@@ -6,15 +6,13 @@ This is unstructered at the moment and kept as an ongoing workinglist.
 
 ## Open
 #### Misc
-
-- Static: only fonts next to or below current dir are supported : https://bugzilla.mozilla.org/show_bug.cgi?id=760436
 - download builds as zip
 - launch display mode for zip -> extract to temp dir and launch that
 - create specific screenshot(s) : size, viewport, ..
 - check running instance and restart if different project is launched on same port
 - shortlink to upon click replace content of specified element
 - create proper backend : use template composition for backend UX
-- add `<!-- md:<path> --> support : include markdown translated to html`
+- add `<!-- md:<path> -->` support : include markdown translated to html
 - two way editing : merge changes via decompilation into correct fragments
 - extract droppoint location, matching, replacement to separte pluggable component; switch from comment syntax to something other (eg divs with classes or ..) to use as placeholders
 - portfolio/workspace mode: enable launching multi project workspace rather than single project (multi-launch), launch in workspace mode pointing to dir that contains multiple projects, add overview screen (name/desc/thumb )
@@ -28,7 +26,7 @@ This is unstructered at the moment and kept as an ongoing workinglist.
 - make helper shell scripts absolute calling compatible
 - easy holder.js imageholders
 - include apache proxy example: server under custom hostname
-
+- Static built projects : fonts should be positioned next to or below current dir : https://bugzilla.mozilla.org/show_bug.cgi?id=760436
 
 ## Done
 #### Layouts

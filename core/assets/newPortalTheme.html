@@ -1,0 +1,68 @@
+<div class="row protostarNewPortalTheme">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h1>Create a new Portal theme maven project tree</h1>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <p>This is a tool for theme developers - it sets up a maven project tree that will produce a fresh EAR upon 'mvn package'</p>
+        <p>The theme is set up to host dynamic and static files as WAR packaged inside of an EAR.</p>
+        <p>Custom renamed dynamic content spots are defined in the plugin.xml inside the dynamic files WAR.</p>
+        <p>All references should be modified to load from WAR rather than WebDAV.</p>
+        <form>
+            <h2>New theme</h2>
+            <p>Configure the names to use to construct the new theme artifacts.</p>
+            <div class="form-group">
+                <label for="projectName">Project name</label>
+                <input type="text" class="form-control" id="projectName" placeholder="myNewTheme" value="" name="projectName">
+                <p class="help-block">Used as a basis to create all needed names. (ear, war, content spot name prefixes, ..). <strong>Only alphanumeric, no spaces.</strong></p>
+            </div>
+            <div class="form-group">
+                <label for="groupId">Maven groupId</label>
+                <input type="text" class="form-control" id="groupId" placeholder="protostar.themes" value="" name="groupId">
+                <p class="help-block">Will be used as groupId for the maven pom's.</p>
+            </div>
+            <div class="form-group">
+                <label for="version">Maven version</label>
+                <input type="text" class="form-control" id="version" placeholder="1.0" value="1.0" name="version">
+                <p class="help-block">Will be used as version for the maven pom's.</p>
+            </div>
+            <h2>Portal info</h2>
+            <p>Point to your running portal as well as location of your portal install so protostar can find the necessary files to create a new theme for you.</p>
+            <div class="form-group">
+                <label for="portalRootPath">Portal Server root path</label>
+                <input type="text" class="form-control" id="portalRootPath" placeholder="/opt/IBM/WebSphere/PortalServer" value="" name="portalRootPath">
+                <p class="help-block">Full path to the Portal Server root directory, typically named PortalServer</p>
+            </div>
+            <div class="form-group">
+                <label for="profileRootPath">Portal profile root path</label>
+                <input type="text" class="form-control" id="profileRootPath" placeholder="/opt/IBM/WebSphere/wp_profile" value="" name="profileRootPath">
+                <p class="help-block">Full path to the WAS profile root directory for portal, typically called wp_profile</p>
+            </div>
+            <div class="form-group">
+                <label for="portalHost">Portal host</label>
+                <input type="text" class="form-control" id="portalHost" placeholder="myportal.com" value="" name="portalHost">
+                <p class="help-block">Hostname of the portal server</p>
+            </div>
+            <div class="form-group">
+                <label for="portalPort">Portal port</label>
+                <input type="text" class="form-control" id="portalPort" placeholder="10039" value="10039" name="portalPort">
+                <p class="help-block">Eg. 10039 for default Portal 8.5 install</p>
+            </div>
+            <div class="form-group">
+                <label for="portalContext">Portal context</label>
+                <input type="text" class="form-control" id="portalContext" placeholder="/wps" value="/wps" name="portalContext">
+                <p class="help-block">Usually /wps</p>
+            </div>
+            <div class="form-group">
+                <label for="vpContext">Virtual portal context</label>
+                <input type="text" class="form-control" id="vpContext" placeholder="" value="" name="vpContext">
+                <p class="help-block">Name only of the virtual portal root context to use. Can be empty, no slashes. Eg. myVP for /wps/portal/myVP</p>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12">
+        <p>&nbsp;</p>
+        <button class="btn btn-success" name="create-my-theme">Wuipt me up a theme zip!</button>
+    </div>
+</div>

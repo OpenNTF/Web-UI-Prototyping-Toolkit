@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="{{projectName}}_Theme_EAR_Application" version="1.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application_1_4.xsd">
+    <display-name>{{projectName}} Portal 8.5 Theme</display-name>
+    <module id="webmodule_{{projectName}}_dynamic">
+        <web>
+            <web-uri>{{artifactId-dynamic}}-{{version}}.war</web-uri>
+            <context-root>{{context-dynamic}}</context-root>
+        </web>
+    </module>
+    <module id="webmodule_{{projectName}}_static">
+        <web>
+            <web-uri>{{artifactId-static}}-{{version}}.war</web-uri>
+            <context-root>{{context-static}}</context-root>
+        </web>
+    </module>
+</application>

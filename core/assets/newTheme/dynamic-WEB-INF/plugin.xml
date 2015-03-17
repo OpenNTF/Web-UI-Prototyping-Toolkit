@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="wp.theme.themes.{{projectName}}" name="{{projectName}} 8.5 Theme Modules" provider-name="IBM" version="1.0.0">
+    
+    <extension id="{{projectName}}_dynamicContentSpots_85" point="com.ibm.portal.resourceaggregator.module">
+        <module id="{{projectName}}_dynamicContentSpots_85">
+            
+<title lang="ar" value="نقاط المحتويات الديناميكية الى النسق الرئيسي 8.5"/>
+<title lang="ca" value="Àrees de contingut dinàmic per al tema 8.5"/>
+<title lang="cs" value="Dynamický obsah pro motiv 8.5"/>
+<title lang="da" value="Dynamiske indholdsspot for 8.5-tema"/>
+<title lang="de" value="Dynamische Inhaltsbereiche für das 8.5-Motiv"/>
+<title lang="el" value="Σημεία δυναμικού περιεχομένου για το θέμα έκδοσης 8.5"/>
+<title lang="en" value="Dynamic Content Spots for the 8.5 Theme"/>
+<title lang="es" value="Áreas de contenido dinámico para tema 8.5"/>
+<title lang="fi" value="Dynaamiset sisältöpisteet version 8.5 teemaan"/>
+<title lang="fr" value="Zones de contenu dynamique pour le thème 8.5"/>
+<title lang="he" value="נקודת תוכן דינמית עבור ערכה 8.5"/>
+<title lang="hr" value="Dinamičke točke sadržaja za 8.5 temu"/>
+<title lang="hu" value="Dinamikus tartalomhelyek a 8.5 témához"/>
+<title lang="it" value="Content spot dinamico per il tema 8.5"/>
+<title lang="ja" value="8.5 テーマ用の動的コンテンツ・スポット"/>
+<title lang="kk" value="8.5 тақырыбына арналған Динамикалық мазмұн орындары"/>
+<title lang="ko" value="8.5 테마를 위한 동적 컨텐츠 스팟"/>
+<title lang="nl" value="Dynamische contentspots voor het 8.5-thema"/>
+<title lang="no" value="Dynamic Content Spots for the 8.5 Theme"/>
+<title lang="pl" value="Dynamiczne obszary danych dla kompozycji w wersji 8.5"/>
+<title lang="pt" value="Pontos de conteúdo dinâmico para o Tema 8.5"/>
+<title lang="pt_BR" value="Pontos de Conteúdo Dinâmico para o Tema 8,5"/>
+<title lang="ro" value="Spoturi de conţinut dinamice pentru tema 8.5"/>
+<title lang="ru" value="Динамические области информации для темы 8.5"/>
+<title lang="sk" value="Miesta dynamického obsahu pre tému 8.5"/>
+<title lang="sl" value="Točka dinamične vsebine za temo 8.5"/>
+<title lang="sv" value="Dynamiska innehållspunkter för 8.5-temat"/>
+<title lang="th" value="จุดแสดงเนื้อหาไดนามิกสำหรับ 8.5 Theme"/>
+<title lang="tr" value="8.5 Teması İçin Dinamik İçerik Noktaları"/>
+<title lang="uk" value="Області динамічного вмісту для теми 8.5"/>
+<title lang="zh" value="8.5 主题的动态内容点"/>
+<title lang="zh_TW" value="8.5 佈景主題的動態內容點"/>
+            
+<description lang="ar" value="يتم تعريف كل نقاط المحتويات الديناميكية للنسق الرئيسي 8.5. يسمح ذلك باحلال أي نقطة محتويات ديناميكية من خلال وحدات برامج أخرى."/>
+<description lang="ca" value="Defineix totes les àrees de contingut dinàmic per al tema 8.5. Això permet superposar fàcilment les àrees de contingut dinàmic a través d'altres mòduls."/>
+<description lang="cs" value="Definuje veškerý dynamický obsah pro motiv 8.5. To umožňuje snadno překrýt libovolný dynamický obsah prostřednictvím jiných modulů."/>
+<description lang="da" value="Definerer alle dynamiske indholdsspot for 8.5-temaet. Herved bliver det nemt at overlejre et hvilket som helst indholdsspot via andre moduler."/>
+<description lang="de" value="Definiert alle dynamischen Inhaltsbereiche für das 8.5-Motiv. Dies ermöglicht die einfache Überlagerung aller dynamischen Inhaltsbereiche durch andere Module."/>
+<description lang="el" value="Ορίζει όλα τα σημεία δυναμικού περιεχομένου για το θέμα έκδοσης 8.5. Αυτό επιτρέπει την εύκολη επικάλυψη οποιουδήποτε σημείου δυναμικού περιεχομένου με άλλες λειτουργικές μονάδες."/>
+<description lang="en" value="Defines all dynamic content spots for the 8.5 Theme. This allows to easily overlay any dynamic content spot through other modules."/>
+<description lang="es" value="Define todas las áreas de contenido dinámico para el tema 8.5. Esto permite superponer fácilmente cualquier área de contenido dinámico en otros módulos."/>
+<description lang="fi" value="Määrittää kaikki version 8.5 teeman dynaamiset sisältöpisteet. Tämän avulla voit helposti peittää mahdolliset muiden moduulien kautta määritetyt dynaamiset sisältöpisteet."/>
+<description lang="fr" value="Définit toutes les zones de contenu dynamique pour le thème 8.5. Cela permet de facilement recouvrir une zone de contenu dynamique dans d'autres modules. "/>
+<description lang="he" value="הגדרת כל נקודות התוכן הדינמיות  עבור ערכה 8.5 מאפשר ריבוד כל של כל נקודת תוכן דרך מודולים אחרים."/>
+<description lang="hr" value="Definira sve dinamičke točke sadržaja za 8.5 temu. Time se omogućuje jednostavno prekrivanje bilo koje dinamičke točke sadržaja pomoću drugih modula."/>
+<description lang="hu" value="Meghatározza az összes dinamikus tartalomhelyet a 8.5 témához. Ezzel könnyedén átfedést hozhat létre bármelyik dinamikus tartalomhellyel más modulokon keresztül."/>
+<description lang="it" value="Definisce tutti i content spot dinamici per il tema 8.5. Ciò consente di sovrapporre facilmente il content spot dinamico attraverso altri moduli."/>
+<description lang="ja" value="8.5 テーマ用の動的コンテンツ・スポットをすべて定義します。これにより、他のモジュールを介して任意の動的コンテンツ・スポットを簡単にオーバーレイできます。"/>
+<description lang="kk" value="8.5 Тақырыбы үшін барлық динамикалық мазмұн орындарын анықтайды. Кез келген динамикалық мазмұн орындарын басқа модульдері арқылы жеңіл қабаттасуға мүмкіндік береді."/>
+<description lang="ko" value="8.5 테마를 위한 동적 컨텐츠 스팟을 모두 정의합니다. 이렇게 하면 다른 모듈을 통해 동적 컨텐츠 스팟을 쉽게 오버레이할 수 있습니다."/>
+<description lang="nl" value="Hiermee worden alle dynamische contentspots gedefinieerd voor het 8.5-thema. Dit maakt het mogelijk om op een eenvoudige manier dynamische contentspots te overschrijven via andere modules."/>
+<description lang="no" value="Definerer alle dynamiske innholdspunkter for 8.5-temaet. Dette gjør det enkelt å legge over dynamiske innholdspunkter gjennom andre moduler."/>
+<description lang="pl" value="Definiuje wszystkie dynamiczne obszary danych dla kompozycji w wersji 8.5. Umożliwia to łatwe nakładanie dowolnego dynamicznego obszaru danych przez inne moduły. "/>
+<description lang="pt" value="Define todos os pontos de conteúdo dinâmico para o Tema 8.5. Permite sobrepor com facilidade qualquer ponto de conteúdo dinâmico através de outros módulos."/>
+<description lang="pt_BR" value="Define todos os pontos de conteúdo dinâmico para o Tema 8,5. Isso permite sobrepor facilmente a qualquer ponto de conteúdo dinâmico através de outros módulos."/>
+<description lang="ro" value="Defineşte toate spoturile de conţinut dinamice pentru tema 8.5. Aceasta permite suprapunerea uşoară a spotului de conţinut dinamic pe alte module."/>
+<description lang="ru" value="Определяет динамические области информации для темы 8.5. Обеспечивает простое наложение динамических областей информации в других модулях."/>
+<description lang="sk" value="Definuje všetky miesta dynamického obsahu pre tému 8.5. Toto umožňuje jednoducho prekryť ľubovoľné miesto dynamického obsahu cez iné moduly."/>
+<description lang="sl" value="Definira vse točke dinamične vsebine za temo 8.5. To omogoča preprosto prekritje katere koli točke dinamične vsebine z drugimi moduli."/>
+<description lang="sv" value="Definierar alla dynamiska innehållspunkter för 8.5-temat. Det gör det enkelt att lägga på dynamiska innehållspunkter via andra moduler."/>
+<description lang="th" value="กำหนดจุดแสดงเนื้อหาไดนามิกทั้งหมดสำหรับ 8.5 Theme. ซึ่งอนุญาตให้ซ้อนจุดแสดงเนื้อหาไดนามิกใดๆ ผ่านทางโมดูลอื่นๆ ได้ง่าย"/>
+<description lang="tr" value="8.5 Teması için tüm dinamik içerik noktalarını tanımlar. Böylelikle, her dinamik içerik noktası diğer modüllerle kolayca yüklenebilir."/>
+<description lang="uk" value="Визначає всі області динамічного вмісту для теми 8.5. Це дозволяє легко накладати будь-які області динамічного вмісту різних модулів."/>
+<description lang="zh" value="定义 8.5 主题所有的动态内容点。这将便于通过其他模块覆盖任何动态内容点。"/>
+<description lang="zh_TW" value="定義 8.5 佈景主題的所有動態內容點。這可讓您輕鬆地透過其他模組套疊任何動態內容點。"/>
+            <contribution type="dyn-cs">
+                <sub-contribution type="markup" ref-id="{{projectName}}_footer">
+                    <uri value="res:{war:context-root}/themes/html/dynamicSpots/footer.jsp"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_crumbTrail">
+                    <uri value="mvc:res:{war:context-root}/themes/html/dynamicSpots/crumbTrail.jsp,smartphone@"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_topNav">
+                    <uri value="mvc:smartphone/tablet@res:{war:context-root}/themes/html/dynamicSpots/navigation.jsp?type=top"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_primaryNav">
+                    <uri value="mvc:res:{war:context-root}/themes/html/dynamicSpots/navigation.jsp?type=primary,smartphone@,tablet@"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_secondaryNav">
+                    <uri value="mvc:res:{war:context-root}/themes/html/dynamicSpots/navigation.jsp?type=secondary,smartphone@,tablet@"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_sideNav">
+                    <uri value="mvc:res:{war:context-root}/themes/html/dynamicSpots/sideNavigation.jsp?startLevel=2,smartphone@,tablet@"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_mobileNav">
+                    <uri value="mvc:smartphone/tablet@res:{war:context-root}/themes/html/dynamicSpots/lazyMobileNavigation.jsp?context={war:context-root}"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_commonActions">
+                    <uri value="res:{war:context-root}/themes/html/dynamicSpots/commonActions.jsp"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_layout">
+                    <uri value="lm:template"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_toolbar">
+					<uri value="mc:wp_toolbar85@mvc:dyn-cs%3Aid%3A85toolbar%2Csmartphone%40%2Ctablet%40"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_head">
+                    <uri value="res:{war:context-root}/themes/html/dynamicSpots/head.jsp"/>
+                </sub-contribution>
+                <sub-contribution type="markup" ref-id="{{projectName}}_status">
+                    <uri value="mc:wp_status_bar@res:{war:context-root}/themes/html/dynamicSpots/status.jsp"/>
+                </sub-contribution>
+            </contribution>
+        </module>
+    </extension>
+
+</plugin>

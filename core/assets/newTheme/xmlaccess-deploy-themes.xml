@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request build="20150309-2127" type="update" version="8.5.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PortalConfig_8.5.0.xsd">
+    <portal action="locate">
+        <skin action="update" active="true" context-root="/{{context-dynamic}}" default="false" domain="rel" resourceroot="Hidden" type="default" uniquename="{{projectName}}.skin.85Hidden">
+            <localedata locale="ar">
+                <title>{{projectName}} Portal 8.5 - اخفاء</title>
+            </localedata>
+            <localedata locale="ca">
+                <title>{{projectName}} Portal 8.5 - Ocult</title>
+            </localedata>
+            <localedata locale="cs">
+                <title>{{projectName}} Portal 8.5 - Skrytý</title>
+            </localedata>
+            <localedata locale="da">
+                <title>{{projectName}} Portal 8.5 - Skjult</title>
+            </localedata>
+            <localedata locale="de">
+                <title>{{projectName}} Portal 8.5 - Verdeckt</title>
+            </localedata>
+            <localedata locale="el">
+                <title>{{projectName}} Portal 8.5 - Κρυφό</title>
+            </localedata>
+            <localedata locale="en">
+                <title>{{projectName}} Portal 8.5 - Hidden</title>
+            </localedata>
+            <localedata locale="es">
+                <title>{{projectName}} Portal 8.5 - Oculto</title>
+            </localedata>
+            <localedata locale="fi">
+                <title>{{projectName}} Portal 8.5 - Piilotettu</title>
+            </localedata>
+            <localedata locale="fr">
+                <title>{{projectName}} Portal 8.5 - Masqué</title>
+            </localedata>
+            <localedata locale="hu">
+                <title>{{projectName}} Portal 8.5 - Rejtett</title>
+            </localedata>
+            <localedata locale="it">
+                <title>{{projectName}} Portal 8.5 - Nascosto</title>
+            </localedata>
+            <localedata locale="iw">
+                <title>{{projectName}} Portal 8.5 - מוסתר</title>
+            </localedata>
+            <localedata locale="ja">
+                <title>{{projectName}} Portal 8.5 - 非表示</title>
+            </localedata>
+            <localedata locale="ko">
+                <title>{{projectName}} Portal 8.5 - Hidden</title>
+            </localedata>
+            <localedata locale="nl">
+                <title>{{projectName}} Portal 8.5 - verborgen</title>
+            </localedata>
+            <localedata locale="no">
+                <title>{{projectName}} Portal 8.5 - Skjult</title>
+            </localedata>
+            <localedata locale="pl">
+                <title>{{projectName}} Portal 8.5 - ukryta</title>
+            </localedata>
+            <localedata locale="pt">
+                <title>{{projectName}} Portal 8.5 - Oculto</title>
+            </localedata>
+            <localedata locale="pt_BR">
+                <title>{{projectName}} Portal 8.5 - Oculto</title>
+            </localedata>
+            <localedata locale="ro">
+                <title>{{projectName}} Portal 8.5 - Ascuns</title>
+            </localedata>
+            <localedata locale="ru">
+                <title>{{projectName}} Portal 8.5 - скрытая</title>
+            </localedata>
+            <localedata locale="sk">
+                <title>{{projectName}} Portal 8.5 - Skryté</title>
+            </localedata>
+            <localedata locale="sl">
+                <title>{{projectName}} Portal 8.5 - skrit</title>
+            </localedata>
+            <localedata locale="sv">
+                <title>{{projectName}} Portal 8.5 - dold</title>
+            </localedata>
+            <localedata locale="th">
+                <title>{{projectName}} Portal 8.5 - ซ่อน</title>
+            </localedata>
+            <localedata locale="tr">
+                <title>{{projectName}} Portal 8.5 - Gizlenmiş</title>
+            </localedata>
+            <localedata locale="uk">
+                <title>{{projectName}} Portal 8.5 - Прихований</title>
+            </localedata>
+            <localedata locale="zh">
+                <title>{{projectName}} Portal 8.5 - 隐藏</title>
+            </localedata>
+            <localedata locale="zh_TW">
+                <title>{{projectName}} Portal 8.5 - 隱藏</title>
+            </localedata>
+            <localedata locale="hr">
+                <title>{{projectName}} Portal 8.5 - skriven</title>
+            </localedata>
+            <localedata locale="kk">
+                <title>{{projectName}} Portal 8.5 - Hidden</title>
+            </localedata>
+            <parameter name="com.ibm.portal.skin.template.ref" type="string" update="set"><![CDATA[war:{{context-static}}/themes/{{projectName}}/skins/Hidden/]]></parameter>
+            <parameter name="com.ibm.portal.skintype" type="string" update="set"><![CDATA[template]]></parameter>
+            <parameter name="com.ibm.portal.skin.template.file.name.html" type="string" update="set"><![CDATA[skin.html]]></parameter>
+        </skin>
+        <skin action="update" active="true" context-root="/{{context-dynamic}}" default="false" domain="rel" resourceroot="HiddenPlus" type="default" uniquename="{{projectName}}.skin.85HiddenPlus">
+            <localedata locale="ar">
+                <title>{{projectName}} Portal 8.5 - اخفاء بشكل زائد</title>
+            </localedata>
+            <localedata locale="ca">
+                <title>{{projectName}} Portal 8.5 - Més ocult</title>
+            </localedata>
+            <localedata locale="cs">
+                <title>{{projectName}} Portal 8.5 - Skrytý plus</title>
+            </localedata>
+            <localedata locale="da">
+                <title>{{projectName}} Portal 8.5 - Skjult plus</title>
+            </localedata>
+            <localedata locale="de">
+                <title>{{projectName}} Portal 8.5 - Verdeckt Plus</title>
+            </localedata>
+            <localedata locale="el">
+                <title>{{projectName}} Portal 8.5 - Κρυφό, εμπλουτισμένο</title>
+            </localedata>
+            <localedata locale="en">
+                <title>{{projectName}} Portal 8.5 - Hidden Plus</title>
+            </localedata>
+            <localedata locale="es">
+                <title>{{projectName}} Portal 8.5 - Oculto Plus</title>
+            </localedata>
+            <localedata locale="fi">
+                <title>{{projectName}} Portal 8.5 - Piilotettu (plus)</title>
+            </localedata>
+            <localedata locale="fr">
+                <title>{{projectName}} Portal 8.5 - Masqué Plus</title>
+            </localedata>
+            <localedata locale="hu">
+                <title>{{projectName}} Portal 8.5 - Rejtett plusz</title>
+            </localedata>
+            <localedata locale="it">
+                <title>{{projectName}} Portal 8.5 - Nascosto plus</title>
+            </localedata>
+            <localedata locale="iw">
+                <title>{{projectName}} Portal 8.5 - מוסתר פלוס</title>
+            </localedata>
+            <localedata locale="ja">
+                <title>{{projectName}} Portal 8.5 - 非表示プラス</title>
+            </localedata>
+            <localedata locale="ko">
+                <title>{{projectName}} Portal 8.5 - Hidden Plus</title>
+            </localedata>
+            <localedata locale="nl">
+                <title>{{projectName}} Portal 8.5 - verborgen plus</title>
+            </localedata>
+            <localedata locale="no">
+                <title>{{projectName}} Portal 8.5 - Skjult pluss</title>
+            </localedata>
+            <localedata locale="pl">
+                <title>{{projectName}} Portal 8.5 - ukryta plus</title>
+            </localedata>
+            <localedata locale="pt">
+                <title>{{projectName}} Portal 8.5 - Oculto Plus</title>
+            </localedata>
+            <localedata locale="pt_BR">
+                <title>{{projectName}} Portal 8.5 - Oculto Plus</title>
+            </localedata>
+            <localedata locale="ro">
+                <title>{{projectName}} Portal 8.5 - Ascuns plus</title>
+            </localedata>
+            <localedata locale="ru">
+                <title>{{projectName}} Portal 8.5 - скрытая+</title>
+            </localedata>
+            <localedata locale="sk">
+                <title>{{projectName}} Portal 8.5 - Skryté plus</title>
+            </localedata>
+            <localedata locale="sl">
+                <title>{{projectName}} Portal 8.5 - skrit Plus</title>
+            </localedata>
+            <localedata locale="sv">
+                <title>{{projectName}} Portal 8.5 - dold plus</title>
+            </localedata>
+            <localedata locale="th">
+                <title>{{projectName}} Portal 8.5 - Hidden Plus</title>
+            </localedata>
+            <localedata locale="tr">
+                <title>{{projectName}} Portal 8.5 - Gizlenmiş Artı</title>
+            </localedata>
+            <localedata locale="uk">
+                <title>{{projectName}} Portal 8.5 - Прихований плюс</title>
+            </localedata>
+            <localedata locale="zh">
+                <title>{{projectName}} Portal 8.5 - 隐藏升级</title>
+            </localedata>
+            <localedata locale="zh_TW">
+                <title>{{projectName}} Portal 8.5 - 隱藏 Plus</title>
+            </localedata>
+            <localedata locale="hr">
+                <title>{{projectName}} Portal 8.5 - skriven plus</title>
+            </localedata>
+            <localedata locale="kk">
+                <title>{{projectName}} Portal 8.5 - Hidden Plus</title>
+            </localedata>
+            <parameter name="com.ibm.portal.skin.template.ref" type="string" update="set"><![CDATA[war:{{context-static}}/themes/{{projectName}}/skins/HiddenPlus/]]></parameter>
+            <parameter name="com.ibm.portal.skintype" type="string" update="set"><![CDATA[template]]></parameter>
+            <parameter name="com.ibm.portal.skin.template.file.name.html" type="string" update="set"><![CDATA[skin.html]]></parameter>
+        </skin>
+        <skin action="update" active="true" context-root="/{{context-dynamic}}" default="false" domain="rel" resourceroot="Standard" type="default" uniquename="{{projectName}}.skin.85Standard">
+            <localedata locale="ar">
+                <title>{{projectName}} Portal 8.5 - قياسي</title>
+            </localedata>
+            <localedata locale="ca">
+                <title>{{projectName}} Portal 8.5 - Estàndard</title>
+            </localedata>
+            <localedata locale="cs">
+                <title>{{projectName}} Portal 8.5 - Standardní</title>
+            </localedata>
+            <localedata locale="da">
+                <title>{{projectName}} Portal 8.5 - Standard</title>
+            </localedata>
+            <localedata locale="de">
+                <title>{{projectName}} Portal 8.5 - Standard</title>
+            </localedata>
+            <localedata locale="el">
+                <title>{{projectName}} Portal 8.5 - Τυπικό</title>
+            </localedata>
+            <localedata locale="en">
+                <title>{{projectName}} Portal 8.5 - Standard</title>
+            </localedata>
+            <localedata locale="es">
+                <title>{{projectName}} Portal 8.5 - Estándar</title>
+            </localedata>
+            <localedata locale="fi">
+                <title>{{projectName}} Portal 8.5 - Tavallinen</title>
+            </localedata>
+            <localedata locale="fr">
+                <title>{{projectName}} Portal 8.5 - Standard</title>
+            </localedata>
+            <localedata locale="hu">
+                <title>{{projectName}} Portal 8.5 - Normál</title>
+            </localedata>
+            <localedata locale="it">
+                <title>{{projectName}} Portal 8.5 - Standard</title>
+            </localedata>
+            <localedata locale="iw">
+                <title>{{projectName}} Portal 8.5 - רגיל</title>
+            </localedata>
+            <localedata locale="ja">
+                <title>{{projectName}} Portal 8.5 - 標準</title>
+            </localedata>
+            <localedata locale="ko">
+                <title>{{projectName}} Portal 8.5 - Standard</title>
+            </localedata>
+            <localedata locale="nl">
+                <title>{{projectName}} Portal 8.5 - standaard</title>
+            </localedata>
+            <localedata locale="no">
+                <title>{{projectName}} Portal 8.5 - Standard</title>
+            </localedata>
+            <localedata locale="pl">
+                <title>{{projectName}} Portal 8.5 - standardowa</title>
+            </localedata>
+            <localedata locale="pt">
+                <title>{{projectName}} Portal 8.5 - Padrão</title>
+            </localedata>
+            <localedata locale="pt_BR">
+                <title>{{projectName}} Portal 8.5 - Padrão</title>
+            </localedata>
+            <localedata locale="ro">
+                <title>{{projectName}} Portal 8.5 - Standard</title>
+            </localedata>
+            <localedata locale="ru">
+                <title>{{projectName}} Portal 8.5 - стандартная</title>
+            </localedata>
+            <localedata locale="sk">
+                <title>{{projectName}} Portal 8.5 - Štandard</title>
+            </localedata>
+            <localedata locale="sl">
+                <title>{{projectName}} Portal 8.5 - standarden</title>
+            </localedata>
+            <localedata locale="sv">
+                <title>{{projectName}} Portal 8.5 - standard</title>
+            </localedata>
+            <localedata locale="th">
+                <title>{{projectName}} Portal 8.5 - มาตรฐาน</title>
+            </localedata>
+            <localedata locale="tr">
+                <title>{{projectName}} Portal 8.5 - Standart</title>
+            </localedata>
+            <localedata locale="uk">
+                <title>{{projectName}} Portal 8.5 - Стандартний</title>
+            </localedata>
+            <localedata locale="zh">
+                <title>{{projectName}} Portal 8.5 - 标准</title>
+            </localedata>
+            <localedata locale="zh_TW">
+                <title>{{projectName}} Portal 8.5 - 標準</title>
+            </localedata>
+            <localedata locale="hr">
+                <title>{{projectName}} Portal 8.5 - standardni</title>
+            </localedata>
+            <localedata locale="kk">
+                <title>{{projectName}} Portal 8.5 - Standard</title>
+            </localedata>
+            <parameter name="com.ibm.portal.skin.template.ref" type="string" update="set"><![CDATA[war:{{context-static}}/themes/{{projectName}}/skins/Standard/]]></parameter>
+            <parameter name="com.ibm.portal.skintype" type="string" update="set"><![CDATA[template]]></parameter>
+            <parameter name="com.ibm.portal.skin.template.file.name.html" type="string" update="set"><![CDATA[skin.html]]></parameter>
+        </skin>
+        <skin action="update" active="true" context-root="/{{context-dynamic}}" default="false" domain="rel" resourceroot="NoSkin" type="default" uniquename="{{projectName}}.skin.85NoSkin">
+            <localedata locale="ar">
+                <title>{{projectName}} Portal 8.5 - بدون شكل عام مهيأ</title>
+            </localedata>
+            <localedata locale="ca">
+                <title>Portal 8.5- Sense aparença</title>
+            </localedata>
+            <localedata locale="cs">
+                <title>{{projectName}} Portal 8.5 - Bez vzhledu</title>
+            </localedata>
+            <localedata locale="da">
+                <title>{{projectName}} Portal 8.5 - Intet udseende</title>
+            </localedata>
+            <localedata locale="de">
+                <title>{{projectName}} Portal 8.5 - Keine Oberfläche</title>
+            </localedata>
+            <localedata locale="el">
+                <title>{{projectName}} Portal 8.5 - Χωρίς μοτίβο</title>
+            </localedata>
+            <localedata locale="en">
+                <title>{{projectName}} Portal 8.5 - No Skin</title>
+            </localedata>
+            <localedata locale="es">
+                <title>{{projectName}} Portal 8.5 - Sin Skin</title>
+            </localedata>
+            <localedata locale="fi">
+                <title>{{projectName}} Portal 8.5 - Hahmoton</title>
+            </localedata>
+            <localedata locale="fr">
+                <title>{{projectName}} Portal 8.5 - Sans habillage</title>
+            </localedata>
+            <localedata locale="hu">
+                <title>{{projectName}} Portal 8.5 - Nincs felszín</title>
+            </localedata>
+            <localedata locale="it">
+                <title>{{projectName}} Portal 8.5 - Nessuno skin</title>
+            </localedata>
+            <localedata locale="iw">
+                <title>{{projectName}} Portal 8.5 - ללא מעטפת</title>
+            </localedata>
+            <localedata locale="ja">
+                <title>{{projectName}} Portal 8.5 - スキンなし</title>
+            </localedata>
+            <localedata locale="ko">
+                <title>{{projectName}} Portal 8.5 - No Skin</title>
+            </localedata>
+            <localedata locale="nl">
+                <title>{{projectName}} Portal 8.5 - geen uiterlijk</title>
+            </localedata>
+            <localedata locale="no">
+                <title>{{projectName}} Portal 8.5 - Uten skall</title>
+            </localedata>
+            <localedata locale="pl">
+                <title>{{projectName}} Portal 8.5 - bez skóry</title>
+            </localedata>
+            <localedata locale="pt">
+                <title>{{projectName}} Portal 8.5 - Sem máscara</title>
+            </localedata>
+            <localedata locale="pt_BR">
+                <title>{{projectName}} Portal 8.5 - Sem Capa</title>
+            </localedata>
+            <localedata locale="ro">
+                <title>{{projectName}} Portal 8.5 - Fără skin</title>
+            </localedata>
+            <localedata locale="ru">
+                <title>{{projectName}} Portal 8.5 - без оболочки</title>
+            </localedata>
+            <localedata locale="sk">
+                <title>{{projectName}} Portal 8.5 - Bez vzhľadu</title>
+            </localedata>
+            <localedata locale="sl">
+                <title>{{projectName}} Portal 8.5 - brez preobleke</title>
+            </localedata>
+            <localedata locale="sv">
+                <title>{{projectName}} Portal 8.5 - utan skal</title>
+            </localedata>
+            <localedata locale="th">
+                <title>{{projectName}} Portal 8.5 - No Skin</title>
+            </localedata>
+            <localedata locale="tr">
+                <title>{{projectName}} Portal 8.5 - Dışyüz Yok</title>
+            </localedata>
+            <localedata locale="uk">
+                <title>{{projectName}} Portal 8.5 - Без оболонки</title>
+            </localedata>
+            <localedata locale="zh">
+                <title>{{projectName}} Portal 8.5 - 无外表</title>
+            </localedata>
+            <localedata locale="zh_TW">
+                <title>{{projectName}} Portal 8.5 - 無外觀</title>
+            </localedata>
+            <localedata locale="hr">
+                <title>{{projectName}} Portal 8.5 - bez skina</title>
+            </localedata>
+            <localedata locale="kk">
+                <title>{{projectName}} Portal 8.5 - No Skin</title>
+            </localedata>
+            <parameter name="com.ibm.portal.skin.template.ref" type="string" update="set"><![CDATA[war:{{context-static}}/themes/{{projectName}}/skins/NoSkin/]]></parameter>
+            <parameter name="com.ibm.portal.skintype" type="string" update="set"><![CDATA[template]]></parameter>
+            <parameter name="com.ibm.portal.skin.template.file.name.html" type="string" update="set"><![CDATA[skin.html]]></parameter>
+        </skin>
+
+        <skin action="locate" domain="rel" uniquename="{{projectName}}.skin.85Hidden" objectid="{{projectName}}.skin.85Hidden.objectID"/>
+        <skin action="locate" domain="rel" uniquename="{{projectName}}.skin.85HiddenPlus" objectid="{{projectName}}.skin.85HiddenPlus.objectID"/>
+        <skin action="locate" domain="rel" uniquename="{{projectName}}.skin.85Standard" objectid="{{projectName}}.skin.85Standard.objectID"/>
+        <skin action="locate" domain="rel" uniquename="{{projectName}}.skin.85NoSkin" objectid="{{projectName}}.skin.85NoSkin.objectID"/>
+
+        <theme action="update" active="true" context-root="/{{context-dynamic}}" default="false" defaultskinref="{{projectName}}.skin.85Hidden.objectID" domain="rel" resourceroot="dynamicSpots" uniquename="{{projectName}}.theme.{{projectName}}Theme">
+            <localedata locale="ar">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="ca">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="cs">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="da">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="de">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="el">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="en">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="es">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="fi">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="fr">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="hu">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="it">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="iw">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="ja">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="ko">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="nl">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="no">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="pl">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="pt">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="pt_BR">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="ro">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="ru">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="sk">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="sl">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="sv">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="th">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="tr">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="uk">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="zh">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="zh_TW">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="hr">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <localedata locale="kk">
+                <title>{{projectName}} Portal 8.5 Theme</title>
+            </localedata>
+            <allowed-skin skin="{{projectName}}.skin.85Hidden.objectID" update="set"/>
+            <allowed-skin skin="{{projectName}}.skin.85HiddenPlus.objectID" update="set"/>
+            <allowed-skin skin="{{projectName}}.skin.85Standard.objectID" update="set"/>
+            <allowed-skin skin="{{projectName}}.skin.85NoSkin.objectID" update="set"/>
+
+            <parameter name="resourceaggregation.autoLoadPortletCapabilities" type="string" update="set"><![CDATA[true]]></parameter>
+            <parameter name="com.ibm.portal.theme.aggregationmodes" type="string" update="set"><![CDATA[ssa]]></parameter>
+            <parameter name="resourceaggregation.profile" type="string" update="set"><![CDATA[profiles/profile_deferred.json]]></parameter>
+            <parameter name="ibm.portal.shelf.category.json.webcontent" type="string" update="set"><![CDATA[system/WebContentCategory.json,label:shelf_socialCategory]]></parameter>
+
+            <parameter name="com.ibm.portal.theme.dnd.sources" type="string" update="set"><![CDATA[ibmDndColumn:com.ibm.pb.dnd.layout.LayoutColumnSource:vertical,ibmDndRow:com.ibm.pb.dnd.layout.LayoutRowSource:horizontal]]></parameter>
+            <parameter name="com.ibm.portal.friendly.name" type="string" update="set"><![CDATA[{{projectName}}Portal85Theme]]></parameter>
+            <!-- Stored in webdav:
+            <parameter name="com.ibm.portal.layout.template.href" type="string" update="set"><![CDATA[dav:fs-type1/themes/{{projectName}}/layout-templates/2ColumnEqual/]]></parameter>
+            <parameter name="com.ibm.portal.theme.template.ref" type="string" update="set"><![CDATA[dav:fs-type1/themes/{{projectName}}/]]></parameter>
+            -->
+            <!-- Stored in war:-->
+            <parameter name="com.ibm.portal.theme.template.ref" type="string" update="set"><![CDATA[war:{{context-static}}/themes/{{projectName}}/]]></parameter>
+            <parameter name="com.ibm.portal.layout.template.href" type="string" update="set"><![CDATA[war:{{context-static}}/themes/{{projectName}}/layout-templates/1Column/]]></parameter>
+
+            <!--
+            http://www-01.ibm.com/support/knowledgecenter/SSHRKX_8.5.0/mp/admin-system/mp_friendly_short_url.dita
+            <parameter name="com.ibm.portal.theme.hasBaseURL" type="string" update="set">true</parameter>
+            -->
+        </theme>
+
+    </portal>
+</request>

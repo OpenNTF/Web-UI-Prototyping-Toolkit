@@ -358,4 +358,31 @@ $(function(){
             wireFields(cfg);
         });
     }
+
+    var createThemeRoot = $(".protostarNewPortalTheme");
+    if(createThemeRoot.length > 0){
+        createThemeRoot.find('button[name="create-my-theme"]').click(function(){
+            var obj = {};
+            createThemeRoot.find("input").each(function(){
+                var t = $(this);
+                obj[t.attr("name")] = t.val();
+            });
+            console.log("Object = ", obj);
+            $.ajax({
+                type: "post",
+                url: "/ps/buildTheme/"+obj.projectName + ".zip",
+                data: JSON.stringify(obj),
+                dataType: "json",
+                contentType: "application/json",
+                mimeType: "application/json"
+            }).done(function(data){
+                var auth = data.auth;
+                window.location.pathname = "/ps/buildTheme/"+obj.projectName + ".zip?auth=" + auth;
+            }).error(function(){
+                console.error("Error !", arguments);
+            });
+
+        });
+
+    }
 });
