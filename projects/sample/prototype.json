@@ -1,0 +1,45 @@
+{
+    "project": {
+        "title": "Protostar sample",
+        "main": "index.html",
+        "namedPaths": {
+
+        }
+    },
+
+    "build": {
+        "target":"_target",
+        "format":"dir",
+        "resourceDirs" : {
+            "node" : [],
+            "bower" : [],
+            "project" : ["less"]
+        },
+        "includeNamedPaths" : false,
+        "excludedPaths" : []
+    },
+    "theming" : {
+        "todo" : "todo: batch generation of compiled css for different themes, each theme its own compiled css",
+        "enabled":true,
+        "themeNames" : ["cerulean", "cosmo", "cyborg", "darkly", "flatly", "journal", "lumen", "paper", "readable", "sandstone", "simplex", "slate", "spacelab", "superhero", "united", "yeti"],
+        "entryPoint" : "less/styles.less",
+        "themeNameVar" : "themeName",
+        "defaultThemeName" : "yeti",
+        "compileThemes" : true,
+        "compileDefaultThemeOnly": false
+    },
+
+    "commands": {
+
+    },
+    "compilation": {
+
+
+    },
+    "runtime": {
+        "saveCompiled": false,
+        "cleanBuiltHtml": true,
+        "debug": false
+    }
+
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Protostar Sample Project",
+  "version": "0.9.1",
+  "authors": [
+    "Jonathan Bosmans <jonathan.bosmans@be.ibm.com>"
+  ],
+  "description": "A sample project demonstrating and explaining some of the core features",
+  "main": "index.html",
+  "license": "Apache License 2.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.x",
+    "holderjs": "~2.4.x",
+    "bootswatch": "~3.3.x"
+  }
+}
