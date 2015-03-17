@@ -20,3 +20,5 @@ bin/Protostar.app
 core/assets/help.html
 core/backend/help.html
 npm-debug.log
+core/backend/newPortalThemeCompiled.html
+core/backend/projectConfigCompiled.html
