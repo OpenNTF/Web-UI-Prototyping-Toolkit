@@ -1,6 +1,6 @@
 # Web UI Prototyping Toolkit - Protostar
 
-Version 0.9.2
+Version 0.9.3
 
 This is a tool to facilitate the creation of static HTML prototypes from UX designs
 - Decompose pages into reusable fragments
@@ -347,6 +347,50 @@ Appends `<link rel="stylesheet" href="/cmp/myCmp.css">` to `<head>` (also picks 
     <!-- linkScript:default -->
 
 Appends `<script src="/cmp/myCmp.js">` to `<body>` if the contain HTML fragment is included in a page.
+
+### Lorem Lipsum : variable length text placeholders
+On important aspect of well implemented UX's is that they flexibly handle content of different length.
+
+We want to detect unexpected overflows to new lines and such as soon as possible so we keep our UX implementation as ready as possible to handle real life data.
+
+#### Tags
+#### Word
+Renders a different word every time it is rendered.
+
+    <!-- lorem:word -->
+
+#### Paragraph
+Renders a different paragraph every time it is rendered.
+
+    <!-- lorem:paragraph -->
+
+#### Phrase
+Renders a different phrase every time it is rendered.
+
+    <!-- lorem:phrase -->
+
+#### Shared options
+The 3 lorem tags support shared arguments
+##### count
+Always shows a certain number of instances.
+
+    <!-- lorem:phrase(count=2,separator='<br/>') -->
+
+##### min/max
+Alternates the number of instances shown between min and max inclusive.
+
+    <!-- lorem:phrase(tag='p class="phrase" style="border: solid 1px black"',min=1,max=6) -->
+
+##### tag
+Surrounds each instance with the specified tag with attributes.
+
+    <!-- lorem:phrase(tag='p class="phrase" style="border: solid 1px black"',min=1,max=6) -->
+
+##### separator
+Separates instances with the specified markup
+
+    <!-- lorem:phrase(count=2,separator='<br/>') -->
+
 
 ### Building your prototypes
 When you build a prototype, Protostar will create a new directory containing only those web artifacts needed for integration: HTML, CSS and other resources.
