@@ -1,21 +1,23 @@
 {
   "name": "wuipt",
-  "bin" : { "wuipt" : "./bin/protostar.js" },
+  "bin": {
+    "wuipt": "./bin/protostar.js"
+  },
   "description": "Web UI Prototyping Toolkit - A static prototype server and so much more.",
-  "keywords":[
+  "keywords": [
     "prototype",
     "static",
     "toolkit",
     "ui"
   ],
-  "tags":[
+  "tags": [
     "prototype",
     "static",
     "toolkit",
     "ui"
   ],
-  "bugs":{
-    "url":"https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit/issues"
+  "bugs": {
+    "url": "https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit/issues"
   },
   "version": "0.9.2",
   "license": "Apache-2.0",
@@ -25,13 +27,15 @@
   ],
   "main": "./lib/protostar.js",
   "author": {
-      "name":"Jonathan Bosmans",
-      "email":"jonathan.bosmans@be.ibm.com"
+    "name": "Jonathan Bosmans",
+    "email": "jonathan.bosmans@be.ibm.com"
   },
-  "contributors": [{
-    "name":"Peter Grauvogel",
-    "email":"peter@de.ibm.com"
-  }],
+  "contributors": [
+    {
+      "name": "Peter Grauvogel",
+      "email": "peter@de.ibm.com"
+    }
+  ],
   "scripts": {
     "prepublish": "node_modules/.bin/bower install"
   },
@@ -41,6 +45,7 @@
     "cheerio": "0.18.x",
     "handlebars": "x",
     "html-entities": "^1.0.10",
+    "jade": "^1.9.2",
     "js-beautify": "^1.5.1",
     "less": "1.7.x",
     "marked": "^0.3.2",
@@ -55,7 +60,7 @@
     "type": "git",
     "url": "https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit.git"
   },
-  "homepage":"http://openntf.org/main.nsf/project.xsp?r=project/Web%20UI%20Prototyping%20Toolkit",
+  "homepage": "http://openntf.org/main.nsf/project.xsp?r=project/Web%20UI%20Prototyping%20Toolkit",
   "engine": "node >= 0.10.26",
   "devDependencies": {
     "jasmine": "^2.1.1"
