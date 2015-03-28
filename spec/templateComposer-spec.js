@@ -140,11 +140,11 @@ describe("Template Compser", function () {
     it("find the nth occurrence", function(){
         console.log("test6");
         var cnt = "babababab"
-        var indx = tc.findNthOccurrence(cnt, "a", 1, 0);
+        var indx = utils.findNthOccurrence(cnt, "a", 1, 0);
         expect(indx).toBe(1);
-        var indx = tc.findNthOccurrence(cnt, "a", 2, 0);
+        var indx = utils.findNthOccurrence(cnt, "a", 2, 0);
         expect(indx).toBe(3);
-        var indx = tc.findNthOccurrence(cnt, "a", 2, 2);
+        var indx = utils.findNthOccurrence(cnt, "a", 2, 2);
         expect(indx).toBe(5);
 
     });
