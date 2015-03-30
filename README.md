@@ -5,9 +5,11 @@ Version 0.9.3
 This is a tool to facilitate the creation of static HTML prototypes from UX designs
 - Decompose pages into reusable fragments
 - Instant server startup, live editing from then on. Kill and fire up again only when changing project root
-- Nested inclusion of fragments
+- A powerful Filesystem Oriented Templating Language or FOTL with simple HTML comment syntax
+- JADE templating language support
+- Handlebars integration
 - Simplistic syntax model: mostly HTML comments that point to relative file paths
-- Live less css compilation
+- Live less css compilation : *always* get the latest compiled css and map for every request
 - Make your prototypes feel like a website: automatic generation of navigation of prototypes
 - Every request processes all markup and styles
 - Quick helpers: toggle RTL, highlight specific markup, ...
