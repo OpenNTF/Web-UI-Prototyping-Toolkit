@@ -49,5 +49,16 @@ describe("util functions", function(){
             console.log("SIZE TEST " + n);
             testRun(n);
         })
-    })
+    });
+    it("should correct comment endings", function(){
+        var html='<blah><!-- test:test--> <!-- ok:ok --> <!-- test2:test2-->';
+        var expected='<blah><!-- test:test --> <!-- ok:ok --> <!-- test2:test2 -->';
+        //var expected='<blah><!-- test:test -->';
+        console.log("correcting ...");
+        var actual = utils.correctCommentClosings(html);
+        console.log("CORRECTED COMMENTS = ", actual);
+        expect(actual).toBe(expected);
+
+
+    });
 });

@@ -18,6 +18,7 @@
 var tc = require("../lib/templateComposer");
 var fs = require("fs");
 var testUtils = require("../lib/testUtils");
+var utils = require("../lib/utils");
 var path = require("path");
 var templatesParent =path.join(testUtils.getTestProjectDir(), "component") + "/";
 
@@ -134,7 +135,7 @@ describe("Template Compser", function () {
     it("counts occurrences in text between indexes", function(){
         console.log("test6");
         var cnt = "aaaa"
-        var count = tc.countOccurrencesBetweenIndexes(cnt, "a", 1, 3);
+        var count = utils.countOccurrencesBetweenIndexes(cnt, "a", 1, 3);
         expect(count).toBe(2);
     });
     it("find the nth occurrence", function(){
