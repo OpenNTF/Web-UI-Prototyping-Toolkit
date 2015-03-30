@@ -174,8 +174,26 @@ describe("Template Compser", function () {
             runtime: testUtils.createTestRuntime(testsProjDir)
         });
         var indexPath = path.resolve(testsProjDir, "index.html");
-        var composed = tp.composeTemplate(indexPath, "" + fs.readFileSync(indexPath), 2);
-        var expected = '<h1>hey</h1><div>yow</div><p>STUB</p><p>STUB</p>';
+        var composed = tp.composeTemplate(indexPath, "" + fs.readFileSync(indexPath));
+        var expected = '<h1>hey</h1><div>yow</div><p>S</p><p>S</p>';
         expect(composed.content).toBe(expected);
+    });
+    it("should allow wrap calls with args based on JSON data object", function(){
+
+        //var tp=newTemplateComposer();
+        var testsProjDir = path.join(__dirname, "files/testsProj");
+        var tp = tc.createTemplateComposer({
+            runtime: testUtils.createTestRuntime(testsProjDir)
+        });
+        function testCompile(templateName, expected){
+            var indexPath = path.resolve(testsProjDir, templateName);
+            var composed = tp.composeTemplate(indexPath, "" + fs.readFileSync(indexPath));
+            expect(composed.content).toBe(expected);
+        }
+        testCompile("index-jsonSingleObj.html", '<h1>t1</h1><div>yow</div><p>S</p>');
+        testCompile("index-jsonMultiObj.html", '<h1>t1</h1><div>yow</div><p>S</p>');
+        testCompile("index-jsonMultiObj2.html", '<h1>t2</h1><div>yow</div><p>S</p><p>S</p>');
+        testCompile("index-jsonMultiArrayByIndex.html", '<h1>t2</h1><div>yow</div><p>S</p><p>S</p>');
+        testCompile("index-jsonMultiArrayByKeyVal.html", '<h1>t1</h1><div>yow</div><p>S</p>');
     });
 });

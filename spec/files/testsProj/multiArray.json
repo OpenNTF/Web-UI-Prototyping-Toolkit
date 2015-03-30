@@ -1,0 +1,12 @@
+[
+  {
+    "title":"t1",
+    "other":"file:stub",
+    "page":"home"
+  },
+  {
+    "title":"t2",
+    "other":"file:stub,file:stub",
+    "page":"second"
+  }
+]

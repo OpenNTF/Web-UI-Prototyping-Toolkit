@@ -1,0 +1,11 @@
+{
+  "home":{
+    "title":"t1",
+    "other":"file:stub"
+  },
+  "second":{
+    "title":"t2",
+    "other":"file:stub,file:stub"
+}
+
+}

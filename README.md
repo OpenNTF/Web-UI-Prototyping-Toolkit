@@ -255,12 +255,47 @@ For this to work, `layouts/myLayout.html` should contain the following droppoint
 
     <!-- content:main -->
 
-### Passing arguments for other drop points
+#### Passing arguments for other drop points
 Similar to layouts, arguments for other drop points in the called wrap layout can be passed.
 
     <!-- wrap:simpleLayout(title="My Page Title";other=file:newsList,file:featuresList) -->
     <p> my actual page content that will be surrounded with the contents of simpleLayout.html</p>
 
+#### Passing arguments for other drop points from a JSON file
+Wouldn't it be nice if we could read page titles etc from a JSON file and pass it to the layout using to surround active content?
+That's exactly what this is for; it resolves the drop point names from the data in JSON in a few ways.
+
+The examples in the options below are taken from the tests, these are part of protostar and located at `<wuipt_dir>/spec/files/testsProj`
+You'll find html files calling the same layout to wrap with different args as well as the corresponding JSON files.
+
+##### Use full JSON object
+The JSON file should contain an object and be located at `/singleObject.json` for below example.
+This maps droppoint names to first level properties in the object
+
+
+    <!-- wrap:simpleLayout(hb:singleObject) -->
+
+##### Use data at sub path of JSON object 
+The JSON file should contain an object and be located at `/multiObject.json` for below example.
+The object at given index in the array is used as data for the drop points.
+
+    <!-- wrap:simpleLayout(hb:multiObject('home')) -->
+    <!-- wrap:simpleLayout(hb:multiObject('second')) -->
+
+##### Use data in object at certain index in array
+The JSON file should contain an array of objects and be located at `/multiArray.json` for below example.
+The object at given index in the array is used as data for the drop points.
+
+    <!-- wrap:simpleLayout(hb:multiArray(0)) -->
+    <!-- wrap:simpleLayout(hb:multiArray(1)) -->
+
+##### Use data in object at with certain value for certain sub property in an array
+The JSON file for below example should be located at `/multiArray.json` and should contain an array of objects where, for below example, each object should have a proprety "page" with a string value assigned to it.
+This is used to identify the object that contains the data for the drop points.
+You could eg get the data for the object where property "page" is set to "home".
+
+    <!-- wrap:simpleLayout(hb:multiArray(page="home")) -->
+    <!-- wrap:simpleLayout(hb:multiArray(page="second")) -->
 
 #### Wrapping contents that are inserted to layouts
 It is common for html components to need wrapping markup for grid layouts etc; you want to say: surround everything that's inserted here with eg.
