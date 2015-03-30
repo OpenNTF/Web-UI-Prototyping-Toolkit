@@ -13,7 +13,7 @@
         "resourceDirs" : {
             "node" : [],
             "bower" : [],
-            "project" : ["less"]
+            "project" : ["less", "lib/bootstrap/fonts", "lib/bootswatch/fonts", "js"]
         },
         "includeNamedPaths" : false,
         "excludedPaths" : []
