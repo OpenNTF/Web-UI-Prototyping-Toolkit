@@ -16,6 +16,7 @@ bin/Protostar.desktop
 bin/protostar
 .directory
 core/config/config.json
+core/backend/compiled/*.html
 bin/Protostar.app
 core/assets/help.html
 core/backend/help.html

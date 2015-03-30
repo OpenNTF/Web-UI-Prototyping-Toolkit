@@ -255,6 +255,13 @@ For this to work, `layouts/myLayout.html` should contain the following droppoint
 
     <!-- content:main -->
 
+### Passing arguments for other drop points
+Similar to layouts, arguments for other drop points in the called wrap layout can be passed.
+
+    <!-- wrap:simpleLayout(title="My Page Title";other=file:newsList,file:featuresList) -->
+    <p> my actual page content that will be surrounded with the contents of simpleLayout.html</p>
+
+
 #### Wrapping contents that are inserted to layouts
 It is common for html components to need wrapping markup for grid layouts etc; you want to say: surround everything that's inserted here with eg.
 To achieve this behavior, you can pass the content drop point in the layout the `wrap` argument:

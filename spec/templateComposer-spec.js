@@ -163,7 +163,19 @@ describe("Template Compser", function () {
         var tp=newTemplateComposer();
         var indexPath = path.resolve(testUtils.getTestProjectDir(), "index.html");
         var composed = tp.composeTemplate(indexPath, "" + fs.readFileSync(indexPath), 1);
-        console.log("LOREM DROP POINTS: ", tp.findDropPoints(indexPath, "" + fs.readFileSync(indexPath), "lorem"));
-        console.log("COMPOSED : ", composed);
+        //console.log("LOREM DROP POINTS: ", tp.findDropPoints(indexPath, "" + fs.readFileSync(indexPath), "lorem"));
+        //console.log("COMPOSED : ", composed);
+        expect(composed.content.indexOf('<!-- lorem:') >= 0).toBe(false);
+    });
+    it("should allow wrap calls with args for other drop points", function(){
+        //var tp=newTemplateComposer();
+        var testsProjDir = path.join(__dirname, "files/testsProj");
+        var tp = tc.createTemplateComposer({
+            runtime: testUtils.createTestRuntime(testsProjDir)
+        });
+        var indexPath = path.resolve(testsProjDir, "index.html");
+        var composed = tp.composeTemplate(indexPath, "" + fs.readFileSync(indexPath), 2);
+        var expected = '<h1>hey</h1><div>yow</div><p>STUB</p><p>STUB</p>';
+        expect(composed.content).toBe(expected);
     });
 });
