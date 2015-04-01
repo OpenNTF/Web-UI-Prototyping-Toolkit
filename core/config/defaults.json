@@ -37,6 +37,24 @@
     "runtime": {
         "saveCompiled": false,
         "cleanBuiltHtml": true,
+        "screenshotSizes" : {
+            "smartphone": {
+                "width": 320,
+                "height": 480
+            },
+            "tablet": {
+                "width": 1024,
+                "height": 768
+            },
+            "desktop": {
+                "width": 1920,
+                "height": 1200
+            },
+            "hires": {
+                "width": 2880,
+                "height": 1800
+            }
+        },
         "screenshots":{
             "windowSize": {
                 "width": 1440,
@@ -52,6 +70,7 @@
                 "top": 0,
                 "bottom": 0
             },
+
             "quality": 95,
             "userAgent": "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.20 (KHTML, like Gecko) Mobile/7B298g",
             "streamType": "png",
