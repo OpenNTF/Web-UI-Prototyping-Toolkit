@@ -1,17 +1,20 @@
+var path = require("path");
 var protostarBuilder = require("../lib/protostarBuilder");
 var testUtils = require("../lib/testUtils");
 var utils = require("../lib/utils");
 var protostarProject = require("../lib/protostarProject");
 var templateComposer = require("../lib/templateComposer")
 var originalTimeout;
+
 describe("protostarBuilder", function(){
     beforeEach(function() {
         originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
     });
 
     it("should finish all threads first before exiting..", function(done){
-        var runtime = testUtils.createTestRuntime("/home/spectre/Projects/protostar-projects/dsv-prototype/src");
+        var sampleProjectPath = path.join(__dirname, "../projects/sample")
+        var runtime = testUtils.createTestRuntime(sampleProjectPath);
         var targetDir = "/tmp/psBuildTest_" + (new Date().getTime());
         runtime.targetDirPath = targetDir;
         runtime.targetDir = targetDir;
@@ -38,11 +41,10 @@ describe("protostarBuilder", function(){
             var foundCss = false;
             zip.getEntries().forEach(function(e){
                 console.log(e.name);
-                if(e.name.toString() === 'mydsv.css'){
+                if(e.name.toString() === 'styles.less-readable.css'){
                     foundCss = true;
                 }
             });
-            //console.log(zip.getEntries()[0].name);
             expect(foundCss).toBe(true);
             done();
         }, function(error){
