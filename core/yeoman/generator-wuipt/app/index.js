@@ -13,7 +13,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the transcendent ' + chalk.red('Wuipt') + ' generator!'
+      'Welcome to the transcendent ' + chalk.red('WUIPT') + ' generator!'
     ));
 
     var prompts = [{
