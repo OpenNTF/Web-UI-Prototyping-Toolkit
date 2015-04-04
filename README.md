@@ -30,9 +30,7 @@ Open a commandline with node, npm and git commands available, and run following:
 
 Open a browser to http://localhost:8888/
 
-On linux and OS X systems you can run following command to create a launch script as well as launcher icon.
-
-    ./install.sh
+Launchers are generated for FreeDesktop, OS X and Windows (pitiful protostar.bat but still) in the /bin subdir.
 
 ### Requirements
 
@@ -53,16 +51,27 @@ On Windows you may need to use 'git bash' depending on choices made during git i
 ### Linux & OS X
 - open commandline
 - `cd /path/to/protostar`
-- `./install.sh`
+- `npm install`
 
-to have a launcher icon created as well as a shell script in /bin in the protostar dir.
+This also generates both an OpenDesktop launcher and OSX Dock icon in /bin
+
+We also recommend you create a symlink to the bin/protostar launcher script and add it to your PATH variable.
+
+#### Updating on Linux & OS X
+Warning: the following will reset any changes made to your protostar install!
+
+To update the current install to the latest master version from github it suffices to invoke:
+
+    ./resetAndReinstall.sh
+
 
 ### Windows
 - download & extract or check out the latest version to where you want to store the app directory
 - open commandline
 - `cd \path\protostar`
 - `npm install`
-- Installed!
+
+This also generates a simple launcher batch script in bin/protostar.bat 
 
 ### Validating the Protostar installation
 To run Protostar with the test project (use backslashes on Windows)
