@@ -282,10 +282,10 @@ $(function(){
                  { name: 'others', items: [ '-' ] },
                  { name: 'about', items: [ 'About' ] }         */
             ],
-            //"extraPlugins": "sourcedialog,imagebrowser",
-            //"removePlugins": "sourcearea",
-            allowedContent: true//,
-            // "imageBrowser_listUrl": "/ps/dynamic/images.json" //"${appRoot}upload/thumbnails/small/images/large/default"
+            "extraPlugins": "sourcedialog,imagebrowser",
+            "removePlugins": "sourcearea",
+            allowedContent: true,
+             "imageBrowser_listUrl": "/ps/dynamic/images.json" //"${appRoot}upload/thumbnails/small/images/large/default"
         };
 
 //        var imageBrowserImagesUrl = "/images.json";//viewCfg.imageBrowserImagesUrl; //"${appRoot}upload/thumbnails/small/images/large/default"
