@@ -37,6 +37,67 @@ function ProtostarRuntimeActions(window, $){
                 window.location = newLocation;
             }
         },
+        toggleRuntimeShortcutRef : {
+            label: "Toggle shortcut reference",
+            description: "Displays or hides the protostar in-page shortcuts reference",
+            perform : function (window, $, shortcuts){
+
+                if($("#psShortcutReference").length < 1){
+
+                    var actions = _getActions();
+
+                    var sc = [];
+                    for(var s in shortcuts){
+                        sc.push(s);
+                    }
+                    sc.sort();
+                    var markup = '<h2>Protostar shortcuts</h2><dl>';
+
+
+                    sc.forEach(function(shortcut){
+                        var desc = '';
+                        var lbl = '';
+                        var mapped = shortcuts[shortcut];
+                        if(typeof mapped === 'object'){
+                            lbl = mapped.label;
+                            desc = mapped.description;
+                        }else if(typeof mapped === 'string'){
+                            var m  = actions[mapped];
+                            lbl = m.label;
+                            desc = m.description;
+                        }
+                        markup += '<dt>'+shortcut+': ' + lbl  + '</dt><dd style="padding-left:15px">'+desc+'</dd>';
+                    });
+                    markup += '</dl>';
+                    $("body").append('<div id="psShortcutReference" draggable="true" style="display:none;position:absolute;border-radius:10px;border:solid 2px rgba(0,0,0,0.5);background-color:rgba(255,255,255,0.95);z-index:1000;left:10px;top:10px;width:350px;padding-right:10px">'+markup+'</div>');
+
+                    function addListeners(){
+                        function mouseUp()
+                        {
+                            window.removeEventListener('mousemove', divMove, true);
+                        }
+                        function mouseDown(e){
+                            console.log("MOUSEDOWN:", e);
+                            window.addEventListener('mousemove', divMove, true);
+                        }
+                        function divMove(e) {
+                            var div = document.getElementById('psShortcutReference');
+                            div.style.position = 'absolute';
+                            div.style.top = e.clientY + 'px';
+                            div.style.left = e.clientX + 'px';
+                        }
+                        document.getElementById('psShortcutReference').addEventListener('mousedown', mouseDown, false);
+                        window.addEventListener('mouseup', mouseUp, false);
+                    }
+                    addListeners();
+                    $("#psShortcutReference").fadeIn();
+
+                }else{
+                    $("#psShortcutReference").css('display', $("#psShortcutReference").css("display") === 'block' ? 'none' : 'block');
+                }
+            }
+
+        },
         toggleRuntimeMenu : {
             label: "Toggle menu",
             description: "Displays or hides the protostar in-page menu",
@@ -49,7 +110,7 @@ function ProtostarRuntimeActions(window, $){
                         mimeType: "application/json",
                         type: "get",
                         success: function(commandNames){
-                            var markup = '<ul>';
+                            var markup = '<h2>Protostar actions</h2><ul>';
                             commandNames.forEach(function(cn){
                                 markup += '<li><a href="?command='+cn+'">'+cn+'</a></li>'
                             });
@@ -59,7 +120,7 @@ function ProtostarRuntimeActions(window, $){
                                 markup += '<li><a href="?'+cn+'">'+cn+'</a></li>'
                             });
                             markup += '</ul><ul id="psFunctionActions"></ul>'
-                            $("body").append('<div id="psActionMenu" draggable="true" style="display:none;position:absolute;border-radius:10px;border:solid 2px rgba(0,0,0,0.5);background-color:rgba(255,255,255,0.95);z-index:1000;left:10px;top:10px;width:200px;padding-right:10px">'+markup+'</div>');
+                            $("body").append('<div id="psActionMenu" draggable="true" style="display:none;position:absolute;border-radius:10px;border:solid 2px rgba(0,0,0,0.5);background-color:rgba(255,255,255,0.95);z-index:1000;left:10px;top:10px;width:350px;padding-right:10px">'+markup+'</div>');
                             var functionCmds = {
                                 "Help" : function(){
                                     pra.invoke("changeLocation", "/psHelp");
@@ -172,6 +233,8 @@ function ProtostarRuntimeActions(window, $){
 
         }
     };
+
+    var _getActions = function(){return actions;};
 
     for(var an in actions){
         this[an] = actions[an];

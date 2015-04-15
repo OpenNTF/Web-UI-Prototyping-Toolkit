@@ -15,7 +15,11 @@
  *
  */
 function ProtostarRuntimeShortcuts(runtimeActions){
+    this.getMapping = function(){
+        return this.shortCutMapping;
+    };
 
+    var that = this;
     this.shortCutMapping = {
         // you can map a shortcut directly to a runtime action name (see runtimeActions.js)
         "alt shift r": "toggleRtl",
@@ -93,7 +97,15 @@ function ProtostarRuntimeShortcuts(runtimeActions){
         },
         "alt shift s": "saveRtfChanges",
         "alt shift g": "toggleOutlineBlocks",
-        "alt shift m": "toggleRuntimeMenu"
+        "alt shift m": "toggleRuntimeMenu",
+        //"alt shift j": "toggleRuntimeShortcutRef",
+        "alt shift j" : {
+            label: "Keyboard shortcuts",
+            description: "Show an overview of available keyboard shorcuts",
+            invoke: function () {
+                runtimeActions.invoke("toggleRuntimeShortcutRef", that.shortCutMapping);
+            }
+        }
     };
 
     this.listener = new runtimeActions.window.keypress.Listener();
