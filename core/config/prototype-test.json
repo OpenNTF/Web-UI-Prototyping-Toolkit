@@ -1,0 +1,45 @@
+{
+    "disclaimer" : "this file is in development and not used yet. It is intended to contain project specific config etc",
+    "project": {
+        "title": "",
+        "main": "index.html",
+        "namedPaths": {
+          "tmpDir": {
+            "url" : "/tmpDir",
+            "path" : "/tmp"
+          }
+        }
+    },
+    "build": {
+        "target":"_target",
+        "format":"dir",
+        "resourceDirs" : {
+            "node" : [],
+            "bower" : [],
+            "project" : ["less", "images"]
+        },
+        "includeNamedPaths" : false,
+        "excludedPaths" : []
+    },
+    "theming" : {
+        "enabled": false,
+        "themeNames" : ["cerulean", "cosmo", "custom", "cyborg", "darkly", "flatly", "journal", "lumen", "paper", "readable", "sandstone", "simplex", "slate", "spacelab", "superhero", "united", "yeti"],
+        "entryPoint" : "less/styles.less",
+        "themeNameVar" : "themeName",
+        "defaultThemeName" : "flatly",
+        "compileAllThemes" : true
+    },
+    "commands": {
+
+    },
+    "compilation": {
+        "enabled" : "true"
+
+    },
+    "runtime": {
+        "saveCompiled": false,
+        "cleanBuiltHtml": true
+
+    }
+
+}

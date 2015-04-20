@@ -18,7 +18,7 @@ function ProtostarRuntimeActions(window, $){
 
     this.window = window;
     this.$ = $;
-
+    var that = this;
     var actions = {
         toggleRtl : {
             label: "Toggle RTL",
@@ -123,19 +123,19 @@ function ProtostarRuntimeActions(window, $){
                             $("body").append('<div id="psActionMenu" draggable="true" style="display:none;position:absolute;border-radius:10px;border:solid 2px rgba(0,0,0,0.5);background-color:rgba(255,255,255,0.95);z-index:1000;left:10px;top:10px;width:350px;padding-right:10px">'+markup+'</div>');
                             var functionCmds = {
                                 "Help" : function(){
-                                    pra.invoke("changeLocation", "/psHelp");
+                                    that.invoke("changeLocation", "/psHelp");
                                 },
                                 "Go to index" : function(){
-                                    pra.invoke("changeLocation", "/");
+                                    that.invoke("changeLocation", "/");
                                 },
                                 "Toggle Outlining" : function(){
-                                    pra.invoke("toggleOutlineBlocks");
+                                    that.invoke("toggleOutlineBlocks");
                                 },
                                 "Toggle RTL" : function(){
-                                    pra.invoke("toggleRtl");
+                                    that.invoke("toggleRtl");
                                 },
                                 "Save RTF Changes" : function(){
-                                    pra.invoke("saveRtfChanges");
+                                    that.invoke("saveRtfChanges");
                                 }
                             };
                             var functParent = $("#psFunctionActions");
