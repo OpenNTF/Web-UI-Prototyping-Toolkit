@@ -147,5 +147,15 @@ describe("File Oriented Templating Language", function(){
             expect(selfRef).toThrow();
         });
     });
+    it("passes args to layouts to nested layouts", function(done){
+        var templatePath = path.join(testsProjectDirPath, "testLayoutPass.html");
+        fs.readTextFile(templatePath).done(function(tf){
+            var composed = cmp.composeTemplate(templatePath, tf,1);
+            console.log("COMPOSED = ", composed);
+            expect(composed.content).toBe('ax<!-- layout:fotl/lay1(main="v";other="w") -->yb');
+            done();
+        });
+
+    });
 
 });
