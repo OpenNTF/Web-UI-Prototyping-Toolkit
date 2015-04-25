@@ -64,7 +64,7 @@ function ProtostarRuntimeShortcuts(runtimeActions){
             label: "Help",
             description: "Show Protostar help",
             invoke: function () {
-                runtimeActions.invoke("changeLocation", "/psHelp");
+                runtimeActions.invoke("changeLocation", "/pshelp");
             }
         },
         "alt shift k" : {

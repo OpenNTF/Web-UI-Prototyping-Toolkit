@@ -41,19 +41,14 @@ function ProtostarRuntimeActions(window, $){
             label: "Toggle shortcut reference",
             description: "Displays or hides the protostar in-page shortcuts reference",
             perform : function (window, $, shortcuts){
-
                 if($("#psShortcutReference").length < 1){
-
                     var actions = _getActions();
-
                     var sc = [];
                     for(var s in shortcuts){
                         sc.push(s);
                     }
                     sc.sort();
                     var markup = '<h2>Protostar shortcuts</h2><dl>';
-
-
                     sc.forEach(function(shortcut){
                         var desc = '';
                         var lbl = '';
@@ -96,7 +91,6 @@ function ProtostarRuntimeActions(window, $){
                     $("#psShortcutReference").css('display', $("#psShortcutReference").css("display") === 'block' ? 'none' : 'block');
                 }
             }
-
         },
         toggleRuntimeMenu : {
             label: "Toggle menu",
@@ -123,7 +117,7 @@ function ProtostarRuntimeActions(window, $){
                             $("body").append('<div id="psActionMenu" draggable="true" style="display:none;position:absolute;border-radius:10px;border:solid 2px rgba(0,0,0,0.5);background-color:rgba(255,255,255,0.95);z-index:1000;left:10px;top:10px;width:350px;padding-right:10px">'+markup+'</div>');
                             var functionCmds = {
                                 "Help" : function(){
-                                    that.invoke("changeLocation", "/psHelp");
+                                    that.invoke("changeLocation", "/pshelp");
                                 },
                                 "Go to index" : function(){
                                     that.invoke("changeLocation", "/");
@@ -172,7 +166,6 @@ function ProtostarRuntimeActions(window, $){
                     $("#psActionMenu").css('display', $("#psActionMenu").css("display") === 'block' ? 'none' : 'block');
                 }
             }
-
         },
         saveRtfChanges: {
             label: "Save rich text changes",
@@ -230,7 +223,6 @@ function ProtostarRuntimeActions(window, $){
                     $(".portlet").css("border", "3px solid red");
                 }
             }
-
         }
     };
 
