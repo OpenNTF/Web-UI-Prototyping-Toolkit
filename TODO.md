@@ -6,7 +6,6 @@ This is unstructered at the moment and kept as an ongoing workinglist.
 
 ## Open
 #### Misc
-- download builds as zip
 - launch display mode for zip -> extract to temp dir and launch that
 - create specific screenshot(s) : size, viewport, ..
 - check running instance and restart if different project is launched on same port
@@ -29,6 +28,7 @@ This is unstructered at the moment and kept as an ongoing workinglist.
 - Static built projects : fonts should be positioned next to or below current dir : https://bugzilla.mozilla.org/show_bug.cgi?id=760436
 
 ## Done
+- OK download builds as zip
 #### Layouts
 - OK enable assigning content to droppoints by name instead of by order:
 - OK ensure new approach also includes multiple contents for single droppoing
