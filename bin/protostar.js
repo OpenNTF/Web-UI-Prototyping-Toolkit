@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * Copyright 2014 IBM Corp.
  * 
@@ -17,57 +18,26 @@
 
 "use strict";
 
-var path = require("path");
-var fs = require("fs");
-var protostardust = require(__dirname + "/../lib/protostardust");
-var utils = require(__dirname + "/../lib/utils");
-var psRuntime = require(__dirname + "/../lib/runtime");
+/*
+* Protostar CLI
+* */
 
-var rt = psRuntime.createRuntime({
+var protostar = require(__dirname + "/../lib/protostar");
+
+var rt = protostar.createRuntime({
     workingDir: process.cwd(),
     args: process.argv,
     debug:false
 });
 
-function buildProject(){
-    var buildHelper = protostardust.createServer({
-        runtime:rt
-    });
-    buildHelper.buildPrototype(rt.targetDirPath, function(){
-        console.log("BUILT " + rt.constructProjectPath("") + " => " + rt.getTargetDirPath());
-    });
-}
-
-function startProject(){
-    var helper = protostardust.createServer({
-        runtime:rt
-    });
-    helper.start();
-}
-
-function createProject(){
-    var helper = protostardust.createServer({
-        runtime:rt
-    });
-    helper.createProject();
-    // create dir
-    // create index.html with backend stuff
-    // create prototype.json with defaults
-}
-
-function startWorkspace(){
-
-}
-
-//console.log("RT === ", rt);
 if(rt.mode === 'create'){
-    createProject();
+    protostar.createProject(rt);
 }else if(rt.mode === 'help'){
-
+    //protostar.generateHelpMarkup();
 }else if(rt.mode === "build"){
-    buildProject();
+    protostar.buildProject(rt);
 }else if(rt.mode === "devserver"){
-    startProject();
+    protostar.startProject(rt);
 }else{
     throw new Error("Unknown runtime mode! " + rt.mode);
 }

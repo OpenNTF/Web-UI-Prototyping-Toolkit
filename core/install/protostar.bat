@@ -1,0 +1,1 @@
+"___NODE_EXEC_PATH___" "___PROTOSTARDIR___\bin\protostar.js" %*

@@ -1,0 +1,3 @@
+set appManager [$AdminControl queryNames cell=omniusCell,node=omniusNode,type=ApplicationManager,process=WebSphere_Portal,*]
+$AdminControl invoke $appManager stopApplication 'Microsites Portal Theme'
+$AdminControl invoke $appManager startApplication 'Microsites Portal Theme'

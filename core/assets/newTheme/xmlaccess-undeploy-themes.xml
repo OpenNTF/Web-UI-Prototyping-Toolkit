@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request build="20140709-2127" type="update" version="8.5.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PortalConfig_8.5.0.xsd" transaction-level="request">
+    <portal action="locate">
+        <skin action="delete" uniquename="{{projectName}}.skin.85Hidden"/>
+        <skin action="delete" uniquename="{{projectName}}.skin.85HiddenPlus"/>
+        <skin action="delete" uniquename="{{projectName}}.skin.85Standard"/>
+        <skin action="delete" uniquename="{{projectName}}.skin.85NoSkin"/>
+        <theme action="delete" uniquename="{{projectName}}.theme.{{projectName}}Theme"/>
+    </portal>
+</request>

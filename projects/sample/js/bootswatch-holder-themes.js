@@ -1,0 +1,16 @@
+Holder.addTheme('cosmo',{background: '#2780E3'});
+Holder.addTheme('darkly',{background: '#375a7f'});
+Holder.addTheme('journal',{background: '#EB6864'});
+Holder.addTheme('simplex',{background: '#D9230F'});
+Holder.addTheme('lumen',{background: '#158CBA'});
+Holder.addTheme('flatly',{background: '#2C3E50'});
+Holder.addTheme('readable',{background: '#4582EC'});
+Holder.addTheme('spacelab',{background: '#446E9B'});
+Holder.addTheme('yeti',{background: '#008cba'});
+Holder.addTheme('superhero',{background: '#DF691A'});
+Holder.addTheme('cyborg',{background: '#2A9FD6'});
+Holder.addTheme('united',{background: '#DD4814'});
+Holder.addTheme('slate','@gray-l{background: ight');
+Holder.addTheme('sandstone',{background: '#325D88'});
+Holder.addTheme('paper',{background: '#2196F3'});
+Holder.addTheme('cerulean',{background: '#2FA4E7'});

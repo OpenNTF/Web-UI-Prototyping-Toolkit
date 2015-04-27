@@ -7,7 +7,6 @@
 
         }
     },
-
     "build": {
         "target":"_target",
         "format":"dir",
@@ -20,7 +19,8 @@
         "excludedPaths" : []
     },
     "theming" : {
-        "themeNames" : ["amelia", "cerulean", "cosmo", "custom", "cyborg", "darkly", "flatly", "journal", "lumen", "paper", "readable", "sandstone", "simplex", "slate", "spacelab", "superhero", "united", "yeti"],
+        "enabled": false,
+        "themeNames" : ["cerulean", "cosmo", "custom", "cyborg", "darkly", "flatly", "journal", "lumen", "paper", "readable", "sandstone", "simplex", "slate", "spacelab", "superhero", "united", "yeti"],
         "entryPoint" : "less/styles.less",
         "themeNameVar" : "themeName",
         "defaultThemeName" : "flatly",
@@ -30,7 +30,7 @@
 
     },
     "compilation": {
-
+        "enabled" : "true"
 
     },
     "runtime": {

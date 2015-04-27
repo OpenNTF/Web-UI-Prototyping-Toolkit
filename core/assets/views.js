@@ -1,12 +1,12 @@
 /**
  * Copyright 2014 IBM Corp.
- * 
+ *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  *  Unless required by applicable law or agreed to in writing, software
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -285,7 +285,7 @@ $(function(){
             "extraPlugins": "sourcedialog,imagebrowser",
             "removePlugins": "sourcearea",
             allowedContent: true,
-            "imageBrowser_listUrl": "/ps/dynamic/images.json" //"${appRoot}upload/thumbnails/small/images/large/default"
+             "imageBrowser_listUrl": "/ps/dynamic/images.json" //"${appRoot}upload/thumbnails/small/images/large/default"
         };
 
 //        var imageBrowserImagesUrl = "/images.json";//viewCfg.imageBrowserImagesUrl; //"${appRoot}upload/thumbnails/small/images/large/default"
@@ -309,12 +309,12 @@ $(function(){
                 contentType: "application/json",
                 mimeType: "application/json"
             }).always(function (data, status) {
-                    console.log("Done: ", arguments);
-                    if (parseInt((status, 10) - 200) < 10) {
-                        notifySuccess("Updated page text");
-                    } else {
-                        notifyError("Could not update page text");
-                    }
+                console.log("Done: ", arguments);
+                if (parseInt((status, 10) - 200) < 10) {
+                    notifySuccess("Updated page text");
+                } else {
+                    notifyError("Could not update page text");
+                }
 
             });
         });
@@ -333,7 +333,56 @@ $(function(){
         CKEDITOR.disableAutoInline = false;
         console.log("Inlining " + editableId);
         CKEDITOR.inline(editableId, config);
-//        $('#contentpageContentContainer').attr('contenteditable', 'true');
-
     });
+
+    // Edit prototype config
+    var psEditPrototypeConfigRoot = $(".protostarProjectConfig");
+    if(psEditPrototypeConfigRoot.length > 0){
+        $("*[data-toggled]").addClass("hidden");
+        $("*[data-toggle]").click(function(){
+            var t = $(this);
+            var nm = t.attr("data-toggle");
+            $("*[data-toggled='"+nm+"']").toggleClass("hidden");
+            var f = $("*[data-toggled='"+nm+"']").first();
+            if(!f.hasClass("hidden")){
+                f.find("input").first().focus();
+            }
+        });
+        function wireFields(cfg){
+            for(var k in cfg){
+                console.log(k + "=", cfg[k]);
+            }
+        }
+        $.get("/ps/config/prototype-test.json").then(function(cfg){
+            console.log("Config: ", cfg);
+            wireFields(cfg);
+        });
+    }
+
+    var createThemeRoot = $(".protostarNewPortalTheme");
+    if(createThemeRoot.length > 0){
+        createThemeRoot.find('button[name="create-my-theme"]').click(function(){
+            var obj = {};
+            createThemeRoot.find("input").each(function(){
+                var t = $(this);
+                obj[t.attr("name")] = t.val();
+            });
+            console.log("Object = ", obj);
+            $.ajax({
+                type: "post",
+                url: "/ps/buildTheme/"+obj.projectName + ".zip",
+                data: JSON.stringify(obj),
+                dataType: "json",
+                contentType: "application/json",
+                mimeType: "application/json"
+            }).done(function(data){
+                var auth = data.auth;
+                window.location.pathname = "/ps/buildTheme/"+obj.projectName + ".zip?auth=" + auth;
+            }).error(function(){
+                console.error("Error !", arguments);
+            });
+
+        });
+
+    }
 });

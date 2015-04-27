@@ -38,6 +38,41 @@
 </div>
 <div class="bottom">
     <!-- file:component/myComponent -->
+    <div>
+        <h2>Lorem below this</h2>
+        <div>
+            <strong>A phrase:</strong>
+            <div><!-- lorem:phrase --></div>
+        </div>
+        <div>
+            <strong>A paragraph:</strong>
+            <div><!-- lorem:paragraph --></div>
+        </div>
+        <div>
+            <strong>A word:</strong>
+            <div><!-- lorem:word --></div>
+        </div>
+        <div>
+            <strong>2 phrases separated by a break tag:</strong>
+            <div><!-- lorem:phrase(count=2,separator='<br/>') --></div>
+            <strong>between one and six phrase tags with class applied:</strong>
+            <div><!-- lorem:phrase(tag='p class="phrase" style="border: solid 1px black"',min=1,max=6) --></div>
+
+        </div>
+        <div>
+            <strong>2 paragraphs separated by a break tag:</strong>
+            <div><!-- lorem:paragraph(count=2,separator='<br/>') --></div>
+            <strong>between two and five paragraph tags with class applied:</strong>
+                <div><!-- lorem:paragraph(tag='p class="paragraph" style="border: solid 1px black"',min=2,max=5) --></div>
+        </div>
+        <div>
+            <strong>2 words separated by a break tag:</strong>
+            <div><!-- lorem:word(count=2,separator='<br/>',case=lower) --></div>
+            <strong>between two and six word tags with class applied:</strong>
+            <div><!-- lorem:word(tag='span class="word" style="border: solid 1px black"',min=2,max=6) --></div>
+        </div>
+
+    </div>
 </div>
 <!-- file:layoutParts/pageFoot -->
 

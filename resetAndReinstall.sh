@@ -19,5 +19,5 @@ git pull
 echo "Switching to default branch"
 git checkout ${DEFAULT_BRANCH}
 echo "Installing ..."
-./install.sh
+npm install
 echo "Done!"

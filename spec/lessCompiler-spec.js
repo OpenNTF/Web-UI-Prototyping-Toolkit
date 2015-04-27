@@ -21,23 +21,21 @@ var path = require("path");
 var lc = require("../lib/lessCompiler");
 describe("lessCompile", function(){
     it("should find the project root", function(){
-        expect(testUtils.getProjectDir()).toBe("/home/spectre/Projects/proto-star");
+        expect(testUtils.getProjectDir()).toBe("/home/spectre/Projects/WUIPT");
     });
-    if(false){
-        it("should offer a compile method", function(){
-            var filePath = path.join(testUtils.getTestProjectDir(),  "less", "style.less");
-
-            lc.compile(
-                filePath,[
-                    path.dirname(filePath) //folder toURL requires trailing slash
-                ],
-                "" + fs.readFileSync(filePath),
-                path.join(testUtils.getTestProjectDir(),  "less"),
-                function(css){
-                    expect(typeof css).toBe("string");
-                    console.log("COMPILED");
-                }
-            );
-        });
-    }
+    it("should offer a compile method", function(done){
+        var filePath = path.join(testUtils.getTestProjectDir(),  "less", "style.less");
+        lc.compile(
+            filePath,[
+                path.dirname(filePath) //folder toURL requires trailing slash
+            ],
+            "" + fs.readFileSync(filePath),
+            path.join(testUtils.getTestProjectDir(),  "less"),
+            function(css){
+                expect(typeof css).toBe("string");
+                console.log("COMPILED");
+                done();
+            }
+        );
+    });
 });
