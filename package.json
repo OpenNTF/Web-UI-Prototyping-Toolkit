@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "authors": [
     "Jonathan Bosmans <jonathan.bosmans@be.ibm.com>",
-    "Peter Schnitzler <peter@de.ibm.com>"
+    "Peter Grauvogel <peter@de.ibm.com>"
   ],
   "main": "./lib/protostar.js",
   "author": {
