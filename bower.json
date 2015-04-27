@@ -1,7 +1,7 @@
 {
   "name": "WUIPT",
   "description": "Web UI Prototyping Toolkit - A static prototype server and so much more.",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "authors": [
     "Jonathan Bosmans <jonathan.bosmans@be.ibm.com>",
     "Peter Grauvogel <peter@de.ibm.com>"
