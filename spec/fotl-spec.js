@@ -157,5 +157,16 @@ describe("File Oriented Templating Language", function(){
         });
 
     });
+    it("can wrap each droppoint in a layout inside a wrapper layout", function(done){
+        var templatePath = path.join(testsProjectDirPath, "testWrappingDroppoints.html");
+        fs.readTextFile(templatePath).done(function(tf){
+            var composed = cmp.composeTemplate(templatePath, tf);
+            console.log("COMPOSED = ", composed);
+            //expect(composed.content).toBe('ax<!-- layout:fotl/lay1(main="v";other="w") -->yb');
+            expect(composed.content).toBe('a<h1><em>u</em></h1><div><em>v</em></div><em>w</em><em>z</em>b');
+            done();
+        });
+
+    });
 
 });
