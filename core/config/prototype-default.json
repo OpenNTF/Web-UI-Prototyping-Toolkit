@@ -35,7 +35,8 @@
     },
     "runtime": {
         "saveCompiled": false,
-        "cleanBuiltHtml": true
+        "cleanBuiltHtml": true,
+        "addRuntimeScripts": true
 
     }
 
