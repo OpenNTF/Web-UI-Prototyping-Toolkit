@@ -130,6 +130,10 @@ Protostar is a tool to facilitate the creation of static HTML prototypes from UX
 When you start protostar you should pass it a directory as argument; this directory will represent your project root (and should thus come to contain and index.html file).
 All references will be resolved relative to this directory as long as the server process runs.
 
+### JADE support
+Protostar includes transparent jade support; just write a *.jade file and refer to it as if it were an html file.
+Protostar tags can be constructed by writing comments in JADE eg. // file:myIncludedFile
+Actual compilation will only happen if a template (or included) has been changed since last compilation.
 
 ### Leveraging reusable html fragments
 As a simple example create three files: index.html, other.html and nav.html.
@@ -400,6 +404,22 @@ Appends `<link rel="stylesheet" href="/cmp/myCmp.css">` to `<head>` (also picks 
     <!-- linkScript:default -->
 
 Appends `<script src="/cmp/myCmp.js">` to `<body>` if the contain HTML fragment is included in a page.
+
+### Loading all Javascript files below a directory path
+There are scenario's where you find yourself writing script tags for an ever increasing number of *.js files below a certain directory.
+Eg. in AngularJS scenario's you may have any number of module specific Javascript files that need to be loaded.
+
+The following tag will create a script tag for each *.js file found inside the '/js' directory:
+
+    <!-- loadScripts:js -->
+
+Which might result in:
+
+    <script type="text-javascript" src="/js/mycode.js"></script>
+    <script type="text-javascript" src="/js/othercode.js"></script>
+
+The actual order of the script tags will be randomized on each invocation to help keep track of the location independent nature of the code.
+If you need to ensure files are loaded in a specific order, encode them once in a fragment.
 
 ### Lorem Lipsum : variable length text placeholders
 On important aspect of well implemented UX's is that they flexibly handle content of different length.
