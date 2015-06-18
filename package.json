@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit/issues"
   },
-  "version": "0.9.6",
+  "version": "0.9.7",
   "license": "Apache-2.0",
   "authors": [
     "Jonathan Bosmans <jonathan.bosmans@be.ibm.com>",
