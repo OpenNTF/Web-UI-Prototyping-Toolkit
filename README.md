@@ -26,7 +26,7 @@ Open a commandline with node, npm and git commands available, and run following:
     git clone https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit.git protostar
     cd protostar
     npm install
-    protostar projects/test
+    node bin/protostar.js tutorials/1-GettingStarted
 
 Open a browser to http://localhost:8888/
 
