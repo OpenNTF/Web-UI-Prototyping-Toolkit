@@ -26,7 +26,11 @@ Open a commandline with node, npm and git commands available, and run following:
     git clone https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit.git protostar
     cd protostar
     npm install
-    protostar projects/test
+
+Validating the installation:
+
+    cd /my/path/to/protostar
+    node ./bin/protostar.js ./projects/test
 
 Open a browser to http://localhost:8888/
 
@@ -71,14 +75,7 @@ To update the current install to the latest master version from github it suffic
 - `cd \path\protostar`
 - `npm install`
 
-This also generates a simple launcher batch script in bin/protostar.bat 
-
-### Validating the Protostar installation
-To run Protostar with the test project (use backslashes on Windows)
-- open a terminal
-- `cd /my/path/to/protostar`
-- `node ./bin/protostar.js ./projects/test`
-- open a browser to http://localhost:8888
+This also generates a simple launcher batch script in bin/protostar.bat
 
 ## Running
 Running protostar boils down to invoking it and passing it a directory path as the only argument: the website root dir
@@ -290,7 +287,7 @@ This maps droppoint names to first level properties in the object
 
     <!-- wrap:simpleLayout(hb:singleObject) -->
 
-##### Use data at sub path of JSON object 
+##### Use data at sub path of JSON object
 The JSON file should contain an object and be located at `/multiObject.json` for below example.
 The object at given index in the array is used as data for the drop points.
 
