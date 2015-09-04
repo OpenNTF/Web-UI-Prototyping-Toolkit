@@ -24,6 +24,7 @@
 
 var protostar = require(__dirname + "/../lib/protostar");
 
+
 var rt = protostar.createRuntime({
     workingDir: process.cwd(),
     args: process.argv,
@@ -38,6 +39,8 @@ if(rt.mode === 'create'){
     protostar.buildProject(rt);
 }else if(rt.mode === "devserver"){
     protostar.startProject(rt);
+}else if(rt.mode === 'merge'){
+    protostar.mergeWithPortalTheme(rt, process.argv);
 }else{
     throw new Error("Unknown runtime mode! " + rt.mode);
 }

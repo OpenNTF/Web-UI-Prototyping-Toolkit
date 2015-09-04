@@ -50,10 +50,10 @@ describe("portalThemeMerger", function(){
             composer:composer,
             project:project,
             builder:builder
-        }, function(){
+        }).then(function(){
             console.log("success");
             done();
-        }, function(errors){
+        }).catch(function(){
             console.log("error ::: ",errors);
             done();
         });
