@@ -59,6 +59,7 @@
     "progress": "^1.1.8",
     "request": "^2.53.0",
     "request-progress": "^0.3.1",
+    "uuid": "^2.0.1",
     "w3c-validate": "0.0.2",
     "webshot": "^0.15.4",
     "winston": "^0.7.3",
