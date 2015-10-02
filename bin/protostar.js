@@ -41,6 +41,8 @@ if(rt.mode === 'create'){
     protostar.startProject(rt);
 }else if(rt.mode === 'merge'){
     protostar.mergeWithPortalTheme(rt, process.argv);
+}else if(rt.mode === 'mergeStatic'){
+    protostar.mergeStaticFiles(rt, process.argv);
 }else{
     throw new Error("Unknown runtime mode! " + rt.mode);
 }
