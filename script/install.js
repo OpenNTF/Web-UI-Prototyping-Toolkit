@@ -8,7 +8,7 @@ var requestProgress = require('request-progress');
 var url = require('url');
 var kew = require("kew");
 var progress = require('progress');
-var wrench = require("wrench");
+var copier = require("../lib/copier");
 var bowerUtils = require("../lib/bowerUtils");
 var validExit = false;
 
@@ -30,7 +30,7 @@ function createLaunchers(){
     var windows = fs.readFileSync(getPsPath("core/install/protostar.bat"), 'utf8').replace(/___NODE_EXEC_PATH___/g,nodeCommandPath).replace(/___PROTOSTARDIR___/g,psdir);
     fs.writeFileSync(getPsPath('bin/protostar'), shell, 'utf8');
     fs.writeFileSync(getPsPath('bin/Protostar.desktop'), openDesktop, 'utf8');
-    wrench.copyDirSyncRecursive(getPsPath('core/install/Protostar.app'), 'bin/Protostar.app');
+    copier.copy(getPsPath('core/install/Protostar.app'), 'bin/Protostar.app');
     fs.writeFileSync(getPsPath('bin/Protostar.app/Contents/document.wflow'), osX, 'utf8');
     fs.writeFileSync(getPsPath('bin/protostar.bat'), windows, 'utf8');
     fs.chmodSync(getPsPath('bin/protostar'), '0755');

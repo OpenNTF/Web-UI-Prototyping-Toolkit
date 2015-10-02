@@ -1,7 +1,7 @@
 var importer = require("../lib/portalThemeImporter");
 var fs = require("fs");
 var path = require("path");
-var wrench= require("wrench");
+var copier = require("../lib/copier");
 var utils = require("../lib/utils");
 
 if(false)
@@ -28,8 +28,8 @@ describe("theme importer", function(){
     afterEach(function() {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
         // rm -rf /tmp/myTheme /tmp/themeResources /tmp/themeSources.zip
-        wrench.rmdirSyncRecursive("/tmp/myTheme", true);
-        wrench.rmdirSyncRecursive("/tmp/themeResources", true);
+        copier.deleteRecursively("/tmp/myTheme");
+        copier.deleteRecursively("/tmp/themeResources");
         if(fs.existsSync("/tmp/themeSources.zip")){
             fs.unlinkSync("/tmp/themeSources.zip");
         }
