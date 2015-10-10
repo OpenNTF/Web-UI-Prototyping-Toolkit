@@ -48,7 +48,7 @@
     (function($, window, ace){
         $('#save').prop('disabled', true);
         var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/terminal");
+        editor.setTheme("ace/theme/eclipse");
         editor.getSession().setMode("ace/mode/html");
         window.document.getElementById("save").onclick = function () {
             console.log("Save!", arguments);
