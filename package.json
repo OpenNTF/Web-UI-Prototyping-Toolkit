@@ -37,7 +37,8 @@
     }
   ],
   "scripts": {
-    "prepublish": "node script/install.js"
+    "prepublish": "node script/install.js",
+    "test":"node node_modules/jasmine/bin/jasmine.js"
   },
   "dependencies": {
     "adm-zip": "^0.4.7",
@@ -69,6 +70,7 @@
     "type": "git",
     "url": "https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit.git"
   },
+
   "homepage": "http://openntf.org/main.nsf/project.xsp?r=project/Web%20UI%20Prototyping%20Toolkit",
   "engine": "node >= 0.10.26",
   "devDependencies": {
