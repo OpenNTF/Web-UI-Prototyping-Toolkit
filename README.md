@@ -1,6 +1,6 @@
 # Web UI Prototyping Toolkit - Protostar
 
-Version 0.9.8-dev
+Version 0.9.8
 
 This is a tool to facilitate the creation of static HTML prototypes from UX designs
 - Decompose pages into reusable fragments
