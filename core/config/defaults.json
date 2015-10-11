@@ -80,5 +80,7 @@
             "customHeader": null
 
         }
-    }
+    },
+    "dxSyncPath" : "change me to the path to <dxsncdir>/bin/dxsync",
+    "scriptPortletPushPath" : "change me to the path to <sp_cmdln>/sp.sh"
 }

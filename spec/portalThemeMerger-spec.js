@@ -15,7 +15,7 @@ describe("portalThemeMerger", function(){
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
     });
 
-    it("can run", function(done){
+    xit("can run", function(done){
         var dsvPrototypePath = '/home/spectre/Projects/IBM/DSV/mydsv-protostar/mydsv';
         var dsvThemePath = '/home/spectre/Projects/IBM/DSV/angularTheme';
 
