@@ -58,6 +58,7 @@
     "marked": "^0.3.2",
     "mime": "x",
     "node-sass": "^2.1.1",
+    "opn": "^3.0.2",
     "os-tmpdir": "^1.0.1",
     "progress": "^1.1.8",
     "request": "^2.53.0",
