@@ -22,6 +22,8 @@
     "ckeditor": "4.4.x",
     "highlightjs": "8.0.x",
     "ace-builds": "1.1.x",
-    "holderjs": "2.3.x"
+    "holderjs": "2.3.x",
+    "html5shiv": "~3.7.3",
+    "respond": "~1.4.2"
   }
 }
