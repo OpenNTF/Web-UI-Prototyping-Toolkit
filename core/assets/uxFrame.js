@@ -16,7 +16,7 @@
     }
     function setupProtostarUX(){
         var document = window.document;
-        function ProtostarPopup(url, x, y, height, width, parent, toggleClassname, shortcut){
+        function PopupFrame(url, x, y, height, width, parent, toggleClassname, shortcut){
             this.parent = parent || document.body;
             this.x = x || 5;
             this.y = y || 5;
@@ -42,7 +42,6 @@
                 }
                 var that = this;
                 function clickListenerFn(evt){
-                    console.log("CLICK!", evt.target);
                     that.toggleMenu();
                     evt.preventDefault();
                 }
@@ -51,7 +50,6 @@
                     console.log("Found shortcut && keypress, assigning " + this.shortcut);
                     this.keyListener = new window.keypress.Listener();
                     this.keyListener.simple_combo(this.shortcut, function () {
-                        console.log("toggle menu");
                         that.toggleMenu();
                     });
                     console.log("Assigned shortcut " + this.shortcut + " to display the protostar ux.")
@@ -124,7 +122,6 @@
                     var menuWidth = t.menu.style.width;
                     if(menuWidth !== '' + (t.width + 16)+'px'){
                         var newWidth = parseInt(menuWidth.replace('px', ''));
-                        console.log("new width=", newWidth);
                         t.menuFrame.width = newWidth;
                         t.width = (newWidth-16);
                     }
@@ -132,7 +129,6 @@
 
                     if(menuHeight !== '' + (t.height+20)+'px'){
                         var newHeight = parseInt(menuHeight.replace('px', ''))-20;
-                        console.log("new height = " + newHeight);
                         t.menuFrame.height = newHeight;
                         t.height = newHeight;
                     }
@@ -205,7 +201,7 @@
         }
 
         function createInterfaceObject(){
-            var p = new ProtostarPopup();
+            var p = new PopupFrame();
             p.toggleClassname = 'protostar-menu-toggle';
             p.init();
             var control = {
