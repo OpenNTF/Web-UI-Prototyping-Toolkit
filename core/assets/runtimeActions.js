@@ -17,6 +17,75 @@
 function ProtostarRuntimeActions(window, $){
 
     this.window = window;
+
+
+    /*
+     var i = $('<div id="psActionMenu" draggable="true" style="height:660px;padding-top:50px;background-color:#DDD;position:absolute;top:50px;left:50px"><iframe src="http://localhost:8888/solution.html" height="400" width="600"></iframe></div>');
+     $('body').append(i);
+     window.addPsActionMenuListeners()
+     */
+
+
+    function addListeners(){
+        var am = $('#psActionMenu');
+        am.on('mousedown', function(evt) {
+            console.log("handling mouse down! ", evt);
+            evt.preventDefault();
+            am
+                .addClass('draggable')
+                .on('mousemove', function(e) {
+                    console.log("handling mouse move! ", e);
+                    am.offset({
+                        top: e.pageY - e.offsetY,
+                        left: e.pageX - e.offsetY
+                }).on('mouseup', function(mu) {
+                        console.log("handling mouse up! ", mu);
+                    am.removeClass('draggable');
+                });
+
+            });
+
+        }); am.children().on('mouseup', function() {
+            am.removeClass('draggable');
+        });
+    }
+
+    function addListenersOld(){
+        function mouseUp()
+        {
+            window.removeEventListener('mousemove', divMove, true);
+        }
+        function mouseDown(e){
+            console.log("MOUSEDOWN:", e);
+            window.addEventListener('mousemove', divMove, true);
+        }
+
+        var div = document.getElementById('psActionMenu');
+
+        var lastDiffX = 0, lastDiffY = 0;
+
+        function divMove(e) {
+
+
+            if(div.style.position !== 'absolute'){
+                div.style.position = 'absolute';
+            }
+
+            var diffY = (e.clientY - e.layerY);
+            var diffX = (e.clientX - e.layerX);
+            if(Math.max(diffX, lastDiffX) - Math.min(diffX, lastDiffX)  > 5 || Math.max(diffY, lastDiffY) - Math.min(diffY, lastDiffY)  > 5 ){
+                div.style.top = diffY + 'px';
+                div.style.left = diffX+ 'px';
+            }
+
+        }
+        //window.document.getElementById('psActionMenu').addEventListener('mousedown', mouseDown, false);
+        div.addEventListener('mousedown', mouseDown, true);
+        window.addEventListener('mouseup', mouseUp, true);
+    }
+    window.addPsActionMenuListeners = addListeners;
+
+
     this.$ = $;
     var that = this;
     var actions = {
@@ -114,7 +183,8 @@ function ProtostarRuntimeActions(window, $){
                                 markup += '<li><a href="?'+cn+'">'+cn+'</a></li>'
                             });
                             markup += '</ul><ul id="psFunctionActions"></ul>'
-                            $("body").append('<div id="psActionMenu" draggable="true" style="display:none;position:absolute;border-radius:10px;border:solid 2px rgba(0,0,0,0.5);background-color:rgba(255,255,255,0.95);z-index:1000;left:10px;top:10px;width:350px;padding-right:10px">'+markup+'</div>');
+                            //$("body").append('<div id="psActionMenu" draggable="true" style="display:none;position:absolute;border-radius:10px;border:solid 2px rgba(0,0,0,0.5);background-color:rgba(255,255,255,0.95);z-index:1000;left:10px;top:10px;width:350px;padding-right:10px">'+markup+'</div>');
+                            $("body").append('<div id="psActionMenu" style="display:none;position:absolute;border-radius:10px;border:solid 2px rgba(0,0,0,0.5);background-color:rgba(255,255,255,0.95);z-index:1000;left:10px;top:10px;width:350px;padding-right:10px">'+markup+'</div>');
                             var functionCmds = {
                                 "Help" : function(){
                                     that.invoke("changeLocation", "/pshelp");
@@ -140,24 +210,8 @@ function ProtostarRuntimeActions(window, $){
                                 functParent.append(fm);
                                 $("#psFunctCmd_" + functIdx).click(functionCmds[fname]);
                             }
-                            function addListeners(){
-                                function mouseUp()
-                                {
-                                    window.removeEventListener('mousemove', divMove, true);
-                                }
-                                function mouseDown(e){
-                                    console.log("MOUSEDOWN:", e);
-                                    window.addEventListener('mousemove', divMove, true);
-                                }
-                                function divMove(e) {
-                                    var div = document.getElementById('psActionMenu');
-                                    div.style.position = 'absolute';
-                                    div.style.top = e.clientY + 'px';
-                                    div.style.left = e.clientX + 'px';
-                                }
-                                document.getElementById('psActionMenu').addEventListener('mousedown', mouseDown, false);
-                                window.addEventListener('mouseup', mouseUp, false);
-                            }
+
+
                             addListeners();
                             $("#psActionMenu").fadeIn();
                         }
