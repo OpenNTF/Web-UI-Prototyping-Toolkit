@@ -39,7 +39,8 @@
     "runtime": {
         "saveCompiled": false,
         "cleanBuiltHtml": true,
-        "debug": false
+        "debug": false,
+        "addRuntimeScripts": true
     }
 
 }
