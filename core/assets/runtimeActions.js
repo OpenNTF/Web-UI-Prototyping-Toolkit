@@ -18,39 +18,7 @@ function ProtostarRuntimeActions(window, $){
 
     this.window = window;
 
-
-    /*
-     var i = $('<div id="psActionMenu" draggable="true" style="height:660px;padding-top:50px;background-color:#DDD;position:absolute;top:50px;left:50px"><iframe src="http://localhost:8888/solution.html" height="400" width="600"></iframe></div>');
-     $('body').append(i);
-     window.addPsActionMenuListeners()
-     */
-
-
     function addListeners(){
-        var am = $('#psActionMenu');
-        am.on('mousedown', function(evt) {
-            console.log("handling mouse down! ", evt);
-            evt.preventDefault();
-            am
-                .addClass('draggable')
-                .on('mousemove', function(e) {
-                    console.log("handling mouse move! ", e);
-                    am.offset({
-                        top: e.pageY - e.offsetY,
-                        left: e.pageX - e.offsetY
-                }).on('mouseup', function(mu) {
-                        console.log("handling mouse up! ", mu);
-                    am.removeClass('draggable');
-                });
-
-            });
-
-        }); am.children().on('mouseup', function() {
-            am.removeClass('draggable');
-        });
-    }
-
-    function addListenersOld(){
         function mouseUp()
         {
             window.removeEventListener('mousemove', divMove, true);
