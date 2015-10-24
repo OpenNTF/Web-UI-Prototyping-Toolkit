@@ -17,37 +17,39 @@
 
 $(function(){
 
-    function appendToTop(markup) {
+    window.appendToTop = function(markup) {
         if($("body > .container").length > 0){
             $("body > .container").first().prepend($(markup));
+        }else if($("body > .container-fluid").length > 0){
+            $("body > .container-fluid").first().prepend($(markup));
         }else{
             $("body").prepend($(markup));
         }
-    }
+    };
 
-    function notifyError(msgMarkup) {
+    window.notifyError = function(msgMarkup) {
         appendToTop($('<div class="alert alert-danger">' + msgMarkup + '</div>'));
-    }
+    };
 
-    function notifyWarning(msgMarkup) {
+    window. notifyWarning = function(msgMarkup) {
         appendToTop($('<div class="alert alert-warning">' + msgMarkup + '</div>'));
-    }
+    };
 
-    function notifySuccess(msgMarkup) {
+    window. notifySuccess = function(msgMarkup) {
         appendToTop($('<div class="alert alert-success">' + msgMarkup + '</div>'));
-    }
+    };
 
-    function notifyInfo(msgMarkup) {
+    window. notifyInfo = function(msgMarkup) {
         appendToTop($('<div class="alert alert-info">' + msgMarkup + '</div>'));
-    }
+    };
 
-    function updateEntityFieldValue(args) {
+    window. updateEntityFieldValue = function(args) {
         console.log("Updating entityField value: ", args);
         $.ajax({
             type: "put",
-            url: args.baseUrl + "resource/" + args.entityType.toLowerCase(),
+            url: args.baseUrl + "resource/" + args["entityType"].toLowerCase(),
             data: JSON.stringify({
-                id: args.entityId,
+                id: args["entityId"],
                 fieldName: args.fieldName,
                 value: args.value
             }),
@@ -65,9 +67,9 @@ $(function(){
                 }
 
             });
-    }
+    };
 
-    function setupEditableFragments(){
+    window.setupEditableFragments = function(){
         $("*[data-editable]").each(function(idx, itm){
             var config = {
 //            customConfig: '/libs/ckeditor/config.js',
@@ -143,8 +145,8 @@ $(function(){
             console.log("Inlining " + editableId);
             CKEDITOR.inline(editableId, config);
         })
-    }
-    function setupProjectConfigEditor(){
+    };
+    window.setupProjectConfigEditor = function(){
         var psEditPrototypeConfigRoot = $(".protostarProjectConfig");
         if(psEditPrototypeConfigRoot.length > 0){
             $("*[data-toggled]").addClass("hidden");
@@ -167,9 +169,9 @@ $(function(){
                 wireFields(cfg);
             });
         }
-    }
+    };
 
-    function wireNewPortalThemeMavenProjectFactory(){
+    window. wireNewPortalThemeMavenProjectFactory = function(){
         var createThemeRoot = $(".protostarNewPortalTheme");
         if(createThemeRoot.length > 0){
             createThemeRoot.find('button[name="create-my-theme"]').click(function(){
@@ -194,21 +196,21 @@ $(function(){
                 });
             });
         }
-    }
+    };
 
-    function setupAnyRuntimeMenuToggles(){
+    window. setupAnyRuntimeMenuToggles = function(){
         $(".psActionMenuToggle").click(function(){
             pra.invoke("toggleRuntimeMenu");
         });
-    }
+    };
 
     var pra = new ProtostarRuntimeActions(window, $);
 
     var rsc = new ProtostarRuntimeShortcuts(pra);
     rsc.setup();
-    setupEditableFragments();
-    setupProjectConfigEditor();
-    wireNewPortalThemeMavenProjectFactory();
-    setupAnyRuntimeMenuToggles();
+    window.setupEditableFragments();
+    window.setupProjectConfigEditor();
+    window.wireNewPortalThemeMavenProjectFactory();
+    window.setupAnyRuntimeMenuToggles();
 
 });
