@@ -168,6 +168,9 @@ function ProtostarRuntimeActions(window, $){
                                 },
                                 "Save RTF Changes" : function(){
                                     that.invoke("saveRtfChanges");
+                                },
+                                "Grab Images": function(){
+                                    that.invoke("grabImages")
                                 }
                             };
                             var functParent = $("#psFunctionActions");
@@ -187,6 +190,87 @@ function ProtostarRuntimeActions(window, $){
                 }else{
                     $("#psActionMenu").css('display', $("#psActionMenu").css("display") === 'block' ? 'none' : 'block');
                 }
+            }
+        },
+        grabImages: {
+            label: "",
+            description: "",
+            perform: function(window, $){
+                var grabable = [];
+                $("img[src]").each(function(){
+                    var img = $(this);
+                    var src = img.attr("src");
+
+//or however you get a handle to the IMG
+                    var width = img[0].clientWidth;
+                    var height = img[0].clientHeight;
+                    if(src.indexOf('https') === 0 || src.indexOf('http') === 0 || src.indexOf('//') === 0){
+                        grabable.push({
+                            src: src,
+                            height:height,
+                            width:width
+                        })
+                    }
+                });
+
+                var all = document.body.getElementsByTagName("*");
+
+
+                for (var i=0, max=all.length; i < max; i++) {
+                    // Do something with the element here
+                    var el = all[i];
+
+                    var bim = el.style.backgroundImage;
+                    if(bim.length > 0 && bim.trim().indexOf('url("http')>=0){
+                        console.log("CSS BACKBROUND IMAGE = "+el.style.backgroundImage);
+                        grabable.push({src:bim.substring(bim.indexOf('"http')+1, bim.lastIndexOf('"')),height:0,width:0});
+                        //bim.replace(/'http.+\.(jpg|jpeg|gif|png)'/, function(match){
+                        //    console.info("CSS image match: ", match);
+                        //
+                        //})
+                    }
+                }
+
+
+                console.log("Grabable images : ", grabable);
+                var div = $('<div id="ps-action-grab-images-container" style="position:absolute;top:100px;padding:5px;left:100px;z-index: 8888;height:700px;width:600px;background-color:#CCC;overflow:auto">' +
+                    '<ul></ul>' +
+                    '<p><button type="button" class="btn btn-primary ps-action-grab-images">Grab images</button> <button type="button" class="btn btn-default ps-action-grab-images-cancel">Cancel</button></p>' +
+                    '</div>');
+
+                var imgList = div.find("ul");
+                grabable.forEach(function(i, idx){
+                    imgList.append('<li><label for="ps_input_'+idx+'"><img src="'+ i.src+'" height="128"> <input id="ps_input_'+idx+'"type="checkbox" name="grab_'+idx+'"/> <small>'+ i.width + 'x'+ i.height+'</small> <span><div>'+i.src+'<div></span></label></li>');
+                });
+                $("body").append(div);
+                var imgContainer = $('#ps-action-grab-images-container');
+                imgContainer.find("button.ps-action-grab-images").click(function(){
+                    var toGrab = [];
+                    imgContainer.find('input[type="checkbox"]:checked').each(function(){
+                        var chb = $(this);
+                        var nm = chb.attr('name');
+                        var idx = parseInt(nm.substring(nm.indexOf('_')+1));
+                        console.log('GRAB ', grabable[idx].src);
+                        toGrab.push(grabable[idx].src);
+                    });
+                    if(toGrab.length > 0){
+                        $.ajax({
+                            type:"post",
+                            url:'/ps/grabImages',
+                            data: JSON.stringify(toGrab),
+                            contentType: "application/json",
+                            dataType: "text"
+                        }).done(function(){
+                            console.log("Submitted " + toGrab.length + " images to grab : ", toGrab);
+                        }).fail(function(){
+                            console.error("Could not grab", arguments);
+                        })
+                    }
+                    imgContainer.remove();
+                });
+                imgContainer.find("button.ps-action-grab-images-cancel").click(function(){
+                    imgContainer.remove();
+                });
             }
         },
         saveRtfChanges: {

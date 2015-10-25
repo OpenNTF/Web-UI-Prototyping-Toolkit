@@ -95,6 +95,7 @@ function ProtostarRuntimeShortcuts(runtimeActions){
                 runtimeActions.invoke("changeLocation", "?command=list");
             }
         },
+        "alt shift x" : "grabImages",
         "alt shift s": "saveRtfChanges",
         "alt shift g": "toggleOutlineBlocks",
         "alt shift m": "toggleRuntimeMenu",
