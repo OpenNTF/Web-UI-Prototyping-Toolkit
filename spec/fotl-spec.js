@@ -3,7 +3,6 @@ var fs = require("../lib/filesystem");
 var testUtils = require("../lib/testUtils");
 var utils = require("../lib/utils");
 var path = require("path");
-var templatesParent =path.join(testUtils.getTestProjectDir(), "component") + "/";
 
 function newTemplateComposer(projDir){
     var h = tc.createTemplateComposer({
@@ -17,23 +16,22 @@ describe("File Oriented Templating Language", function(){
     var runtime;
     var testsProjectDirPath = path.join(__dirname, "files/testsProj")
     beforeEach(function(){
+        console.log("before each")
         cmp = newTemplateComposer(testsProjectDirPath);
         runtime = cmp.runtime;
     });
 
     it("file: includes html files at project relative path", function(done){
         var templatePath = path.join(testsProjectDirPath, "fotl/fileIncludesHtml.html");
-        fs.readTextFile(templatePath).done(function(tf){
-            var composed = cmp.composeTemplate(templatePath, tf);
-            //console.log("COMPOSED = ", composed);
-            expect(composed.content).toBe('a<p>S</p>b');
-            expect(composed.metadata.templatePath).toBe(templatePath);
-            expect(composed.metadata.deps.hasOwnProperty(templatePath)).toBe(true);
-            expect(composed.metadata.deps.hasOwnProperty(testsProjectDirPath + path.sep +"stub.html")).toBe(true);
-            var count = utils.countOwnProperties(composed.metadata.deps);
-            expect(count).toBe(2);
-            done();
-        });
+        var tf = fs.readFileSync(templatePath, 'utf8');
+        var composed = cmp.composeTemplate(templatePath, tf);
+        expect(composed.content).toBe('a<p>S</p>b');
+        expect(composed.metadata.templatePath).toBe(templatePath);
+        expect(composed.metadata.deps.hasOwnProperty(templatePath)).toBe(true);
+        expect(composed.metadata.deps.hasOwnProperty(testsProjectDirPath + path.sep +"stub.html")).toBe(true);
+        var count = utils.countOwnProperties(composed.metadata.deps);
+        expect(count).toBe(2);
+        done();
     });
     it("layout: includes passed file: statements", function(done){
         var templatePath = path.join(testsProjectDirPath, "fotl/layoutSimple.html");

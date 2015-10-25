@@ -31,12 +31,8 @@ args.partTypePaths = {
 };
 args.enableDebug = true;
 args.projectDir = testUtils.getTestProjectDir();
-var protostarscript = '/home/spectre/Projects/proto-star/bin/protostar.js';
-var nodecmd = '/home/spectre/opt/node-v0.10.29-linux-x64/bin/node';
 function createRuntime() {
-    var rt = psRuntime.createRuntime({
-        workingDir: process.cwd(), args: [nodecmd, protostarscript, 'dev', testUtils.getTestProjectDir()], debug: false
-    });
+    var rt = testUtils.createTestRuntime();
     return rt;
 }
 function createServer() {
