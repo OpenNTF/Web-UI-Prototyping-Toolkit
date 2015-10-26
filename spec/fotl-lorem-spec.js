@@ -24,7 +24,7 @@ describe("File Oriented Templating Language", function(){
     //});
 
 
-    fit("create factory", function(){
+    it("create factory", function(){
 
         var fact = fotlLorem.createFactory({
             runtime: testUtils.createTestRuntime(testsProjectDirPath)
