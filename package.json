@@ -1,9 +1,7 @@
 {
   "name": "wuipt",
-  "bin": {
-    "wuipt": "./bin/protostar.js"
-  },
   "description": "Web UI Prototyping Toolkit - A static prototype server and so much more.",
+  "version": "0.9.9",
   "keywords": [
     "prototype",
     "static",
@@ -16,10 +14,17 @@
     "toolkit",
     "ui"
   ],
+  "bin": {
+    "wuipt": "./bin/protostar.js"
+  },
+  "scripts": {
+    "prepublish": "node script/install.js",
+    "test": "node node_modules/jasmine/bin/jasmine.js"
+  },
   "bugs": {
     "url": "https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit/issues"
   },
-  "version": "0.9.8",
+
   "license": "Apache-2.0",
   "authors": [
     "Jonathan Bosmans <jonathan.bosmans@be.ibm.com>",
@@ -36,10 +41,6 @@
       "email": "peter@de.ibm.com"
     }
   ],
-  "scripts": {
-    "prepublish": "node script/install.js",
-    "test": "node node_modules/jasmine/bin/jasmine.js"
-  },
   "dependencies": {
     "adm-zip": "^0.4.7",
     "bless": "^3.0.3",
