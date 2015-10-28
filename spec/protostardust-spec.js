@@ -63,7 +63,7 @@ describe("Postprocess", function () {
 });
 if(false)
 describe("jsdom test", function () {
-    it("should get a value out", function (done) {
+    xit("should get a value out", function (done) {
         console.log("ptsd3");
         function runJQueryFunction(html_in, jqueryFunction, callback) {
             var jsdom = require('jsdom');

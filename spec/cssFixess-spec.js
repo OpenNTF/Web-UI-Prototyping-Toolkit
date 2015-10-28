@@ -3,8 +3,8 @@ var path = require("path");
 var testUtils = require("../lib/testUtils");
 var utils = require("../lib/utils");
 var cssFixes = require("../lib/cssFixes");
-var uncss = require('uncss');
-var bless = require("bless");
+//var uncss = require('uncss');
+//var bless = require("bless");
 
 
 describe("File Oriented Templating Language", function(){
@@ -83,7 +83,7 @@ describe("File Oriented Templating Language", function(){
     });
 
 
-    it("can retain only used styles in pages", function(done){
+    xit("can retain only used styles in pages", function(done){
 
         var fd = path.resolve(__dirname, "files/usedStyles");
 
@@ -156,7 +156,7 @@ describe("File Oriented Templating Language", function(){
         //});
     });
 
-    it("can retain only used styles in pages", function(done){
+    xit("can retain only used styles in pages", function(done){
 
         //var fd = path.resolve(__dirname, "files/usedStyles");
 
