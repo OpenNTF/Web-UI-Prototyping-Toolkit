@@ -179,9 +179,8 @@ Protostar includes a number of in-page shortcut commands to help out:
 ### Using Protostar in-page functionality
 Protostar adds the scripts below automatically if they are not present yet:
 
-    <script src="/ps/ext/jquery/dist/jquery.js"></script>
     <script src="/ps/ext/Keypress/keypress.js"></script>
-    <script src="/ps/assets/views.js"></script>
+    <script src="/ps/assets/uxFrame.js"></script>
 
 If you include any script reference pointing to eg. jquery, it will assume jquery is already in the page.
 To enable the protostar in-page functionality ensure following scripts are at the bottom of your composed html pages, do not add duplicates of jquery or keypress if they are already included!

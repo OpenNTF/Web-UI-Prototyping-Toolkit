@@ -43,109 +43,32 @@ $(function(){
         appendToTop($('<div class="alert alert-info">' + msgMarkup + '</div>'));
     };
 
-    window. updateEntityFieldValue = function(args) {
-        console.log("Updating entityField value: ", args);
-        $.ajax({
-            type: "put",
-            url: args.baseUrl + "resource/" + args["entityType"].toLowerCase(),
-            data: JSON.stringify({
-                id: args["entityId"],
-                fieldName: args.fieldName,
-                value: args.value
-            }),
-            dataType: "json",
-            contentType: "application/json",
-            mimeType: "application/json"
+    //window. updateEntityFieldValue = function(args) {
+    //    console.log("Updating entityField value: ", args);
+    //    $.ajax({
+    //        type: "put",
+    //        url: args.baseUrl + "resource/" + args["entityType"].toLowerCase(),
+    //        data: JSON.stringify({
+    //            id: args["entityId"],
+    //            fieldName: args.fieldName,
+    //            value: args.value
+    //        }),
+    //        dataType: "json",
+    //        contentType: "application/json",
+    //        mimeType: "application/json"
+    //
+    //    })
+    //        .always(function (data, status) {
+    //            console.log("Done: ", arguments);
+    //            if (parseInt((status, 10) - 200) < 10) {
+    //                notifySuccess("Updated page text");
+    //            } else {
+    //                notifyError("Could not update page text");
+    //            }
+    //
+    //        });
+    //};
 
-        })
-            .always(function (data, status) {
-                console.log("Done: ", arguments);
-                if (parseInt((status, 10) - 200) < 10) {
-                    notifySuccess("Updated page text");
-                } else {
-                    notifyError("Could not update page text");
-                }
-
-            });
-    };
-
-    window.setupEditableFragments = function(){
-        $("*[data-editable]").each(function(idx, itm){
-            var config = {
-//            customConfig: '/libs/ckeditor/config.js',
-                language: "en",
-                toolbar: [
-                    {
-                        name: 'document',
-                        groups: [ 'mode', 'document', 'doctools' ],
-                        items: [ 'Sourcedialog', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ]
-                    },
-                    { name: 'clipboard', groups: [ 'clipboard', 'undo', 'styling'], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo', '-', /* 'Styles',*/ 'Format', /*'Font',*/ 'FontSize' ] },
-                    { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Find', 'Replace', '-', 'SelectAll' /*'-', 'Scayt' */] },
-                    //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
-                    '/',
-                    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
-                    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'/*, '-', 'BidiLtr', 'BidiRtl'*/ ] },
-                    { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
-                    { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar'/*, /*'PageBreak', 'Iframe'*/ ] },
-                    '/',
-//            { name: 'styles', items: [/* 'Styles',*/ 'Format', /*'Font',*/ 'FontSize' ] },
-                    //{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
-                    { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ]}/*,
-                     { name: 'others', items: [ '-' ] },
-                     { name: 'about', items: [ 'About' ] }         */
-                ],
-                "extraPlugins": "sourcedialog,imagebrowser",
-                "removePlugins": "sourcearea",
-                allowedContent: true,
-                "imageBrowser_listUrl": "/ps/dynamic/images.json"
-            };
-            var editableId = $(this).attr('id');
-            var partName = $(this).attr('data-editable');
-            var initText = $(this)[0].innerHTML + '';
-            var changedText = initText;
-            $(".currentPageLinks .saveChangesButton").click(function () {
-                console.log("Changed text to '" + changedText + "'");
-                console.log("Updating entityField value: ", args);
-                $.ajax({
-                    type: "put",
-                    url: "/ps/update/file" + editableId,
-                    data: JSON.stringify({
-                        file: partName,
-                        id: editableId,
-                        source: window.location.pathname,
-                        value: changedText
-                    }),
-                    dataType: "json",
-                    contentType: "application/json",
-                    mimeType: "application/json"
-                }).always(function (data, status) {
-                    console.log("Done: ", arguments);
-                    if (parseInt((status, 10) - 200) < 10) {
-                        notifySuccess("Updated page text");
-                    } else {
-                        notifyError("Could not update page text");
-                    }
-
-                });
-            });
-            $(this).blur(function () {
-                console.log("Lost selection!");
-                console.log("INIT TEXT: " + initText);
-                changedText = CKEDITOR.instances[editableId].getData();
-                console.log("CHANGED TEXT: " + changedText);
-                if (initText !== changedText) {
-                    console.log("Text changed ! ");
-                    var b = $(".currentPageLinks .saveChangesButton");
-                    b.removeClass("disabled");
-                    b.css("display", "inline");
-                }
-            });
-            CKEDITOR.disableAutoInline = false;
-            console.log("Inlining " + editableId);
-            CKEDITOR.inline(editableId, config);
-        })
-    };
     window.setupProjectConfigEditor = function(){
         var psEditPrototypeConfigRoot = $(".protostarProjectConfig");
         if(psEditPrototypeConfigRoot.length > 0){
@@ -170,6 +93,91 @@ $(function(){
             });
         }
     };
+
+//    window.setupEditableFragments = function(){
+//        $("*[data-editable]").each(function(idx, itm){
+//            var config = {
+////            customConfig: '/libs/ckeditor/config.js',
+//                language: "en",
+//                toolbar: [
+//                    {
+//                        name: 'document',
+//                        groups: [ 'mode', 'document', 'doctools' ],
+//                        items: [ 'Sourcedialog', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ]
+//                    },
+//                    { name: 'clipboard', groups: [ 'clipboard', 'undo', 'styling'], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo', '-', /* 'Styles',*/ 'Format', /*'Font',*/ 'FontSize' ] },
+//                    { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Find', 'Replace', '-', 'SelectAll' /*'-', 'Scayt' */] },
+//                    //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+//                    '/',
+//                    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+//                    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'/*, '-', 'BidiLtr', 'BidiRtl'*/ ] },
+//                    { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+//                    { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar'/*, /*'PageBreak', 'Iframe'*/ ] },
+//                    '/',
+////            { name: 'styles', items: [/* 'Styles',*/ 'Format', /*'Font',*/ 'FontSize' ] },
+//                    //{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+//                    { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ]}/*,
+//                     { name: 'others', items: [ '-' ] },
+//                     { name: 'about', items: [ 'About' ] }         */
+//                ],
+//                "extraPlugins": "sourcedialog,imagebrowser",
+//                "removePlugins": "sourcearea",
+//                allowedContent: true,
+//                "imageBrowser_listUrl": "/ps/dynamic/images.json"
+//            };
+//            var editableId = $(this).attr('id');
+//            var partName = $(this).attr('data-editable');
+//            var initText = $(this)[0].innerHTML + '';
+//            var changedText = initText;
+//            $(".currentPageLinks .saveChangesButton").click(function () {
+//                console.log("Changed text to '" + changedText + "'");
+//                console.log("Updating entityField value: ", args);
+//                $.ajax({
+//                    type: "put",
+//                    url: "/ps/update/file" + editableId,
+//                    data: JSON.stringify({
+//                        file: partName,
+//                        id: editableId,
+//                        source: window.location.pathname,
+//                        value: changedText
+//                    }),
+//                    dataType: "json",
+//                    contentType: "application/json",
+//                    mimeType: "application/json"
+//                }).always(function (data, status) {
+//                    console.log("Done: ", arguments);
+//                    if (parseInt((status, 10) - 200) < 10) {
+//                        notifySuccess("Updated page text");
+//                    } else {
+//                        notifyError("Could not update page text");
+//                    }
+//
+//                });
+//            });
+//            $(this).blur(function () {
+//                console.log("Lost selection!");
+//                console.log("INIT TEXT: " + initText);
+//                changedText = CKEDITOR.instances[editableId].getData();
+//                console.log("CHANGED TEXT: " + changedText);
+//                if (initText !== changedText) {
+//                    console.log("Text changed ! ");
+//                    var b = $(".currentPageLinks .saveChangesButton");
+//                    b.removeClass("disabled");
+//                    b.css("display", "inline");
+//                }
+//            });
+//            CKEDITOR.disableAutoInline = false;
+//            console.log("Inlining " + editableId);
+//            CKEDITOR.inline(editableId, config);
+//        })
+//    };
+
+
+    //window. setupAnyRuntimeMenuToggles = function(){
+    //    $(".psActionMenuToggle").click(function(){
+    //        pra.invoke("toggleRuntimeMenu");
+    //    });
+    //};
 
     window. wireNewPortalThemeMavenProjectFactory = function(){
         var createThemeRoot = $(".protostarNewPortalTheme");
@@ -198,19 +206,15 @@ $(function(){
         }
     };
 
-    window. setupAnyRuntimeMenuToggles = function(){
-        $(".psActionMenuToggle").click(function(){
-            pra.invoke("toggleRuntimeMenu");
-        });
-    };
 
-    var pra = new ProtostarRuntimeActions(window, $);
 
-    var rsc = new ProtostarRuntimeShortcuts(pra);
-    rsc.setup();
-    window.setupEditableFragments();
+    //var pra = new ProtostarRuntimeActions(window, $);
+
+    //var rsc = new ProtostarRuntimeShortcuts(pra);
+    //rsc.setup();
+    //window.setupEditableFragments();
     window.setupProjectConfigEditor();
     window.wireNewPortalThemeMavenProjectFactory();
-    window.setupAnyRuntimeMenuToggles();
+    //window.setupAnyRuntimeMenuToggles();
 
 });
