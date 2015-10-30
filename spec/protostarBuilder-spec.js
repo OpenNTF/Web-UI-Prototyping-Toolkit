@@ -18,10 +18,10 @@ describe("protostarBuilder", function(){
         var targetDir = "/tmp/psBuildTest_" + (new Date().getTime());
         runtime.targetDirPath = targetDir;
         runtime.targetDir = targetDir;
-        var composer = templateComposer.createTemplateComposer({
+        var composer = new (templateComposer.TemplateComposer)({
             runtime : runtime
         });
-        var project = protostarProject.createProject({
+        var project = new protostarProject.Project({
             runtime:runtime,
             composer:composer
         });

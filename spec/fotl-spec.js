@@ -5,7 +5,7 @@ var utils = require("../lib/utils");
 var path = require("path");
 
 function newTemplateComposer(projDir){
-    var h = tc.createTemplateComposer({
+    var h = new (tc.TemplateComposer)({
         runtime: testUtils.createTestRuntime(projDir)
     });
     return h;
@@ -16,7 +16,7 @@ describe("File Oriented Templating Language", function(){
     var runtime;
     var testsProjectDirPath = path.join(__dirname, "files/testsProj")
     beforeEach(function(){
-        console.log("before each")
+        console.log("before each");
         cmp = newTemplateComposer(testsProjectDirPath);
         runtime = cmp.runtime;
     });

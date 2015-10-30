@@ -7,7 +7,7 @@ var path = require("path");
 var projectFactory = require("../lib/protostarProject");
 
 function newTemplateComposer(projDir){
-    var h = tc.createTemplateComposer({
+    var h = new (tc.TemplateComposer)({
         runtime: testUtils.createTestRuntime(projDir)
     });
     return h;
@@ -15,10 +15,10 @@ function newTemplateComposer(projDir){
 
 function newProject(projDir){
     var runtime = testUtils.createTestRuntime(projDir);
-    var composer = tc.createTemplateComposer({
+    var composer = new (tc.TemplateComposer)({
         runtime: runtime
     });
-    return projectFactory.createProject({
+    return new (projectFactory.Project)({
         composer: composer,
         runtime: runtime
     });

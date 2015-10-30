@@ -23,7 +23,7 @@ var path = require("path");
 var templatesParent =path.join(testUtils.getTestProjectDir(), "component") + "/";
 
 function newTemplateComposer(){
-    var h = tc.createTemplateComposer({
+    var h = new (tc.TemplateComposer)({
         runtime: testUtils.createTestRuntime()
     });
     return h;
@@ -170,7 +170,7 @@ describe("Template Compser", function () {
     it("should allow wrap calls with args for other drop points", function(){
         //var tp=newTemplateComposer();
         var testsProjDir = path.join(__dirname, "files/testsProj");
-        var tp = tc.createTemplateComposer({
+        var tp = new (tc.TemplateComposer)({
             runtime: testUtils.createTestRuntime(testsProjDir)
         });
         var indexPath = path.resolve(testsProjDir, "index.html");
@@ -182,7 +182,7 @@ describe("Template Compser", function () {
 
         //var tp=newTemplateComposer();
         var testsProjDir = path.join(__dirname, "files/testsProj");
-        var tp = tc.createTemplateComposer({
+        var tp = new (tc.TemplateComposer)({
             runtime: testUtils.createTestRuntime(testsProjDir)
         });
         function testCompile(templateName, expected){
