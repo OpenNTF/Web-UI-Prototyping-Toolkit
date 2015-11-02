@@ -1,0 +1,123 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel-group protostar-runtime-commands" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Navigate
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <ul class="list-group">
+                        <li class="list-group-item" data-command="go_home">Go Home</li>
+                        <li class="list-group-item" data-command="list-all">List Pages</li>
+                        <li class="list-group-item" data-command="list">List All HTML Files</li>
+                        <!--<li class="list-group-item" data-command="list_compiled">list-compiled</li>-->
+                        <li class="list-group-item" data-command="list-referenced">List Referenced HTML Files</li>
+                        <li class="list-group-item" data-command="list-referencing">List HTML Files With References</li>
+                        <!--<li class="list-group-item" data-command="">list-referencing-bare</li>-->
+                        <li class="list-group-item" data-command="load-all-template-pages">Load All Pages</li>
+                        <!--<li class="list-group-item" data-command="">list-scriptportlet-pushable</li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Page
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <ul class="list-group">
+                        <li class="list-group-item" data-command="view_source">View Source</li>
+                        <li class="list-group-item" data-command="view_cleaned_source">View Cleaned Source</li>
+                        <li class="list-group-item" data-command="edit">Edit</li>
+                        <li class="list-group-item" data-command="cheese">Take Screenshot</li>
+                        <li class="list-group-item" data-command="validate">Validate This Page</li>
+                        <li class="list-group-item" data-command="grabImages">Grab Images</li>
+                        <!--<li class="list-group-item">Toggle Outlining</li>-->
+                        <!--<li class="list-group-item">Toggle RTL</li>-->
+                        <li class="list-group-item" data-command="saveRtfChanges">Save RTF Changes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Project
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <ul class="list-group">
+
+                        <li class="list-group-item" data-command="compile_all">Compile Pages</li>
+                        <li class="list-group-item" data-command="compile_all_jade">Compile JADE</li>
+                        <li class="list-group-item" data-command="delete_compiled">Delete Compiled Pages</li>
+                        <li class="list-group-item" data-command="delete_compiled_jade">Delete Compiled JADE</li>
+                        <li class="list-group-item" data-command="delete_compiled_less">Delete Compiled {less}</li>
+                        <li class="list-group-item" data-command="screenshot_all">Responsive Screenshots</li>
+                        <li class="list-group-item" data-command="validate_all">Validate Pages</li>
+                        <li class="list-group-item" data-command="download_zip_build">Build to ZIP</li>
+                        <!--<li class="list-group-item">DXSync Portal Theme</li>-->
+                        <li class="list-group-item" data-command="view_project_settings">Project Settings</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingPortalFunct">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePortalFunct" aria-expanded="false" aria-controls="collapsePortalFunct">
+                            Portal
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapsePortalFunct" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPortalFunct">
+                    <ul class="list-group">
+
+                        <li class="list-group-item" data-command="dxsync_config">Configure Portal WebDAV</li>
+                        <li class="list-group-item" data-command="dxsync_push">Push Static Files To WebDAV</li>
+                        <li class="list-group-item" data-command="dxsync_pull">Pull Static Files From WebDAV</li>
+                        <li class="list-group-item" data-command="wartheme_push">Push Static Files To WAR</li>
+                        <li class="list-group-item" data-command="wartheme_pull">Pull Static Files From WAR</li>
+                        <li class="list-group-item" data-command="scriptportal_push_all">Push All Script Portlets</li>
+                        <li class="list-group-item" data-command="scriptportlet_list_pushable">List Script Portlets</li>
+                        <li class="list-group-item" data-command="package_components">Package All Portlets</li>
+                        <li class="list-group-item" data-command="download_portal_fstype1">Download Files From Portal WebDAV</li>
+                        <li class="list-group-item" data-command="create_theme_war">New WAR Theme</li>
+                        <li class="list-group-item" data-command="create_theme_webdav">New WebDAV Theme</li>
+                        <!--<li class="list-group-item">screenshot-all</li>-->
+                        <!--<li class="list-group-item">validate</li>-->
+                        <!--<li class="list-group-item">download-build-zip</li>-->
+                        <!--<li class="list-group-item">DXSync Portal Theme</li>-->
+                        <!--<li class="list-group-item">Project Settings</li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFour">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Protostar
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <ul class="list-group">
+                        <li class="list-group-item" data-command="log_default">Restore Default Logging</li>
+                        <li class="list-group-item" data-command="log_debug">Enable Debug Logging</li>
+                        <li class="list-group-item" data-command="log_all">Enable Trace Logging</li>
+                        <li class="list-group-item" data-command="protostar_settings">Settings</li>
+                        <li class="list-group-item" data-command="view_help">Help</li>
+                        <li class="list-group-item" data-command="exit">exit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

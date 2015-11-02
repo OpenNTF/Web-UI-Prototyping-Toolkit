@@ -163,7 +163,6 @@
                     for(var i = 0 ; i < window.frames.length ; i+=1){
                         var f= window.frames[i];
                         if(f.name === t.menuFrameId){
-                            f.window.document.body.style.backgroundColor = 'red';
                             f.window.projectWindow = window;
                             f.window.projectProtostar = window.protostar;
                             protostar.fireEvent('loaded-in-iframe', f.window.document.body);
@@ -225,7 +224,7 @@
 
 
         function createInterfaceObject(){
-            var p = new PopupFrame();
+            var p = new PopupFrame('/pscmds');
             p.toggleClassname = 'protostar-menu-toggle';
             p.init();
             if(protostar.keyListener){
