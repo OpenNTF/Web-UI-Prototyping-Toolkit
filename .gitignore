@@ -27,3 +27,5 @@ bin/protostar.bat
 core/backend/style-backend-compiled.css
 projects/sample/less/styles-compiled.css
 projects/test/less/style-compiled.css
+core/assets/psux/less/styles-compiled.css
+core/backend/runtimeCommandsCompiled.html
