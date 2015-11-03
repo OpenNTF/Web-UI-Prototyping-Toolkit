@@ -1,3 +1,5 @@
+"use strict";
+
 var utils = require("../lib/utils");
 var wcmTagParser = require("../lib/wcmTagParser");
 var path = require("path");
@@ -28,6 +30,7 @@ describe("wcm tag parser", function(){
         //expect(utils.extractWcmTagTopLevelQuoteChar(markup)).toBe('"');
         //expect(utils.extractWcmTagTopLevelQuoteChar("[Plugin:Comment compute='once']Some common microformats for active site analytics of web content[/Plugin:Comment]")).toBe("'");
         var tag = wcmTagParser.findWcmTag(markup);
+        expect(typeof tag).toBe('object');
         expect(tag.name).toBe('Plugin:Comment');
         expect(tag.hasAttributes()).toBe(true);
         expect(tag.getAttributeQuoteChar()).toBe('"');

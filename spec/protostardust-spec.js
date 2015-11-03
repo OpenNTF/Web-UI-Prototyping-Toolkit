@@ -36,7 +36,7 @@ function createRuntime() {
     return rt;
 }
 function createServer() {
-    return dust.createServer({
+    return new dust.ProtoStarServer({
         runtime: createRuntime()
     });
 }
