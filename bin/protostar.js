@@ -22,6 +22,8 @@
 * Protostar CLI
 * */
 
+var launchTime = new Date().getTime();
+
 //var protostar = require(__dirname + "/../lib/protostar");
 var path = require("path")
 var utils = require("../lib/utils")
@@ -128,7 +130,7 @@ var parseCommandLineArgs = function () {
 };
 
 var args = parseCommandLineArgs();
-
+args.launchTime = launchTime;
 var rt = new (runtime.ProtostarRuntime)(args);
 
 function newProjectFromTemplate(){

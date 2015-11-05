@@ -14,6 +14,7 @@
  *  limitations under the License.
  *
  */
+"use strict";
 
 var utils = require("../lib/utils");
 var wcmTagParser = require("../lib/wcmTagParser");
@@ -36,7 +37,7 @@ describe("util functions", function(){
         expect(du).toBe("/tmp/tmp/js/main.js");
         urls.forEach(function(u){
             console.log(u + " => " + utils.createDependencyUrlForTarget("/index.html", u, targetDir));
-        })
+        });
 
     });
     it("should format bytesizes", function(){
@@ -50,7 +51,7 @@ describe("util functions", function(){
         [4320, 23.12*1024*1024, 918*1024*1024*1024].forEach(function(n){
             console.log("SIZE TEST " + n);
             testRun(n);
-        })
+        });
     });
     it("should correct comment endings", function(){
         var html='<blah><!-- test:test--> <!-- ok:ok --> <!-- test2:test2-->';
@@ -71,7 +72,7 @@ describe("util functions", function(){
         expect(ph.getName()).toBe('index');
         expect(ph.hasArgs()).toBe(false);
         expect(ph.getType()).toBe('file');
-        expect(ph.getArgs().length).toBe(0)
+        expect(ph.getArgs().length).toBe(0);
         expect(ph.getEnd()).toBe(startIdx + tag.length);
         expect(ph.getFilePath()).toBe(filePath);
     });
@@ -93,7 +94,7 @@ describe("util functions", function(){
         expect(ph.getEnd()).toBe(startIdx + tag.length);
         expect(ph.isArgsByName()).toBe(true);
         expect(ph.isArgsByOrder()).toBe(false);
-    })
+    });
 
     it("should properly parse Placeholder instances from tag with args by order", function(){
         var filePath = '/tmp/testFilePath.html';
@@ -115,5 +116,6 @@ describe("util functions", function(){
             var ao = ph.getArgsObject();
         }
         expect(getArgsObjectWhenByOrder).toThrow();
-    })
+    });
+
 });

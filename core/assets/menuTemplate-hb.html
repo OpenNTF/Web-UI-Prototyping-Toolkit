@@ -1,0 +1,21 @@
+{{#each this}}
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading{{category}}">
+        <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+               href="#collapse{{category}}"
+               aria-expanded="true" aria-controls="collapseOne">
+                {{category}}
+            </a>
+        </h4>
+    </div>
+    <div id="collapse{{category}}" class="panel-collapse collapse" role="tabpanel"
+         aria-labelledby="heading{{category}}">
+        <ul class="list-group">
+            {{#each commands}}
+            <li class="list-group-item" data-command="{{name}}" data-type="{{type}}" data-window="{{window}}" title="{{description}}">{{label}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+{{/each}}

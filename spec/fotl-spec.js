@@ -1,3 +1,4 @@
+"use strict";
 var tc = require("../lib/templateComposer");
 var fs = require("../lib/filesystem");
 var testUtils = require("../lib/testUtils");
@@ -14,7 +15,7 @@ function newTemplateComposer(projDir){
 describe("File Oriented Templating Language", function(){
     var cmp;
     var runtime;
-    var testsProjectDirPath = path.join(__dirname, "files/testsProj")
+    var testsProjectDirPath = path.join(__dirname, "files/testsProj");
     beforeEach(function(){
         console.log("before each");
         cmp = newTemplateComposer(testsProjectDirPath);
@@ -167,5 +168,4 @@ describe("File Oriented Templating Language", function(){
         });
 
     });
-
 });
