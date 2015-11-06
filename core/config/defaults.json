@@ -84,5 +84,18 @@
         }
     },
     "dxSyncPath" : "change me to the path to <dxsncdir>/bin/dxsync",
-    "scriptPortletPushPath" : "change me to the path to <sp_cmdln>/sp.sh"
+    "dxSyncConfig" : {
+        "username": "wpsadmin",
+        "password": "",
+        "contenthandlerPath": "/wps/mycontenthandler",
+        "host": "localhost",
+        "secure": false,
+        "port": "10039"
+    },
+    "scriptPortletPushPath" : "change me to the path to <sp_cmdln>/sp.sh",
+    "scriptPortletConfig" : {
+        "portalUser": "wpsadmin",
+        "portalPassword": "",
+        "scriptPortletServer": "http:\/\/localhost:10039"
+    }
 }

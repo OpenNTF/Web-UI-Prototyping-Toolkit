@@ -22,6 +22,10 @@ var utils = require("../lib/utils");
 var path = require("path");
 var templatesParent =path.join(testUtils.getTestProjectDir(), "component") + "/";
 
+/**
+ *
+ * @return {templateComposer.TemplateComposer}
+ */
 function newTemplateComposer(){
     var h = new (tc.TemplateComposer)({
         runtime: testUtils.createTestRuntime()
@@ -195,5 +199,15 @@ describe("Template Compser", function () {
         testCompile("index-jsonMultiObj2.html", '<h1>t2</h1><div>yow</div><p>S</p><p>S</p>');
         testCompile("index-jsonMultiArrayByIndex.html", '<h1>t2</h1><div>yow</div><p>S</p><p>S</p>');
         testCompile("index-jsonMultiArrayByKeyVal.html", '<h1>t1</h1><div>yow</div><p>S</p>');
+    });
+    fit("should convert layout to hb", function(){
+        var h = newTemplateComposer();
+        var repl = h.convertLayoutToHandlebars('a<!-- content:x --> b <!-- content:y -->c');
+        expect(repl).toBe('a{{x}} b {{y}}c');
+    });
+    fit("should convert hb to layout", function(){
+        var h = newTemplateComposer();
+        var repl = h.convertHandlebarsToLayout('a{{x}} b {{y}}c');
+        expect(repl).toBe('a<!-- content:x --> b <!-- content:y -->c');
     });
 });

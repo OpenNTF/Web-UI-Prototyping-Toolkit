@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            <a class="btn btn-primary" href="/pscmds"><span class="glyphicon glyphicon-chevron-left"></span> Back</a>
+        </p>
+    </div>
+    <div class="col-md-12">
+        <ul class="list-group files-listing">
+            {{#each links}}
+            <li class="list-group-item"><a href="javascript:void(0)" data-link="{{pathname}}" data-target="{{target}}">{{label}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
