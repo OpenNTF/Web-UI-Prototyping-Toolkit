@@ -1,0 +1,236 @@
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Current Project</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Integration Setup</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Push Theme To Portal WebDav</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            This project is configured to be synchronized with:
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Portal URL</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static">http://localhost:10039/wps/myportal</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Theme name</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static">myThemeName</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Username</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static">wpsadmin</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Password saved</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static">yes</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Portal Up?</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static text-success">Yes</p>
+                                        <p><a target="_blank" href="http://omnius:10039/wps/mycontenthandler/dav/fs-type1/themes/bootstrapDemoTheme/?mime-type=application/zip"><span class="glyphicon glyphicon-download"></span> Download from Portal</a></p>
+                                    </div>
+                                </div>
+                            </form>
+                            <p>
+                                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-upload"></span> Push bootstrapDemoTheme to Portal</button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Push Script Portlets to Portal</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="nothing-found">
+                                <p>There are no script portlets detected</p>
+                                <p>Make sure you have an sp-config.json (eg. downloaded from the script portlet) at the root of the portlet directory in the project</p>
+                            </div>
+
+                                <button class="btn btn-primary"><span class="glyphicon glyphicon-upload"></span> Push all script portlets</button>
+                            <h3>Configured script portlets</h3>
+                            <div class="script-portlets-list">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4">
+                                        <div id="sp-configured-portlet__gallery" class="thumbnail">
+                                            <div class="caption">
+                                                <h4>Gallery</h4>
+                                                <p>Location: portlet/gallery</p>
+                                                <p>Shown on pages:</p>
+                                                <ul>
+                                                    <li><a href="#">link 1</a></li>
+                                                    <li><a href="#">link 2</a></li>
+                                                </ul>
+
+                                                <p>
+                                                    Changes to Gallery can be pushed to :
+                                                </p>
+                                                <form class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label">Portal</label>
+                                                        <div class="col-sm-8">
+                                                            <p class="form-control-static">localhost:10039 (Default Portal) </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label">Title</label>
+                                                        <div class="col-sm-8">
+                                                            <p class="form-control-static">My Content Item Title</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label">User</label>
+                                                        <div class="col-sm-8">
+                                                            <p class="form-control-static">wpsadmin</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label">Portal Up?</label>
+                                                        <div class="col-sm-8">
+                                                            <p class="form-control-static text-success">Yes</p>
+                                                            <p><a href="#"><span class="glyphicon glyphicon-download"></span> Download from Portal</a></p>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-upload"></span> Push Gallery To Portal</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Import Script Portlets from Portal</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <p>Installed Script Portlets JSON Feed Path for http://omnius:10039/wps </p>
+                                <p><input type="text" class="form-control" value="/wcm/myconnect/protostar library/apps"></p>
+                                <p>Virtual Portal Info JSON Path for http://omnius:10039/wps</p>
+                                <p><input type="text" class="form-control" value="/wcm/connect/protostar library/vpinfo"></p>
+                            </div>
+                            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-repeat"></span> Refresh Script Portlet Info</button>
+                            <div>
+                                Detected Script Portlets:
+                                <ul>
+                                    <li><a href="#sp-configured-portlet__gallery">Gallery</a>: Already configured. <a href="#"><span class="glyphicon glyphicon-download"></span> Download from Portal</a></li>
+                                    <li>Two: <button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-certificate"></span> Pull Two into new portlet directory</button> <a href="#"><span class="glyphicon glyphicon-download"></span> Download from Portal</a></li>
+                                </ul>
+                                Detected Virtual Portals:
+                                <ul>
+                                    <li>One</li>
+                                    <li>Two</li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane ps-config-editor-form" id="profile">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Default Portal Configuration</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <p>When prototype.json or sp-config.json is missing field identifying portal, they will be taken from below.</p>
+                                    <p>Can be all empty.</p>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="portalConfig.host">Hostname</label>
+                                            <input type="text" class="form-control" id="portalConfig.host" placeholder="Eg. localhost" name="portalConfig.host">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="portalConfig.port">Port</label>
+                                            <input type="text" class="form-control" id="portalConfig.port" placeholder="Typically 10039" value="" name="portalConfig.port">
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="portalConfig.secure"><input id="portalConfig.secure" type="checkbox" name="portalConfig.secure"> Use HTTPS instead of HTTP</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="portalConfig.contextRoot">Context Root</label>
+                                            <input type="text" class="form-control" id="portalConfig.contextRoot" placeholder="Typically /wps" value="/wps" name="portalConfig.contextRoot">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="portalConfig.virtualPortalContext">Virtual Portal Context</label>
+                                            <input type="text" class="form-control" id="portalConfig.virtualPortalContext" placeholder="Eg. /myVirtualPortal" value="" name="portalConfig.virtualPortalContext">
+                                            <p class="help-block">The context root of the Virtual Portal to connect to, if any</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="portalConfig.username">Username</label>
+                                            <input type="text" class="form-control" id="portalConfig.username" placeholder="wpsadmin" name="portalConfig.username">
+                                            <p class="help-block">Used to reference this project</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="portalConfig.password">Password</label>
+                                            <input type="password" class="form-control" id="portalConfig.password" placeholder="" value="" name="portalConfig.password">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">DXSync Configuration</h3>
+
+                        </div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="dxSyncPath">dxsync path</label>
+                                    <input type="text" class="form-control" id="dxSyncPath" placeholder="/your/path/to/dxsync" name="dxSyncPath">
+                                    <p class="help-block">Location of the dxsync executable.</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Script Portlet Configuration</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="scriptPortletPushPath">sp command path</label>
+                                    <input type="text" class="form-control" id="scriptPortletPushPath" placeholder="/your/path/to/sp.sh" value="" name="scriptPortletPushPath">
+                                    <p class="help-block">Location of the script portlet push command script for your OS</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <p>
+                        <button class="btn btn-primary">Save changes</button> <a href="/pscmds" class="btn btn-default">Cancel</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

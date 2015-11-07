@@ -65,4 +65,34 @@
             window.location = pathname;
         }
     });
+    if($('.ps-config-editor-form').length  >0){
+
+        $.get("/ps/config/config.json").done(function(cfg){
+            function getter() {
+                var v = cfg;
+                for(var i=0; i< arguments.length; i++) {
+                    if(!v) return null;
+                    v = v[arguments[i]];
+                }
+                return v;
+            }
+            console.log("Core config = ", cfg);
+            $('.ps-config-editor-form').each(function(){
+                var fp = $(this);
+                fp.find('input').each(function(){
+                    var input = $(this);
+                    var name = input.attr('name');
+                    if(name.indexOf('.')> 0){
+                        input.val(getter.apply(this, name.split('.')));
+                    }else{
+                        input.val(getter(name));
+                    }
+
+
+                });
+            });
+        });
+
+
+    }
 })(window);
