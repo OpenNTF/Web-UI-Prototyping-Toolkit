@@ -200,12 +200,12 @@ describe("Template Compser", function () {
         testCompile("index-jsonMultiArrayByIndex.html", '<h1>t2</h1><div>yow</div><p>S</p><p>S</p>');
         testCompile("index-jsonMultiArrayByKeyVal.html", '<h1>t1</h1><div>yow</div><p>S</p>');
     });
-    fit("should convert layout to hb", function(){
+    it("should convert layout to hb", function(){
         var h = newTemplateComposer();
         var repl = h.convertLayoutToHandlebars('a<!-- content:x --> b <!-- content:y -->c');
-        expect(repl).toBe('a{{x}} b {{y}}c');
+        expect(repl).toBe('a{{{x}}} b {{{y}}}c');
     });
-    fit("should convert hb to layout", function(){
+    it("should convert hb to layout", function(){
         var h = newTemplateComposer();
         var repl = h.convertHandlebarsToLayout('a{{x}} b {{y}}c');
         expect(repl).toBe('a<!-- content:x --> b <!-- content:y -->c');
