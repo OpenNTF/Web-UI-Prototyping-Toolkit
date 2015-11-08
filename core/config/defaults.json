@@ -85,15 +85,17 @@
     },
     "dxSyncPath" : "change me to the path to <dxsncdir>/bin/dxsync",
     "portalConfig" : {
-        "username": "wpsadmin",
+        "username": "",
         "password": "",
         "contextRoot": "/wps",
         "virtualPortalContext": "",
         "host": "localhost",
         "secure": false,
-        "port": "10039"
+        "port": "10039",
+        "listScriptPortletsUrlPathname": "/wps/wcm/connect/protostar%20library/apps",
+        "virtualPortalInfoUrlPathname": "/wps/wcm/connect/protostar%20library/vpinfo"
     },
-    "scriptPortletPushPath" : "change me to the path to <sp_cmdln>/sp.sh",
+    "scriptPortletPushPath" : "change me to the path to <sp_cmdln>/sp.sh"
 //    "scriptPortletConfig" : {
 //        "portalUser": "wpsadmin",
 //        "portalPassword": "",
