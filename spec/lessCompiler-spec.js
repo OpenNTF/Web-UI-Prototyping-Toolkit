@@ -14,15 +14,12 @@
  *  limitations under the License.
  *
  */
-
+"use strict";
 var testUtils = require("../lib/testUtils");
 var fs = require("fs");
 var path = require("path");
 var lc = require("../lib/lessCompiler");
 describe("lessCompile", function(){
-    it("should find the project root", function(){
-        expect(testUtils.getProjectDir()).toBe("/home/spectre/Projects/WUIPT");
-    });
     it("should offer a compile method", function(done){
         var filePath = path.join(testUtils.getTestProjectDir(),  "less", "style.less");
         lc.compile(

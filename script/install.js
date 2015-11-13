@@ -16,18 +16,18 @@ var cwd = process.cwd();
 var args = process.argv;
 var nodeCommandPath = args[0];
 var psdir = path.join(__dirname, "..");
-function getPsPath(relPath){
+function getPsPath(relPath) {
     return path.join(psdir, relPath);
 }
-function createLaunchers(){
+function createLaunchers() {
     /*
      ___NODE_EXEC_PATH___
      ___PROTOSTARDIR___
      */
-    var shell = fs.readFileSync(getPsPath("core/install/protostar.sh"), 'utf8').replace(/___NODE_EXEC_PATH___/g,nodeCommandPath).replace(/___PROTOSTARDIR___/g,psdir);
-    var openDesktop = fs.readFileSync(getPsPath("core/install/Protostar.desktop"), 'utf8').replace(/___NODE_EXEC_PATH___/g,nodeCommandPath).replace(/___PROTOSTARDIR___/g,psdir);
-    var osX = fs.readFileSync(getPsPath("core/install/Protostar.app/Contents/document.wflow"), 'utf8').replace(/___NODE_EXEC_PATH___/g,nodeCommandPath).replace(/___PROTOSTARDIR___/g,psdir);
-    var windows = fs.readFileSync(getPsPath("core/install/protostar.bat"), 'utf8').replace(/___NODE_EXEC_PATH___/g,nodeCommandPath).replace(/___PROTOSTARDIR___/g,psdir);
+    var shell = fs.readFileSync(getPsPath("core/install/protostar.sh"), 'utf8').replace(/___NODE_EXEC_PATH___/g, nodeCommandPath).replace(/___PROTOSTARDIR___/g, psdir);
+    var openDesktop = fs.readFileSync(getPsPath("core/install/Protostar.desktop"), 'utf8').replace(/___NODE_EXEC_PATH___/g, nodeCommandPath).replace(/___PROTOSTARDIR___/g, psdir);
+    var osX = fs.readFileSync(getPsPath("core/install/Protostar.app/Contents/document.wflow"), 'utf8').replace(/___NODE_EXEC_PATH___/g, nodeCommandPath).replace(/___PROTOSTARDIR___/g, psdir);
+    var windows = fs.readFileSync(getPsPath("core/install/protostar.bat"), 'utf8').replace(/___NODE_EXEC_PATH___/g, nodeCommandPath).replace(/___PROTOSTARDIR___/g, psdir);
     fs.writeFileSync(getPsPath('bin/protostar'), shell, 'utf8');
     fs.writeFileSync(getPsPath('bin/Protostar.desktop'), openDesktop, 'utf8');
     copier.copy(getPsPath('core/install/Protostar.app'), 'bin/Protostar.app');
@@ -39,39 +39,36 @@ function createLaunchers(){
 
 var bu = new bowerUtils.BowerUtils(psdir);
 
-bu.runBower(getPsPath("node_modules/bower/bin/bower"), nodeCommandPath).done(function(){
+bu.runBower(getPsPath("node_modules/bower/bin/bower"), nodeCommandPath).done(function () {
     var def = kew.defer();
     (def.makeNodeResolver())();
     def.promise.then(function () {
-
-
-
         console.log("Creating launchers in " + psdir + "/bin ...");
         createLaunchers();
         console.log("Downloading ckeditor plugins ..");
-        return initiateDownload("https://github.com/spantaleev/ckeditor-imagebrowser/archive/master.zip")
+        return initiateDownload("https://github.com/spantaleev/ckeditor-imagebrowser/archive/master.zip");
     }).then(function (downloadedFile) {
-        return extractArchive(downloadedFile)
+        return extractArchive(downloadedFile);
     }).then(function (extractedPath) {
-        return moveFiles(extractedPath, "bower_components/ckeditor/plugins/imagebrowser")
+        return moveFiles(extractedPath, "bower_components/ckeditor/plugins/imagebrowser");
     }).then(function () {
-        return initiateDownload("http://download.ckeditor.com/sourcedialog/releases/sourcedialog_4.4.5.zip")
+        return initiateDownload("http://download.ckeditor.com/sourcedialog/releases/sourcedialog_4.4.5.zip");
     }).then(function (downloadedFile) {
-        return extractArchive(downloadedFile)
+        return extractArchive(downloadedFile);
     }).then(function (extractedPath) {
-        return moveFiles(extractedPath, "bower_components/ckeditor/plugins/sourcedialog")
+        return moveFiles(extractedPath, "bower_components/ckeditor/plugins/sourcedialog");
     }).done(function () {
-        console.log("BOth imagebrowser and sourcedialog ckeditor extensions are installed.")
+        console.log("BOth imagebrowser and sourcedialog ckeditor extensions are installed.");
         validExit = true;
         exit(0);
     });
-}, function(err){
+}, function (err) {
     console.error("Error running bower!", err.stack);
 });
 
 function exit(code) {
     validExit = true;
-    process.exit(code || 0)
+    process.exit(code || 0);
 }
 function initiateDownload(fileUrl) {
     console.log("REQ: " + fileUrl);
@@ -89,30 +86,28 @@ function initiateDownload(fileUrl) {
             fs.writeFileSync(writePath, body);
             console.log('Received ' + Math.floor(body.length / 1024) + 'K');
             fs.renameSync(writePath, filePath);
-            deferred.resolve(filePath)
+            deferred.resolve(filePath);
         } else if (response) {
             console.error('Error requesting archive : ' + response.statusCode);
-            exit(1)
+            exit(1);
         } else if (error) {
             console.error('Error making request.\n' + error.stack);
-            exit(1)
+            exit(1);
         } else {
             console.error('Unexpected error');
-            exit(1)
+            exit(1);
         }
     })).on('progress', function (state) {
-        try{
-        if (!bar) {
-
-                bar = new progress('  [:bar] :percent :etas', {total: state.total, width: 40})
-
-
+        try {
+            if (!bar) {
+                bar = new progress('  [:bar] :percent :etas', {total: state.total, width: 40});
+            }
+            bar.curr = state.received;
+            bar.tick(0);
+        } catch (e) {
         }
-        bar.curr = state.received;
-        bar.tick(0)
-        }catch(e){}
     });
-    return deferred.promise
+    return deferred.promise;
 }
 function extractArchive(filePath) {
     var deferred = kew.defer();
@@ -124,12 +119,12 @@ function extractArchive(filePath) {
     try {
         var zip = new AdmZip(filePath);
         zip.extractAllTo(extractedPath, true);
-        deferred.resolve(extractedPath)
+        deferred.resolve(extractedPath);
     } catch (err) {
         console.error('Error extracting zip to ' + filePath);
-        deferred.reject(err)
+        deferred.reject(err);
     }
-    return deferred.promise
+    return deferred.promise;
 }
 function moveFiles(extractedPath, targetPath) {
     return kew.nfcall(fs.remove, targetPath).then(function () {
@@ -138,12 +133,12 @@ function moveFiles(extractedPath, targetPath) {
             var file = path.join(extractedPath, files[i]);
             if (fs.statSync(file).isDirectory()) {
                 console.log('Copy extracted dir', file, ' to ', targetPath);
-                return kew.nfcall(fs.move, file, targetPath)
+                return kew.nfcall(fs.move, file, targetPath);
             }
         }
         console.log('Could not find extracted file', files);
-        throw new Error('Could not find extracted file')
+        throw new Error('Could not find extracted file');
     }).then(function () {
         return kew.nfcall(fs.remove, extractedPath);
-    })
+    });
 }

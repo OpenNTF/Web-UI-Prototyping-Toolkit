@@ -31,7 +31,7 @@ describe("util functions", function(){
         'img/ADP-favicon-32x32.png'
     ];
 
-    it("should encode urls", function(){
+    xit("should encode urls", function(){
         var targetDir = "/tmp/tmp";
         var du = utils.createDependencyUrlForTarget("/child/file.html", "../js/main.js", "/tmp/tmp");
         expect(du).toBe("/tmp/tmp/js/main.js");
