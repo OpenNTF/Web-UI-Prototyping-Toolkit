@@ -26,7 +26,8 @@ var launchTime = new Date().getTime();
 
 //var protostar = require(__dirname + "/../lib/protostar");
 var path = require("path")
-var utils = require("../lib/utils")
+var utils = require("../lib/utils");
+var logger = utils.createLogger({sourceFilePath : __filename});
 var runtime = require(__dirname + "/../lib/runtime");
 var protostardust = require(__dirname + "/../lib/protostardust");
 var templateComposer = require(__dirname + "/../lib/templateComposer");
@@ -37,8 +38,7 @@ var portalThemeMerger = require(__dirname + "/../lib/portalThemeMerger");
  * @return {Object.<String,String|Number>}
  */
 var parseCommandLineArgs = function () {
-    console.log("Launching with args: ", process.argv)
-    console.info("node path = " + process.argv[0]);
+    logger.debug("Launching with args: ", process.argv)
     var o = {};
     o.protostarDirPath = path.join(__dirname, "..");
     var cmdArgs = process.argv.slice(2);
@@ -125,7 +125,7 @@ var parseCommandLineArgs = function () {
             }
             break;
     }
-    console.log("Parsed cmdline args: ", o);
+    logger.debug("Parsed cmdline args: ", o);
     return o;
 };
 
@@ -145,7 +145,7 @@ function buildProject(){
         runtime: rt
     });
     buildHelper.buildPrototype(rt.targetDirPath, function () {
-        console.log("BUILT " + rt.constructProjectPath("") + " => " + rt.getTargetDirPath());
+        logger.info("Finished building " + rt.constructProjectPath("") + " => " + rt.getTargetDirPath());
     });
 }
 
@@ -164,11 +164,11 @@ function mergeStatic(){
         composer: composer,
         project: project
     }).then(function () {
-        console.log("merge success");
+        logger.info("Successfully merged static files to "  + rt.getTargetDirPath());
     }, function () {
-        console.error("merge fail :(", arguments);
+        logger.error("Errer during merge of static files to " + rt.getTargetDirPath(), arguments);
     }).catch(function (errors) {
-        console.error("merge error ::: ", errors);
+        logger.error("Errer during merge of static files to " + rt.getTargetDirPath(), arguments);
     });
 }
 
@@ -188,11 +188,11 @@ function merge(){
         composer: composer,
         project: project
     }).then(function () {
-        console.log("merge success");
+        logger.info("Successfully merged to "  + rt.getTargetDirPath());
     }, function () {
-        console.error("merge fail :(", arguments);
+        logger.error("Errer during merge to " + rt.getTargetDirPath(), arguments);
     }).catch(function (errors) {
-        console.error("merge error ::: ", errors);
+        logger.error("Errer during merge to " + rt.getTargetDirPath(), arguments);
     });
 }
 
