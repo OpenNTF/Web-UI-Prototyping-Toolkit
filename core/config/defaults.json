@@ -96,9 +96,4 @@
         "virtualPortalInfoUrlPathname": "/wps/wcm/connect/protostar%20library/vpinfo"
     },
     "scriptPortletPushPath" : "change me to the path to <sp_cmdln>/sp.sh"
-//    "scriptPortletConfig" : {
-//        "portalUser": "wpsadmin",
-//        "portalPassword": "",
-//        "scriptPortletServer": "http:\/\/localhost:10039"
-//    }
 }
