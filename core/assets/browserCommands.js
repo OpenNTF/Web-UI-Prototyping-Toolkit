@@ -62,20 +62,6 @@
         pageCmds.view_help.description = '';
         pageCmds.view_help.cat = 'ps';
 
-        pageCmds.download_portal_fstype1 = function (window, projectWindow) {
-            projectWindow.alert("todo download_portal_fstype1");
-        };
-        pageCmds.download_portal_fstype1.label = 'Download Portal Static Files';
-        pageCmds.download_portal_fstype1.description = '';
-        pageCmds.download_portal_fstype1.cat = 'portal';
-
-        pageCmds.download_packaged_components = function (window, projectWindow) {
-            projectWindow.alert("todo download_packaged_components");
-        };
-        pageCmds.download_packaged_components.label = 'Download Packaged Component Dirs';
-        pageCmds.download_packaged_components.description = '';
-        pageCmds.download_packaged_components.cat = 'project';
-
         var inNode = false;
         if (typeof module === 'object' && module.hasOwnProperty('exports') && typeof module.exports === 'object') {
             inNode = true;
