@@ -24,7 +24,6 @@
   "bugs": {
     "url": "https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit/issues"
   },
-
   "license": "Apache-2.0",
   "authors": [
     "Jonathan Bosmans <jonathan.bosmans@be.ibm.com>",
@@ -42,7 +41,6 @@
     }
   ],
   "dependencies": {
-    "adm-zip": "^0.4.7",
     "bless": "^3.0.3",
     "bluebird": "^2.9.34",
     "bower": "^1.3.x",
@@ -60,13 +58,14 @@
     "marked": "^0.3.2",
     "mime": "x",
     "node-sass": "^2.1.1",
+    "node-zip": "^1.1.1",
     "opn": "^3.0.2",
     "os-tmpdir": "^1.0.1",
     "progress": "^1.1.8",
     "request": "^2.53.0",
     "request-progress": "^0.3.1",
-    "uuid": "^2.0.1",
     "uncss": "^0.12.0",
+    "uuid": "^2.0.1",
     "w3c-validate": "0.0.2",
     "webshot": "^0.15.4",
     "winston": "^0.7.3"

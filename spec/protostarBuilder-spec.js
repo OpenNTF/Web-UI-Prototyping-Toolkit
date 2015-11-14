@@ -4,6 +4,7 @@ var testUtils = require("../lib/testUtils");
 var utils = require("../lib/utils");
 var protostarProject = require("../lib/protostarProject");
 var templateComposer = require("../lib/templateComposer")
+var fs = require("fs");
 var originalTimeout;
 if(false)
 describe("protostarBuilder", function(){
@@ -34,18 +35,12 @@ describe("protostarBuilder", function(){
             ignoreExcludeFromBuild : false
         });
 
-        builder.createZipBuild(function(zip, targetDir, dirName){
-            console.log("TARGET DIR = "+ targetDir)
+        builder.createZipBuild(function(zipFilePath, targetDir, dirName){
+            console.log("Wrote zip to " + zipFilePath);
             console.log("dirName = "+ dirName);
-            zip.writeZip(targetDir + ".zip");
-            var foundCss = false;
-            zip.getEntries().forEach(function(e){
-                console.log(e.name);
-                if(e.name.toString() === 'styles.less-readable.css'){
-                    foundCss = true;
-                }
-            });
-            expect(foundCss).toBe(true);
+
+            expect(fs.existsSync(zipFilePath)).toBe(true);
+            fs.unlinkSync(zipFilePath);
             done();
         }, function(error){
             console.error("BUILD ERRORS", error.stack);

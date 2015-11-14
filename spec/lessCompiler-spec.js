@@ -35,7 +35,7 @@ describe("lessCompile", function(){
             }
         );
     });
-    fit("should offer a compile many method", function(done){
+    xit("should offer a compile many method", function(done){
         lc.compileLessFilesToCss(['/home/spectre/Projects/WUIPT/bower_components/bootstrap/less/bootstrap.less', '/home/spectre/Projects/WUIPT/projects/sample/less/styles.less'], function(err, cssPerFile){
 
             done();
