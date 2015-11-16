@@ -9,7 +9,7 @@ This is a tool to facilitate the creation of static HTML prototypes from UX desi
 - JADE templating language support
 - Handlebars integration
 - Simplistic syntax model: mostly HTML comments that point to relative file paths
-- Live less css compilation : *always* get the latest compiled css and map for every request
+- Live less css and sassy css compilation : rely on the fact that any request for css *always* returns the latest compiled css and source map
 - Make your prototypes feel like a website: automatic generation of navigation of prototypes
 - Every request processes all markup and styles
 - Quick helpers: toggle RTL, highlight specific markup, ...
