@@ -15,7 +15,7 @@
  *
  */
 
-var tc = require("../lib/templateComposer");
+var TemplateComposer = require("../lib/templateComposer");
 var fs = require("fs");
 var testUtils = require("../lib/testUtils");
 var utils = require("../lib/utils");
@@ -27,7 +27,7 @@ var templatesParent =path.join(testUtils.getTestProjectDir(), "component") + "/"
  * @return {templateComposer.TemplateComposer}
  */
 function newTemplateComposer(){
-    var h = new (tc.TemplateComposer)({
+    var h = new TemplateComposer({
         runtime: testUtils.createTestRuntime()
     });
     return h;
@@ -62,8 +62,8 @@ describe("Template Compser", function () {
             if(fs.statSync(filePath).isFile() && filePath.indexOf("-compiled.html") > 0){
                 console.log(filePath + " exists");
                 var fileContents = '' + fs.readFileSync(filePath);
-                console.log("read file")
-                var markers = tc.decompile(fileContents);
+                console.log("read file");
+                var markers = newTemplateComposer().decompile(fileContents);
                 console.log("found markers");
                 if(markers.length  >0){
                     expect(markers.length > 0).toBe(true);
@@ -73,24 +73,24 @@ describe("Template Compser", function () {
                         console.log("Inspecting filename " + fn);
                         expect(fs.statSync(fn).isFile()).toBe(true);
                         var partContents = (fs.readFileSync(fn) + '').trim();
-                        var pc = tc.replaceMarkedContentWithDropPoints(m.content).trim();
+                        var pc = newTemplateComposer().replaceMarkedContentWithDropPoints(m.content).trim();
 //                        expect(partContents).toBe(pc);
                     });
                 }
                 console.log("Found markers:", markers);
-                var converted = tc.replaceMarkedContentWithDropPoints(fileContents);
+                var converted = newTemplateComposer().replaceMarkedContentWithDropPoints(fileContents);
                 console.log("CONVERTED BACK TO TEMPLATE : \n" + converted);
                 expect(converted.indexOf('<!-- begin_') < 0).toBe(true);
             }else{
                 console.log("Not a compiled file : "+ filePath);
             }
         });
-        console.log("Finished")
+        console.log("Finished");
     });
     it("Should replace marked content again with dropPoints", function(){
         console.log("test3");
         var cnt = "This is content <!-- begin_file-component/nav -->INSIDE<!-- end_file-component/nav --> with some more content after the marker. <!-- begin_file-component/other -->INSIDEOTHER<!-- end_file-component/other -->And more here.";
-        var decompiled = tc.decompile(cnt);
+        var decompiled = newTemplateComposer().decompile(cnt);
         var content = decompiled.content;
         expect(content.length < cnt.length).toBe(true);
         var markers = decompiled.markers;
@@ -104,7 +104,7 @@ describe("Template Compser", function () {
     it("Should replace top level inclusions only", function(){
         console.log("test4");
         var cnt = "This is content <!-- begin_file-component/nav -->INSIDE1<!-- begin_file-component/nav -->INSIDE2<!-- end_file-component/nav -->INSIDE1<!-- end_file-component/nav --> with some more content after the marker.";
-        var decompiled = tc.decompile(cnt);
+        var decompiled = newTemplateComposer().decompile(cnt);
 
         var content = decompiled.content;
         expect(content.length < cnt.length).toBe(true);
@@ -121,7 +121,7 @@ describe("Template Compser", function () {
     it("Should include fragment args", function(){
         console.log("test5");
         var cnt = "This is content <!-- begin_file-component/nav -->INSIDE1<!-- begin_file-component/nav -->INSIDE2<!-- end_file-component/nav -->INSIDE1<!-- end_file-component/nav --> with some more content after the marker.";
-        var decompiled = tc.decompile(cnt);
+        var decompiled = newTemplateComposer().decompile(cnt);
         var content = decompiled.content;
         expect(content.length < cnt.length).toBe(true);
         var markers = decompiled.markers;
@@ -132,25 +132,25 @@ describe("Template Compser", function () {
         expect(marker.type).toBe("file");
         expect(marker.content).toBe("INSIDE1<!-- begin_file-component/nav -->INSIDE2<!-- end_file-component/nav -->INSIDE1");
         cnt = "This is content <!-- begin_file-component/nav -->INSIDE1<!-- begin_file-component/nav -->INSIDE2<!-- end_file-component/nav -->INSIDE1<!-- end_file-component/nav --> with some more content after the marker.";
-        var dr = tc.decompileRecursive(cnt);
-        expect(dr.markers.length).toBe(2)
+        var dr = newTemplateComposer().decompileRecursive(cnt);
+        expect(dr.markers.length).toBe(2);
     });
 
     it("counts occurrences in text between indexes", function(){
         console.log("test6");
-        var cnt = "aaaa"
+        var cnt = "aaaa";
         var count = utils.countOccurrencesBetweenIndexes(cnt, "a", 1, 3);
         expect(count).toBe(2);
     });
     it("find the nth occurrence", function(){
         console.log("test6");
-        var cnt = "babababab"
+        var cnt = "babababab";
         var indx = utils.findNthOccurrence(cnt, "a", 1, 0);
         expect(indx).toBe(1);
-        var indx = utils.findNthOccurrence(cnt, "a", 2, 0);
-        expect(indx).toBe(3);
-        var indx = utils.findNthOccurrence(cnt, "a", 2, 2);
-        expect(indx).toBe(5);
+        var indx2 = utils.findNthOccurrence(cnt, "a", 2, 0);
+        expect(indx2).toBe(3);
+        var indx3 = utils.findNthOccurrence(cnt, "a", 2, 2);
+        expect(indx3).toBe(5);
 
     });
 
@@ -174,7 +174,7 @@ describe("Template Compser", function () {
     it("should allow wrap calls with args for other drop points", function(){
         //var tp=newTemplateComposer();
         var testsProjDir = path.join(__dirname, "files/testsProj");
-        var tp = new (tc.TemplateComposer)({
+        var tp = new TemplateComposer({
             runtime: testUtils.createTestRuntime(testsProjDir)
         });
         var indexPath = path.resolve(testsProjDir, "index.html");
@@ -186,7 +186,7 @@ describe("Template Compser", function () {
 
         //var tp=newTemplateComposer();
         var testsProjDir = path.join(__dirname, "files/testsProj");
-        var tp = new (tc.TemplateComposer)({
+        var tp = new TemplateComposer({
             runtime: testUtils.createTestRuntime(testsProjDir)
         });
         function testCompile(templateName, expected){

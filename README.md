@@ -1,6 +1,6 @@
 # Web UI Prototyping Toolkit - Protostar
 
-Version 0.9.9
+Version 0.9.10
 
 This is a tool to facilitate the creation of static HTML prototypes from UX designs
 - Decompose pages into reusable fragments
@@ -21,6 +21,8 @@ This is a tool to facilitate the creation of static HTML prototypes from UX desi
 
 ## Installing
 
+Ensure your node runtime version is v6.8.1 or newer.
+
 Open a commandline with node, npm and git commands available, and run following:
 
     git clone https://github.com/OpenNTF/Web-UI-Prototyping-Toolkit.git protostar
@@ -38,14 +40,14 @@ Launchers are generated for FreeDesktop, OS X and Windows (pitiful protostar.bat
 
 ### Requirements
 
-- node.js : http://nodejs.org/download
+- node.js v6.8.1 or newer : http://nodejs.org/download
 - git : http://git-scm.com/downloads
 
 Make sure node, npm and git are available on the command line.
 On Windows you may need to use 'git bash' depending on choices made during git installation.
 
     node --version
-    > v0.10.36
+    > v6.8.1
     npm --version
     > 1.4.28
     git --version

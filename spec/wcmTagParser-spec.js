@@ -1,16 +1,18 @@
 "use strict";
 
 var utils = require("../lib/utils");
-var wcmTagParser = require("../lib/wcmTagParser");
+var WcmTagParser = require("../lib/wcmTagParser");
 var path = require("path");
 
 //noinspection JSUnresolvedVariable
 var focusTest = fit;
 
+const wcmTagParser = new WcmTagParser();
+
 describe("wcm tag parser", function(){
     it('can parse wcm tags', function(){
         var wcmTagsFileContent = utils.readTextFileSync(path.resolve(path.dirname(__filename) + path.sep + 'files', "bunchOfWcmTags.html"), 'utf8');
-        var at = wcmTagParser.collectWcmTags(wcmTagsFileContent);
+        var at = WcmTagParser.collectWcmTags(wcmTagsFileContent);
         expect(at.length).toBe(38);
 
         at.forEach(function(t, idx){
@@ -29,7 +31,7 @@ describe("wcm tag parser", function(){
         var markup = '[Plugin:Comment compute="once"]Some common microformats for active site analytics of web content[/Plugin:Comment]';
         //expect(utils.extractWcmTagTopLevelQuoteChar(markup)).toBe('"');
         //expect(utils.extractWcmTagTopLevelQuoteChar("[Plugin:Comment compute='once']Some common microformats for active site analytics of web content[/Plugin:Comment]")).toBe("'");
-        var tag = wcmTagParser.findWcmTag(markup);
+        var tag = WcmTagParser.findWcmTag(markup);
         expect(typeof tag).toBe('object');
         expect(tag.name).toBe('Plugin:Comment');
         expect(tag.hasAttributes()).toBe(true);
@@ -50,7 +52,7 @@ describe("wcm tag parser", function(){
         expect(tag.getBody()).toBe('Some common microformats for active site analytics of web content');
 
         markup = '[Plugin:AnalyticsData css-class="asa.wcm.content_item.title" compute="once" value="[Property context=\'current\' type=\'content\' field=\'title\']"]';
-        tag = wcmTagParser.findWcmTag(markup);
+        tag = WcmTagParser.findWcmTag(markup);
         expect(tag.name).toBe('Plugin:AnalyticsData');
         expect(tag.hasAttribute("compute")).toBe(true);
         expect(tag.hasAttribute("blah")).toBe(false);

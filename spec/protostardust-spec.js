@@ -15,7 +15,7 @@
  *
  */
 
-var dust = require("../lib/protostardust");
+var ProtoStarServer = require("../lib/protostardust");
 var fs = require("fs");
 var testUtils = require("../lib/testUtils");
 var psRuntime = require("../lib/runtime")
@@ -36,7 +36,7 @@ function createRuntime() {
     return rt;
 }
 function createServer() {
-    return new dust.ProtoStarServer({
+    return new ProtoStarServer({
         runtime: createRuntime()
     });
 }

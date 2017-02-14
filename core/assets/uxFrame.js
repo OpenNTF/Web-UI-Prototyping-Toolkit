@@ -374,9 +374,6 @@
             });
         }
 
-
-
-
         function saveRtfTextChanges(window) {
             var editables = window.document.querySelectorAll('*[data-editable]');
             forNodeList(editables, function (n) {
@@ -734,6 +731,28 @@
                     invoke: function () {
                         toggleShortcutRef();
                         //throw new Error("todo")
+                    }
+                },
+                "alt shift n": {
+                    label: "Next",
+                    description: "Goes to the (alphabetically) next prototype page, (see alt-shift-L)",
+                    invoke: function(){
+                        console.log("Go to next for " , window.location.pathname);
+                        protostar.ajaxRequest("/ps/dynamic/pageUrls?current="+window.location.pathname+"&go=next", {}, null, function(data){
+                            console.log("RESULT = ", arguments);
+                            window.location.pathname=data;
+                        }, 'get');
+                    }
+                },
+                "alt shift p": {
+                    label: "Previous",
+                    description: "Goes to the (alphabetically) previous prototype page, (see alt-shift-L)",
+                    invoke: function(){
+                        console.log("Go to previous for " , window.location.pathname);
+                        protostar.ajaxRequest("/ps/dynamic/pageUrls?current="+window.location.pathname+"&go=prev", {}, null, function(data){
+                            console.log("RESULT = ", arguments);
+                            window.location.pathname=data;
+                        }, 'get');
                     }
                 }
             };

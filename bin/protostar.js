@@ -18,27 +18,50 @@
 
 "use strict";
 
-/*
+/**
 * Protostar CLI
 * */
 
 var launchTime = new Date().getTime();
+var requiredNodeVersion = {
+    major : 6,
+    minor : 8,
+    rev: 1
+}
+function nodeVersionTooOld(){
+    var nodeVersion = process.versions.node;
+    var vers = nodeVersion.split('.').map(function (v) {
+        return parseInt(v, 10);
+    });
+    var major = vers[0], minor = vers[1], rev = vers[2];
+    return major < requiredNodeVersion.major || (major === requiredNodeVersion.major && (minor < requiredNodeVersion.minor || (major === requiredNodeVersion.major && minor === requiredNodeVersion.minor && rev < requiredNodeVersion.rev)));
+
+}
+
+if(nodeVersionTooOld()){
+    console.error("Node runtime version too old, please use v6.8.1 or newer. Current version: " + process.versions.node);
+    process.exit(1);
+}
 
 //var protostar = require(__dirname + "/../lib/protostar");
-var path = require("path")
+var path = require("path");
 var utils = require("../lib/utils");
 var logger = utils.createLogger({sourceFilePath : __filename});
-var runtime = require(__dirname + "/../lib/runtime");
-var protostardust = require(__dirname + "/../lib/protostardust");
-var templateComposer = require(__dirname + "/../lib/templateComposer");
-var protostarProject = require(__dirname + "/../lib/protostarProject");
+var ProtostarRuntime = require(__dirname + "/../lib/runtime");
+var ProtoStarServer = require(__dirname + "/../lib/protostardust");
+var TemplateComposer = require(__dirname + "/../lib/templateComposer");
+var Project = require(__dirname + "/../lib/protostarProject");
 var portalThemeMerger = require(__dirname + "/../lib/portalThemeMerger");
+
 /**
  *
  * @return {Object.<String,String|Number>}
  */
 var parseCommandLineArgs = function () {
-    logger.debug("Launching with args: ", process.argv)
+    logger.info("Launching using node runtime "+process.version+" with args: ", process.argv);
+
+    logger.info("Runtime version: ", process.versions);
+
     var o = {};
     o.protostarDirPath = path.join(__dirname, "..");
     var cmdArgs = process.argv.slice(2);
@@ -57,7 +80,7 @@ var parseCommandLineArgs = function () {
         case 'create':
             o.mode = 'create',
             o.projectDirPath = utils.normalizePathCmdLine(cmdArgs[1]),
-            o.projectTemplate = cmdArgs.length > 2 ? cmdArgs[2] : 'default';
+            o.projectTemplate = (cmdArgs.length) > 2 ? cmdArgs[2] : 'default';
             break;
         case 'dev':
         case 'prod':
@@ -131,17 +154,17 @@ var parseCommandLineArgs = function () {
 
 var args = parseCommandLineArgs();
 args.launchTime = launchTime;
-var rt = new (runtime.ProtostarRuntime)(args);
+var rt = new ProtostarRuntime(args);
 
 function newProjectFromTemplate(){
-    var helper = new (protostardust.ProtoStarServer)({
+    var helper = new ProtoStarServer({
         runtime: rt
     });
     helper.createProjectFromTemplate();
 }
 
 function buildProject(){
-    var buildHelper = new (protostardust.ProtoStarServer)({
+    var buildHelper = new ProtoStarServer({
         runtime: rt
     });
     buildHelper.buildPrototype(rt.targetDirPath, function () {
@@ -150,10 +173,10 @@ function buildProject(){
 }
 
 function mergeStatic(){
-    var composer = new (templateComposer.TemplateComposer)({
+    var composer = new TemplateComposer({
         runtime: rt
     });
-    var project = new protostarProject.Project({
+    var project = new Project({
         runtime: rt,
         composer: composer
     });
@@ -173,10 +196,10 @@ function mergeStatic(){
 }
 
 function merge(){
-    var composer = new (templateComposer.TemplateComposer)({
+    var composer = new TemplateComposer({
         runtime: rt
     });
-    var project = new protostarProject.Project({
+    var project = new Project({
         runtime: rt,
         composer: composer
     });
@@ -197,14 +220,14 @@ function merge(){
 }
 
 function devServe(){
-    var helper = new (protostardust.ProtoStarServer)({
+    var helper = new ProtoStarServer({
         runtime: rt
     });
     helper.start();
 }
 
 function prodServe(){
-    var helper = new (protostardust.ProtoStarServer)({
+    var helper = new ProtoStarServer({
         runtime: rt
     });
     helper.start();
@@ -216,13 +239,13 @@ function launch(){
     }else if(rt.mode === 'help'){
 
     }else if(rt.mode === "build"){
-        buildProject()
+        buildProject();
     }else if(rt.mode === "devserver"){
-        devServe()
+        devServe();
     }else if(rt.mode === 'merge'){
-        merge()
+        merge();
     }else if(rt.mode === 'mergeStatic'){
-        mergeStatic()
+        mergeStatic();
     }else if(rt.mode === 'prodserver'){
         prodServe();
     }else{

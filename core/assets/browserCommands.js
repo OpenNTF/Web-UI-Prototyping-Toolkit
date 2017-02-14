@@ -3,7 +3,11 @@
         var pageCmds = {};
 
         pageCmds.go_home = function (window, projectWindow) {
-            projectWindow.location = '/index.html';
+            if(projectWindow){
+                projectWindow.location = '/index.html';
+            }else{
+                window.location = '/index.html';
+            }
         };
         pageCmds.go_home.label = 'Go Home';
         pageCmds.go_home.description = '';
@@ -56,7 +60,8 @@
         pageCmds.saveRtfChanges.description = '';
 
         pageCmds.view_help = function (window, projectWindow) {
-            projectWindow.location = '/pshelp';
+            var w = projectWindow || window;
+            w.location = '/pshelp';
         };
         pageCmds.view_help.label = 'Help';
         pageCmds.view_help.description = '';

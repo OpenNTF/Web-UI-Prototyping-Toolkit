@@ -2,8 +2,8 @@ var path = require("path");
 var protostarBuilder = require("../lib/protostarBuilder");
 var testUtils = require("../lib/testUtils");
 var utils = require("../lib/utils");
-var protostarProject = require("../lib/protostarProject");
-var templateComposer = require("../lib/templateComposer")
+var Project = require("../lib/protostarProject");
+var TemplateComposer = require("../lib/templateComposer")
 var fs = require("fs");
 var originalTimeout;
 if(false)
@@ -19,10 +19,10 @@ describe("protostarBuilder", function(){
         var targetDir = "/tmp/psBuildTest_" + (new Date().getTime());
         runtime.targetDirPath = targetDir;
         runtime.targetDir = targetDir;
-        var composer = new (templateComposer.TemplateComposer)({
+        var composer = new TemplateComposer({
             runtime : runtime
         });
-        var project = new protostarProject.Project({
+        var project = new Project({
             runtime:runtime,
             composer:composer
         });

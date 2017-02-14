@@ -59,7 +59,7 @@
         var c = $(this);
         var pathname = c.attr('data-link');
         var target = c.attr('data-target');
-        if(target === 'project'){
+        if(target === 'project' && window.projectWindow){
             window.projectWindow.location = pathname;
         }else{
             window.location = pathname;

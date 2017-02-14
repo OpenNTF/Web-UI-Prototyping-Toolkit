@@ -1,13 +1,13 @@
 var pnp = require("../lib/portalNavigationProducer");
-var tc = require("../lib/templateComposer");
+var TemplateComposer = require("../lib/templateComposer");
 var fs = require("../lib/filesystem");
 var testUtils = require("../lib/testUtils");
 var utils = require("../lib/utils");
 var path = require("path");
-var projectFactory = require("../lib/protostarProject");
+var Project = require("../lib/protostarProject");
 
 function newTemplateComposer(projDir){
-    var h = new (tc.TemplateComposer)({
+    var h = new TemplateComposer({
         runtime: testUtils.createTestRuntime(projDir)
     });
     return h;
@@ -15,10 +15,10 @@ function newTemplateComposer(projDir){
 
 function newProject(projDir){
     var runtime = testUtils.createTestRuntime(projDir);
-    var composer = new (tc.TemplateComposer)({
+    var composer = new TemplateComposer({
         runtime: runtime
     });
-    return new (projectFactory.Project)({
+    return new Project({
         composer: composer,
         runtime: runtime
     });
@@ -27,7 +27,7 @@ function newProject(projDir){
 describe("portalNavigationProducer", function(){
     var project;
     var runtime;
-    var testsProjectDirPath = path.join(__dirname, "../projects/sample")
+    var testsProjectDirPath = path.join(__dirname, "../projects/sample");
     beforeEach(function(){
         project = newProject(testsProjectDirPath);
         runtime = project.runtime;
@@ -35,4 +35,4 @@ describe("portalNavigationProducer", function(){
     it("", function(){
         expect(typeof pnp.generateNavigation(project)).toBe("object");
     });
-})
+});

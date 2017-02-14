@@ -17,7 +17,7 @@
 "use strict";
 
 var utils = require("../lib/utils");
-var wcmTagParser = require("../lib/wcmTagParser");
+var Placeholder = require('../lib/Placeholder');
 var path = require("path");
 
 describe("util functions", function(){
@@ -68,7 +68,7 @@ describe("util functions", function(){
         var filePath = '/tmp/testFilePath.html';
         var startIdx = 10;
         var tag = '<!-- file:index -->';
-        var ph = utils.parsePlaceholder(tag, filePath, startIdx);
+        var ph = Placeholder.parsePlaceholder(tag, filePath, startIdx);
         expect(ph.getName()).toBe('index');
         expect(ph.hasArgs()).toBe(false);
         expect(ph.getType()).toBe('file');
@@ -81,7 +81,7 @@ describe("util functions", function(){
         var filePath = '/tmp/testFilePath.html';
         var startIdx = 10;
         var tag = '<!-- layout:layout/home(main=file:hello;title="hey") -->';
-        var ph = utils.parsePlaceholder(tag, filePath, startIdx);
+        var ph = Placeholder.parsePlaceholder(tag, filePath, startIdx);
         expect(ph.getName()).toBe('layout/home');
         expect(ph.hasArgs()).toBe(true);
         expect(ph.getType()).toBe('layout');
@@ -100,7 +100,7 @@ describe("util functions", function(){
         var filePath = '/tmp/testFilePath.html';
         var startIdx = 10;
         var tag = '<!-- layout:layout/home(file:hello;"hey") -->';
-        var ph = utils.parsePlaceholder(tag, filePath, startIdx);
+        var ph = Placeholder.parsePlaceholder(tag, filePath, startIdx);
         expect(ph.getName()).toBe('layout/home');
         expect(ph.hasArgs()).toBe(true);
         expect(ph.getType()).toBe('layout');
@@ -112,7 +112,7 @@ describe("util functions", function(){
         expect(ph.isArgsByName()).toBe(false);
         expect(ph.isArgsByOrder()).toBe(true);
         function getArgsObjectWhenByOrder(){
-            var ph = utils.parsePlaceholder(tag, filePath, startIdx);
+            var ph = Placeholder.parsePlaceholder(tag, filePath, startIdx);
             var ao = ph.getArgsObject();
         }
         expect(getArgsObjectWhenByOrder).toThrow();

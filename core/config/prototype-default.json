@@ -36,7 +36,16 @@
     "runtime": {
         "saveCompiled": false,
         "cleanBuiltHtml": true,
-        "addRuntimeScripts": true
+        "addRuntimeScripts": true,
+        "auth" : {
+            "realm" : "MySiteName",
+            "roles" : [],
+            "users": [{
+                "username" : "jbosmans",
+                "password" : "testpwd",
+                "roles" : ["user", "editor", "developer"]
+            }]
+        }
 
     }
 

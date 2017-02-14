@@ -1,12 +1,12 @@
 "use strict";
-var tc = require("../lib/templateComposer");
+var TemplateComposer = require("../lib/templateComposer");
 var fs = require("../lib/filesystem");
 var testUtils = require("../lib/testUtils");
 var utils = require("../lib/utils");
 var path = require("path");
 
 function newTemplateComposer(projDir){
-    var h = new (tc.TemplateComposer)({
+    var h = new TemplateComposer({
         runtime: testUtils.createTestRuntime(projDir)
     });
     return h;

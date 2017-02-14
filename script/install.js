@@ -9,7 +9,7 @@ var url = require('url');
 var kew = require("kew");
 var progress = require('progress');
 var copier = require("../lib/copier");
-var bowerUtils = require("../lib/bowerUtils");
+var BowerUtils = require("../lib/bowerUtils");
 var validExit = false;
 
 var cwd = process.cwd();
@@ -37,7 +37,7 @@ function createLaunchers() {
     fs.chmodSync(getPsPath('bin/Protostar.desktop'), '0755');
 }
 
-var bu = new bowerUtils.BowerUtils(psdir);
+var bu = new BowerUtils(psdir);
 
 bu.runBower(getPsPath("node_modules/bower/bin/bower"), nodeCommandPath).done(function () {
     var def = kew.defer();
